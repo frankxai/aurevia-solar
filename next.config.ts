@@ -3,7 +3,11 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['www.pvlager.com', 'www.solarcarport.tech', 'images.unsplash.com'],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'www.pvlager.com' },
+      { protocol: 'https', hostname: 'www.solarcarport.tech' },
+      { protocol: 'https', hostname: 'images.unsplash.com' },
+    ],
   },
 };
 
