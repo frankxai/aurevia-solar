@@ -51,6 +51,7 @@ export const REAL_PRODUCT_CATALOG: ProductItem[] = [
     name: 'AC/DC Solar Multi-Split Klimaanlage (Direct PV)',
     category: 'climate',
     brand: 'RIAL Energy',
+    imageUrl: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80',
     description: 'Direkt-PV betriebenes Klimasystem. Speist Solarstrom direkt ohne Wechselrichter-Umwandlungsverluste für Kühlen & Heizen ein.',
     specs: { 'Kühlleistung': '12.000 BTU / 3.5 kW', 'DC-Einspeisung': '80V - 380V Direct', 'SEER': '22.0', 'Kältemittel': 'R32' },
     stockSeesen: 34,
