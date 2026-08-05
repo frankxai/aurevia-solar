@@ -1,32 +1,62 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  darkMode: 'class',
+  darkMode: ['class', '[data-theme="dark"]'],
   content: ['./app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}', './lib/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
-        obsidian: {
-          950: '#05070B',
-          900: '#080C14',
-          800: '#0F172A',
-          700: '#1E293B',
+        ink: {
+          DEFAULT: 'var(--au-ink)',
+          2: 'var(--au-ink-2)',
+          3: 'var(--au-ink-3)',
         },
-        aurevia: {
-          300: '#FDE68A',
-          400: '#F59E0B',
-          500: '#D4AF37', // Luxurious Aurevia Gold
-          600: '#B48E28',
+        paper: {
+          DEFAULT: 'var(--au-paper)',
+          2: 'var(--au-paper-2)',
         },
-        emerald: {
-          400: '#34D399',
-          500: '#10B981', // Solar Performance Green
+        surface: 'var(--au-surface)',
+        rule: {
+          DEFAULT: 'var(--au-rule)',
+          soft: 'var(--au-rule-soft)',
         },
+        copper: {
+          DEFAULT: 'var(--au-copper)',
+          text: 'var(--au-copper-text)',
+          soft: 'var(--au-copper-soft)',
+        },
+        data: 'var(--au-data)',
+        positive: 'var(--au-positive)',
+        attention: 'var(--au-attention)',
       },
       fontFamily: {
-        serif: ['Playfair Display', 'Georgia', 'serif'],
-        heading: ['Outfit', 'Inter', 'sans-serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['var(--font-display)', 'Georgia', 'serif'],
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        display: ['clamp(2.5rem, 6.2vw, 4.75rem)', { lineHeight: '1.04', letterSpacing: '-0.025em' }],
+        title: ['clamp(1.75rem, 3.4vw, 2.5rem)', { lineHeight: '1.14', letterSpacing: '-0.02em' }],
+        measure: ['clamp(3rem, 9vw, 6rem)', { lineHeight: '0.94', letterSpacing: '-0.035em' }],
+      },
+      spacing: {
+        section: 'var(--au-space-7)',
+        block: 'var(--au-space-5)',
+      },
+      maxWidth: {
+        prose: '64ch',
+      },
+      transitionTimingFunction: {
+        au: 'var(--au-ease)',
+      },
+      transitionDuration: {
+        micro: '180ms',
+        enter: '520ms',
+      },
+      borderRadius: {
+        // Deliberately near-square: this brand reads as instrumentation, not app UI.
+        DEFAULT: '2px',
+        sm: '1px',
+        lg: '3px',
       },
     },
   },
