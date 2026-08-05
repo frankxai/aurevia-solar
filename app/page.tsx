@@ -2,22 +2,44 @@
 
 import React, { useState } from 'react';
 import { REAL_PRODUCT_CATALOG, ProductItem } from '@/lib/stock-data';
-import { Award, CheckCircle2, Shield, Sparkles, Sliders, ArrowRight, Phone, FileText, Zap, Building2, Car, Thermometer, Layers } from 'lucide-react';
+import { CarportConfigurator } from '@/components/CarportConfigurator';
+import {
+  Award,
+  CheckCircle2,
+  ShieldCheck,
+  Sparkles,
+  Sliders,
+  ArrowRight,
+  Phone,
+  FileText,
+  Zap,
+  Building2,
+  Car,
+  Thermometer,
+  Layers,
+  Truck,
+  Sun,
+  Shield,
+  Clock,
+  BookOpen,
+  TrendingUp,
+  FileCheck
+} from 'lucide-react';
 
 export default function HomePage() {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
 
-  // Showcase Active Tab
-  const [showcaseTab, setShowcaseTab] = useState<'carport' | 'terrace' | 'klima' | 'digitaltwin'>('carport');
+  // Showcase Active Tab for Interactive Gallery
+  const [showcaseTab, setShowcaseTab] = useState<'estate' | 'carport' | 'terrace' | 'klima' | 'digitaltwin' | 'bifacial'>('estate');
 
   // Autarky Calculator State
-  const [kwhConsumption, setKwhConsumption] = useState<number>(6500);
+  const [kwhConsumption, setKwhConsumption] = useState<number>(7500);
   const [hasBattery, setHasBattery] = useState<boolean>(true);
 
   // Computed Autarky Metrics
-  const estimatedKwp = Math.min(Math.round((kwhConsumption / 900) * 10) / 10, 35);
-  const autarkyPercent = hasBattery ? Math.min(Math.round(82 + (kwhConsumption / 15000) * 12), 98) : 52;
+  const estimatedKwp = Math.min(Math.round((kwhConsumption / 900) * 10) / 10, 45);
+  const autarkyPercent = hasBattery ? Math.min(Math.round(84 + (kwhConsumption / 20000) * 12), 98) : 54;
   const annualSavingsEUR = Math.round(kwhConsumption * 0.39 * (autarkyPercent / 100));
 
   // Form State
@@ -62,16 +84,17 @@ export default function HomePage() {
   };
 
   return (
-    <div className="space-y-28 py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      {/* 1. ULTRA-LUXURY ARCHITECTURAL HERO */}
-      <section id="vision" className="relative rounded-3xl overflow-hidden bg-slate-950 border border-amber-500/40 p-8 sm:p-16 text-center sm:text-left grid lg:grid-cols-12 gap-10 items-center shadow-2xl">
-        {/* Ambient Gold Glow & Glassmorphism Backing */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none" />
+    <div className="space-y-24 py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      {/* 1. CINEMATIC ULTRA-LUXURY ARCHITECTURAL HERO */}
+      <section id="vision" className="relative rounded-3xl overflow-hidden bg-slate-950 border border-amber-500/40 p-8 sm:p-14 grid lg:grid-cols-12 gap-10 items-center shadow-2xl">
+        {/* Glow Effects */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-500/15 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="lg:col-span-7 space-y-6 relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono font-bold tracking-widest uppercase">
-            <Sparkles className="w-4 h-4 text-amber-400" /> High-End Solar Engineering · Estate Integration
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/90 border border-amber-500/30 text-amber-300 text-xs font-mono font-bold tracking-widest uppercase shadow-lg backdrop-blur">
+            <Sparkles className="w-4 h-4 text-amber-400 animate-pulse" /> High-End Solar Engineering · Estate Integration
           </div>
           
           <h1 className="font-serif text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
@@ -80,15 +103,15 @@ export default function HomePage() {
           </h1>
           
           <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl font-light">
-            Exklusive <strong>Zola Pod Executive Solar-Carports</strong>, smarte Bismuth-Glas PV-Terrassen mit <em>Smart Rain Channeling</em> und Direkt-PV Klimatechnik. Maßanfertigung aus Seesen (Harz), schlüsselfertig realisiert durch <strong>VR Gebäudetechnik</strong>.
+            Spezialist für <strong>Zola Pod Executive Solar-Carports</strong>, smarte Bismuth-Glas PV-Terrassen mit <em>Smart Rain Channeling</em> und Direkt-PV Klimatechnik. Präzisionsfertigung aus Seesen (Harz), schlüsselfertig realisiert durch <strong>VR Gebäudetechnik</strong>.
           </p>
 
           <div className="pt-3 flex flex-col sm:flex-row gap-4">
             <a
-              href="#diagnose"
+              href="#configurator"
               className="px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs uppercase tracking-widest shadow-2xl transition text-center border border-amber-300/50"
             >
-              VIP Concierge Erstdiagnose ➔
+              60s Carport Konfigurator Starten ➔
             </a>
             <a
               href="#showcase"
@@ -97,51 +120,67 @@ export default function HomePage() {
               Exklusiv-Portfolio Ansehen
             </a>
           </div>
+
+          {/* Quick Stats Bar */}
+          <div className="pt-6 grid grid-cols-3 gap-4 border-t border-white/10 text-xs font-mono">
+            <div>
+              <span className="text-slate-500 block text-[10px]">Schneelastfestigkeit</span>
+              <span className="text-amber-400 font-bold text-sm">Zone 3 (Harz)</span>
+            </div>
+            <div>
+              <span className="text-slate-500 block text-[10px]">Garantie Profilstruktur</span>
+              <span className="text-emerald-400 font-bold text-sm">30 Jahre</span>
+            </div>
+            <div>
+              <span className="text-slate-500 block text-[10px]">Lieferung Zentrallager</span>
+              <span className="text-cyan-400 font-bold text-sm">3-5 Werktage</span>
+            </div>
+          </div>
         </div>
 
-        {/* Hero Interactive Luxury Feature Card */}
+        {/* Hero Interactive Luxury Feature Visual */}
         <div className="lg:col-span-5 relative z-10">
-          <div className="glass-gold-card p-6 rounded-2xl space-y-4 shadow-2xl relative overflow-hidden">
-            <div className="relative h-64 rounded-xl overflow-hidden border border-white/10 shadow-lg group">
+          <div className="glass-gold-card p-4 rounded-2xl space-y-4 shadow-2xl relative overflow-hidden border border-amber-500/40">
+            <div className="relative h-72 rounded-xl overflow-hidden border border-white/10 shadow-lg group">
               <img
-                src="/images/luxury-carport.jpg"
-                alt="Zola Pod Executive Solar Carport"
+                src="/images/estate-mansion.jpg"
+                alt="Harz Mountain Villa with Zola Pod Solar Carport"
                 className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
               />
-              <div className="absolute top-3 left-3 px-3 py-1 rounded bg-slate-950/80 backdrop-blur border border-amber-500/40 text-amber-300 font-mono text-[11px] font-bold">
-                Carbon / Alu Chassis
+              <div className="absolute top-3 left-3 px-3 py-1 rounded bg-slate-950/85 backdrop-blur border border-amber-500/40 text-amber-300 font-mono text-[11px] font-bold">
+                Harz Anwesen Integration
               </div>
             </div>
-            <div className="flex justify-between items-center text-xs">
+            <div className="flex justify-between items-center text-xs px-2">
               <div>
                 <span className="text-slate-400 block font-mono text-[10px] uppercase">Zola Pod Executive Edition</span>
-                <span className="font-serif font-bold text-white text-base">2-Fahrzeuge Solar-Carport</span>
+                <span className="font-serif font-bold text-white text-base">Anwesen-Carport mit Bismuth-Glas</span>
               </div>
               <span className="px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-mono text-xs font-bold">
-                Harz Schneelast Zone 3
+                100% Autarkie
               </span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. OFFICIAL PARTNER LOGO BAR & ECOSYSTEM */}
-      <section className="border-y border-white/10 py-8 bg-slate-950/60 backdrop-blur rounded-2xl px-6">
+      {/* 2. OFFICIAL VERIFIED BRAND & ECOSYSTEM BAR */}
+      <section className="border-y border-white/10 py-8 bg-slate-950/80 backdrop-blur rounded-2xl px-6">
         <p className="text-center text-[10px] font-mono uppercase tracking-widest text-slate-400 mb-6">
-          Zertifizierte Komponenten & Technologie-Partner
+          Zertifizierte Technologien & Offizielle Partner
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-10 opacity-80 hover:opacity-100 transition grayscale hover:grayscale-0">
+        <div className="flex flex-wrap items-center justify-center gap-10 opacity-90 hover:opacity-100 transition">
           <div className="flex items-center gap-3">
-            <span className="font-serif font-bold text-lg text-white tracking-wider">AUREVIA</span>
-            <span className="text-xs text-amber-400 font-mono">SOLAR</span>
+            <div className="w-8 h-8 rounded bg-amber-500 text-slate-950 font-serif font-bold flex items-center justify-center text-base">A</div>
+            <span className="font-serif font-bold text-lg text-white tracking-wider">AUREVIA<span className="text-amber-400 font-sans text-xs ml-1">SOLAR</span></span>
           </div>
           <div className="flex items-center gap-2">
-            <img src="https://static.wixstatic.com/media/fab3ae_2a52989356354450890bfae642c49cef~mv2.png" alt="PV Lager Seesen Logo" className="h-6 w-auto" />
-            <span className="text-xs font-bold text-slate-300 font-mono">PV LAGER SEESEN</span>
+            <img src="https://static.wixstatic.com/media/fab3ae_2a52989356354450890bfae642c49cef~mv2.png" alt="PV Lager Seesen Logo" className="h-7 w-auto" />
+            <span className="text-xs font-bold text-slate-200 font-mono">PV LAGER SEESEN</span>
           </div>
           <div className="flex items-center gap-2">
-            <img src="https://le-cdn.website-editor.net/s/40ba10645f184fabbd7e8191cbbeb355/dms3rep/multi/opt/logo_website_w-1920w.png" alt="SolarCarport.tech Logo" className="h-6 w-auto" />
-            <span className="text-xs font-bold text-slate-300 font-mono">SolarCarport.tech</span>
+            <img src="https://le-cdn.website-editor.net/s/40ba10645f184fabbd7e8191cbbeb355/dms3rep/multi/opt/logo_website_w-1920w.png" alt="SolarCarport.tech Logo" className="h-7 w-auto" />
+            <span className="text-xs font-bold text-slate-200 font-mono">SolarCarport.tech</span>
           </div>
           <span className="text-xs font-mono font-bold text-slate-400">TRINA SOLAR</span>
           <span className="text-xs font-mono font-bold text-slate-400">HUAWEI</span>
@@ -150,28 +189,40 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. ULTRA-LUXURY ARCHITECTURAL SHOWCASE TABS */}
+      {/* 3. INTERACTIVE CARPORT & SYSTEM CONFIGURATOR */}
+      <section className="scroll-mt-20">
+        <div className="text-center space-y-3 max-w-2xl mx-auto mb-6">
+          <span className="text-xs font-mono uppercase text-amber-400 tracking-widest font-bold">Interaktive Planung</span>
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white">60-Sekunden Carport & System Konfigurator</h2>
+          <p className="text-xs text-slate-300">Stellen Sie Ihr individuelles Solar-Carport, PV-Terrassendach oder Komplettsystem zusammen.</p>
+        </div>
+        <CarportConfigurator />
+      </section>
+
+      {/* 4. ULTRA-LUXURY INTERACTIVE GALLERY & SHOWCASE TABS */}
       <section id="showcase" className="space-y-8">
         <div className="text-center space-y-3 max-w-2xl mx-auto">
-          <span className="text-xs font-mono uppercase text-amber-400 tracking-widest">Exklusive Solarsysteme</span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white">Architektonische Meisterwerke</h2>
-          <p className="text-xs text-slate-300">Wählen Sie Ihr gewünschtes Element für maßgeschneiderte Integration auf Ihrem Anwesen.</p>
+          <span className="text-xs font-mono uppercase text-amber-400 tracking-widest font-bold">Architektur & Ingenieurkunst</span>
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white">Exklusives Produkt-Portfolio</h2>
+          <p className="text-xs text-slate-300">Wählen Sie ein Element, um hochauflösende Aufnahmen und technische Details zu sehen.</p>
         </div>
 
-        {/* Tab Selection */}
-        <div className="flex justify-center gap-3 flex-wrap">
+        {/* Dynamic Gallery Tabs */}
+        <div className="flex justify-center gap-2.5 flex-wrap">
           {[
-            { id: 'carport', label: 'Zola Solar-Carport', icon: Car },
-            { id: 'terrace', label: 'Smart PV-Terrasse', icon: Building2 },
+            { id: 'estate', label: 'Harz Anwesen Villa', icon: Building2 },
+            { id: 'carport', label: 'Zola Pod Carport', icon: Car },
+            { id: 'bifacial', label: 'Bifazial Doppelglas', icon: Sun },
+            { id: 'terrace', label: 'Smart PV-Terrasse', icon: Layers },
             { id: 'klima', label: 'Direct-PV Klimaanlage', icon: Thermometer },
-            { id: 'digitaltwin', label: 'Digital Twin Portal', icon: Layers },
+            { id: 'digitaltwin', label: 'Digital Twin Portal', icon: Sliders },
           ].map(tab => {
             const Icon = tab.icon;
             return (
               <button
                 key={tab.id}
                 onClick={() => setShowcaseTab(tab.id as any)}
-                className={`px-5 py-3 rounded-xl flex items-center gap-2.5 text-xs font-bold transition uppercase tracking-wider ${
+                className={`px-4 py-2.5 rounded-xl flex items-center gap-2 text-xs font-bold transition uppercase tracking-wider ${
                   showcaseTab === tab.id
                     ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 shadow-xl border border-amber-300/50'
                     : 'bg-slate-900/80 text-slate-300 hover:bg-slate-800 border border-white/10'
@@ -184,30 +235,51 @@ export default function HomePage() {
           })}
         </div>
 
-        {/* Dynamic Display Area */}
-        <div className="glass-gold-card p-6 sm:p-10 rounded-3xl grid lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-7 relative h-[380px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+        {/* Dynamic Image & Specs Display Card */}
+        <div className="glass-gold-card p-6 sm:p-10 rounded-3xl grid lg:grid-cols-12 gap-8 items-center border border-amber-500/40 shadow-2xl">
+          <div className="lg:col-span-7 relative h-[400px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
+            {showcaseTab === 'estate' && (
+              <img src="/images/estate-mansion.jpg" alt="Harz Anwesen Villa" className="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+            )}
             {showcaseTab === 'carport' && (
-              <img src="/images/luxury-carport.jpg" alt="Zola Pod Carport" className="w-full h-full object-cover" />
+              <img src="/images/luxury-carport.jpg" alt="Zola Pod Executive Carport" className="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+            )}
+            {showcaseTab === 'bifacial' && (
+              <img src="/images/bifacial-module.jpg" alt="Trina Vertex Bifacial Module" className="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
             )}
             {showcaseTab === 'terrace' && (
-              <img src="/images/luxury-terrace.jpg" alt="Smart PV Terrace" className="w-full h-full object-cover" />
+              <img src="/images/luxury-terrace.jpg" alt="Smart PV Terrace" className="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
             )}
             {showcaseTab === 'klima' && (
-              <img src="/images/direct-pv-klima.jpg" alt="Direct-PV Climate" className="w-full h-full object-cover" />
+              <img src="/images/direct-pv-klima.jpg" alt="Direct-PV Climate System" className="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
             )}
             {showcaseTab === 'digitaltwin' && (
-              <img src="/images/digital-twin-ui.jpg" alt="Digital Twin Dashboard" className="w-full h-full object-cover" />
+              <img src="/images/digital-twin-ui.jpg" alt="Digital Twin Dashboard" className="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
             )}
           </div>
 
           <div className="lg:col-span-5 space-y-5">
+            {showcaseTab === 'estate' && (
+              <>
+                <span className="text-[10px] font-mono text-amber-400 uppercase tracking-widest block font-bold">Harz Anwesen Edition</span>
+                <h3 className="font-serif text-2xl font-bold text-white">Vollständige Anwesens-Autarkie</h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Harmonische Verschmelzung von moderner Architektur und Hochleistungs-Photovoltaik. Zola Pod Carport, Bismuth-Glas Terrassendach und Speicher-Kopplung bieten 100% Netzunabhängigkeit für Ihr Anwesen.
+                </p>
+                <ul className="text-xs text-slate-300 space-y-2 pt-1 font-mono">
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-amber-400" /> Ausgelegt für Harzer Schneelastzone 3</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-amber-400" /> Unsichtbare Kabelführung im Profil</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-amber-400" /> Weclapp & DATEV Export Schnittstelle</li>
+                </ul>
+              </>
+            )}
+
             {showcaseTab === 'carport' && (
               <>
-                <span className="text-[10px] font-mono text-amber-400 uppercase tracking-widest block">Model: Zola Pod Executive</span>
+                <span className="text-[10px] font-mono text-amber-400 uppercase tracking-widest block font-bold">Model: Zola Pod Executive</span>
                 <h3 className="font-serif text-2xl font-bold text-white">Carbon-Aluminium Solar Carport</h3>
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  Konzipiert für extreme Harzer Wetterbedingungen (Schneelastzone 3). Bifaziales Glas-Glas Dach liefert bis zu 12 kWp Ertrag und speist direkt in Ihren Fuhrpark & Haus-Speicher ein.
+                  Konzipiert für extreme Harzer Wetterbedingungen. Bifaziales Glas-Glas Dach liefert bis zu 12 kWp Ertrag und speist direkt in Ihren Fuhrpark & Haus-Speicher ein.
                 </p>
                 <ul className="text-xs text-slate-300 space-y-2 pt-1 font-mono">
                   <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-amber-400" /> Integrated Smart Rain Channeling</li>
@@ -217,9 +289,24 @@ export default function HomePage() {
               </>
             )}
 
+            {showcaseTab === 'bifacial' && (
+              <>
+                <span className="text-[10px] font-mono text-amber-400 uppercase tracking-widest block font-bold">Modul-Technologie</span>
+                <h3 className="font-serif text-2xl font-bold text-white">Trina Vertex S+ 440W Bifazial</h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Glas-Glas Module mit N-Type i-TOPCon Technologie. Bis zu 25% Mehrertrag durch Lichtreflektion auf der Rückseite. Äußerst widerstandsfähig gegen Hagel und schwere Schneelasten.
+                </p>
+                <ul className="text-xs text-slate-300 space-y-2 pt-1 font-mono">
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-amber-400" /> 25 Jahre Produkt- & 30 Jahre Leistungsgarantie</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-amber-400" /> 5.400 Pa Schneelast-Zertifizierung</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-amber-400" /> Transparenz für elegantes Lichtspiel</li>
+                </ul>
+              </>
+            )}
+
             {showcaseTab === 'terrace' && (
               <>
-                <span className="text-[10px] font-mono text-amber-400 uppercase tracking-widest block">Architectural Series</span>
+                <span className="text-[10px] font-mono text-amber-400 uppercase tracking-widest block font-bold">Architectural Series</span>
                 <h3 className="font-serif text-2xl font-bold text-white">Smart Bismuth PV-Terrassendach</h3>
                 <p className="text-xs text-slate-300 leading-relaxed">
                   Transluzente Doppelglas-PV-Module sorgen für angenehmen Schattenwurf und gleichzeitige Stromerzeugung. Wasserdichte Aluminium-Struktur mit patentierter Entwässerung.
@@ -234,7 +321,7 @@ export default function HomePage() {
 
             {showcaseTab === 'klima' && (
               <>
-                <span className="text-[10px] font-mono text-amber-400 uppercase tracking-widest block">Direct PV Series</span>
+                <span className="text-[10px] font-mono text-amber-400 uppercase tracking-widest block font-bold">Direct PV Series</span>
                 <h3 className="font-serif text-2xl font-bold text-white">AC/DC Direct Solar Klimaanlage</h3>
                 <p className="text-xs text-slate-300 leading-relaxed">
                   Schließen Sie PV-Module direkt an das Innengerät an. Zero-Loss Kühlung und Heizung im Sommer & Übergangszeit ohne jegliche Wechselrichter-Verluste.
@@ -249,7 +336,7 @@ export default function HomePage() {
 
             {showcaseTab === 'digitaltwin' && (
               <>
-                <span className="text-[10px] font-mono text-amber-400 uppercase tracking-widest block">Executive Software</span>
+                <span className="text-[10px] font-mono text-amber-400 uppercase tracking-widest block font-bold">Executive Software</span>
                 <h3 className="font-serif text-2xl font-bold text-white">Real-Time Digital Twin Portal</h3>
                 <p className="text-xs text-slate-300 leading-relaxed">
                   Überwachen Sie Stromfluss, Batteriezustand, Autarkiegrad und Ertrag Ihres Anwesens in Echtzeit via iPad, Mac und iPhone. Integriert mit Weclapp ERP.
@@ -272,51 +359,45 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. DUAL BRAND MATRIX */}
-      <section className="grid md:grid-cols-2 gap-8">
-        <div className="glass-gold-card p-8 rounded-2xl space-y-5 border border-amber-500/40">
-          <div className="flex justify-between items-center">
-            <span className="px-3.5 py-1.5 rounded-md bg-amber-500/20 text-amber-300 font-mono text-xs font-bold border border-amber-500/40">AUREVIA SOLAR</span>
-            <span className="text-xs text-slate-400 font-mono">Schlüsselfertige Exzellenz</span>
-          </div>
-          <h2 className="font-serif text-2xl font-bold text-white">Architektonische Solar-Gesamtlösungen</h2>
-          <p className="text-xs text-slate-300 leading-relaxed">
-            Für Villen, Anwesen und Gewerbeobjekte in der Region Harz (Goslar, Bad Harzburg, Göttingen, Braunschweig, Hildesheim). White-Glove Installation durch VR Gebäudetechnik.
-          </p>
-          <ul className="text-xs text-slate-300 space-y-2.5 pt-2">
-            <li className="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" /> Bauantrag, Statikprüfung & Netzbetreiber-Anmeldung</li>
-            <li className="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" /> Zola Pod Executive Carports & Smart PV-Terrassen</li>
-            <li className="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" /> 10 Jahre Harzer All-Inclusive Servicegarantie</li>
-          </ul>
-          <a href="#diagnose" className="block text-center py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold text-xs transition uppercase tracking-wider shadow-lg">
-            VIP Beratung Vereinbaren ➔
-          </a>
+      {/* 5. JAY ABRAHAM EDUCATIONAL TRANSPARENCY HUB */}
+      <section className="glass-gold-card p-8 sm:p-12 rounded-3xl space-y-8 border border-white/10">
+        <div className="text-center space-y-2 max-w-2xl mx-auto">
+          <span className="text-xs font-mono uppercase text-amber-400 tracking-wider font-bold">Ingenieurwissen & Vergleich</span>
+          <h2 className="font-serif text-3xl font-bold text-white">Warum Heavy-Duty Aluminium 100x100mm?</h2>
+          <p className="text-xs text-slate-300">Der transparente Werkstoff-Vergleich für Ihr Anwesen im Harz.</p>
         </div>
 
-        <div className="glass-emerald-card p-8 rounded-2xl space-y-5 border border-emerald-500/40">
-          <div className="flex justify-between items-center">
-            <span className="px-3.5 py-1.5 rounded-md bg-emerald-500/20 text-emerald-300 font-mono text-xs font-bold border border-emerald-500/40">PV LAGER SEESEN</span>
-            <span className="text-xs text-slate-400 font-mono">Direktbezug & Abholung</span>
+        <div className="grid md:grid-cols-3 gap-6 pt-2">
+          <div className="p-6 rounded-2xl bg-slate-950 border border-amber-500/30 space-y-3">
+            <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold font-mono">01</div>
+            <h3 className="font-serif font-bold text-white text-lg">Heavy-Duty Alu 100x100mm</h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Anodisiertes Aluminium verzieht sich nie, benötigt keinerlei Nachanstrich und bleibt auch nach 30 Jahren im Harzer Schnee absolut korrosionsfrei.
+            </p>
           </div>
-          <h2 className="font-serif text-2xl font-bold text-white">Großhandelslager Seesen (Harz)</h2>
-          <p className="text-xs text-slate-300 leading-relaxed">
-            Direktvertrieb von PV-Modulen, Invertern und Speichern für Fachhandwerker, Solarteure und qualifizierte DIY-Bauherren ohne Zwischenhändler.
-          </p>
-          <ul className="text-xs text-slate-300 space-y-2.5 pt-2">
-            <li className="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" /> Trina 440W Bifazial Doppelglas ab 89,00 €/Stk</li>
-            <li className="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" /> Sofortige Abholung im Zentrallager Seesen</li>
-            <li className="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" /> 0% MwSt. gemäß § 12 (3) UStG Rechnung</li>
-          </ul>
-          <a href="#lagerbestand" className="block text-center py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-emerald-400 border border-emerald-500/40 font-bold text-xs transition uppercase tracking-wider">
-            Zentrallager Bestand Einsehen ➔
-          </a>
+
+          <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+            <div className="w-10 h-10 rounded-xl bg-slate-800 text-slate-400 flex items-center justify-center font-bold font-mono">02</div>
+            <h3 className="font-serif font-bold text-slate-300 text-lg">Leimholz & Brettschichtholz</h3>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Holz nimmt Feuchtigkeit auf, erfordert alle 2 Jahre Abschleifen/Lasieren und neigt unter hoher Schneelast im Harz zu Rissbildung.
+            </p>
+          </div>
+
+          <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+            <div className="w-10 h-10 rounded-xl bg-slate-800 text-slate-400 flex items-center justify-center font-bold font-mono">03</div>
+            <h3 className="font-serif font-bold text-slate-300 text-lg">Verzinkter Stahl</h3>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Sehr schwer, neigt an Bohrlöchern und Verschraubungen zu Rostbildung und ist schwerer an Gebäude-Fassaden anzupassen.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* 5. INTERACTIVE AUTARKY & SAVINGS CALCULATOR */}
+      {/* 6. INTERACTIVE AUTARKY & SAVINGS CALCULATOR */}
       <section id="rechner" className="glass-gold-card p-8 sm:p-12 rounded-3xl space-y-8 border border-amber-500/30">
         <div className="text-center space-y-2 max-w-2xl mx-auto">
-          <span className="text-xs font-mono uppercase text-amber-400 tracking-wider">Präzisions-Rechner</span>
+          <span className="text-xs font-mono uppercase text-amber-400 tracking-wider font-bold">Präzisions-Rechner</span>
           <h2 className="font-serif text-3xl font-bold text-white">Ihre persönliche Anwesens-Autarkie</h2>
           <p className="text-xs text-slate-300">Ermitteln Sie Autarkiegrad und Stromkostenersparnis für Ihr Objekt.</p>
         </div>
@@ -373,7 +454,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. REAL PRODUCT CATALOG */}
+      {/* 7. REAL SEESEN WAREHOUSE CATALOG */}
       <section id="lagerbestand" className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
@@ -410,7 +491,7 @@ export default function HomePage() {
             <div key={item.id} className="glass-gold-card rounded-2xl overflow-hidden flex flex-col justify-between transition border border-white/10 hover:border-amber-500/40">
               <div className="relative h-48 overflow-hidden bg-slate-950">
                 <img src={item.imageUrl} alt={item.name} className="w-full h-full object-cover opacity-85 hover:scale-105 transition duration-500" />
-                <div className="absolute top-3 right-3 px-2.5 py-1 rounded bg-slate-950/80 backdrop-blur border border-emerald-500/40 text-emerald-400 text-[10px] font-mono font-bold">
+                <div className="absolute top-3 right-3 px-2.5 py-1 rounded bg-slate-950/85 backdrop-blur border border-emerald-500/40 text-emerald-400 text-[10px] font-mono font-bold">
                   {item.stockSeesen} auf Lager
                 </div>
               </div>
@@ -452,10 +533,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. DIAGNOSTIC INTENDED SYSTEM FORM */}
+      {/* 8. DIAGNOSTIC BUILD PASSPORT INTAKE FORM */}
       <section id="diagnose" className="glass-gold-card p-8 sm:p-12 rounded-3xl space-y-6 max-w-3xl mx-auto border border-amber-500/40">
         <div className="text-center space-y-2">
-          <span className="text-xs font-mono uppercase text-amber-400 tracking-wider">Erstdiagnose & Build-Passport</span>
+          <span className="text-xs font-mono uppercase text-amber-400 tracking-wider font-bold">Erstdiagnose & Build-Passport</span>
           <h2 className="font-serif text-3xl font-bold text-white">System-Readiness Scan Starten</h2>
           <p className="text-xs text-slate-300">Erfassen Sie Ihre Anforderungen für Seesen, Harz und Umgebung.</p>
         </div>
