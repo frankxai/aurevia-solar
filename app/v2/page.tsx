@@ -44,63 +44,63 @@ export default function V2LandingPage() {
   // Active Gemini Omni Strategy Tab
   const [omniTab, setOmniTab] = useState<'vision' | 'video' | 'telemetry'>('vision');
 
-  // Product Showcase Catalog
+  // Product Showcase Catalog (100% Authentic Local WebP Images)
   const productShowcase = [
     {
       title: 'Solar-Carport Zola Pod (Doppel-Carport 2 PKW)',
       category: 'Executive Bausatz',
       price: '3.490 €',
-      img: '/images/luxury-carport.jpg',
+      img: pvlagerImages.carportKitDouble,
       desc: 'Voll-Aluminium Konstruktion 100x100mm mit Smart Rain Channeling, statisch geprüft für Schneelastzone 3 im Harz.'
     },
     {
       title: 'Einzel-Carport Zola Pod (1 PKW)',
       category: 'Executive Bausatz',
       price: '2.190 €',
-      img: '/images/estate-mansion.jpg',
+      img: pvlagerImages.carportKitSingle,
       desc: 'Kompakte Anwesens-Lösung für SUV & Elektrofahrzeuge. Korrosionsfreies Aluminium-Tragwerk.'
+    },
+    {
+      title: '5x3m Solar Carport Premium System',
+      category: 'Bausatz Komplett',
+      price: '2.990 €',
+      img: pvlagerImages.carportRostak5x3,
+      desc: 'Optimiert für maximale Flächenausnutzung mit integrierter bifazialer Solardach-Eindeckung.'
     },
     {
       title: 'Trina Vertex S+ Bifazial Glas-Glas 440W',
       category: 'PV Module',
       price: '89 €',
-      img: '/images/bifacial-module.jpg',
+      img: pvlagerImages.bifacialModules,
       desc: 'Lichtdurchlässiges Doppelglas-Modul mit N-Type i-TOPCon Technologie & 25% Mehrertrag durch Rückseiten-Reflektion.'
     },
     {
       title: 'Heavy-Duty Aluminium-Profile 100x100mm',
       category: 'Unterkonstruktion',
       price: 'auf Anfrage',
-      img: '/images/aluminum-joint.jpg',
+      img: pvlagerImages.aluminumProfiles,
       desc: 'Gezogene Aluminium-Tragprofile für Carports, Terrassen & PV-Überdachungen. 30 Jahre Garantie.'
     },
     {
       title: 'AC/DC Direct-PV Solar Klimaanlage',
       category: 'Solar Klima',
       price: '899 €',
-      img: '/images/direct-pv-klima.jpg',
+      img: pvlagerImages.acdcSolarKlima,
       desc: 'Direkt-PV betriebenes Klimasystem. Speist Solarstrom ohne Wechselrichter-Verluste für Kühlen & Heizen ein.'
     },
     {
-      title: 'Panasonic Aquarea T-CAP 9kW Wärmepumpe',
-      category: 'Wärmepumpen',
-      price: '4.250 €',
-      img: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80',
-      desc: 'Konstante Heizleistung bis -20°C Außentemperatur im Harzer Winter. Perfekt auf PV-Kopplung abgestimmt.'
+      title: 'Solar Pergola & Terrassen-Überdachung',
+      category: 'Anwesens-Design',
+      price: '3.250 €',
+      img: pvlagerImages.pergolaModern,
+      desc: 'Ästhetische Beschattung mit transparenter PV-Verglasung für exklusive Terrassen & Gartenanwesen.'
     },
     {
-      title: 'BYD Battery-Box Premium HVS 10.2 kWh',
-      category: 'Speichersysteme',
-      price: '3.890 €',
-      img: 'https://images.unsplash.com/photo-1569012871812-a386454f226c?auto=format&fit=crop&w=800&q=80',
-      desc: 'Modularer Lithium-Eisenphosphat Speicher (LiFePO4) für bis zu 85% Eigenverbrauchs-Quote.'
-    },
-    {
-      title: 'Huawei SUN2000 10KTL-M1 Hybrid Wechselrichter',
-      category: 'Wechselrichter',
-      price: '1.850 €',
-      img: 'https://images.unsplash.com/photo-1548337138-e87d889cc369?auto=format&fit=crop&w=800&q=80',
-      desc: 'Dreiphasiger Hybrid-Wechselrichter mit integriertem AI Lichtbogenschutz & Batterieschnittstelle.'
+      title: 'Souveräne Referenz-Anlage Seesen',
+      category: 'Harz Referenz',
+      price: 'Schlüsselfertig',
+      img: pvlagerImages.referenceEstate,
+      desc: 'Demonstrationsobjekt im Harz mit 100% Autarkie-System und BYD-Speicherkopplung.'
     }
   ];
 
@@ -125,8 +125,8 @@ export default function V2LandingPage() {
           {/* Master Visual Backdrop */}
           <div className="absolute inset-0 z-0">
             <img
-              src="/images/estate-mansion.jpg"
-              alt="Aurevia Sovereign Estate Villa"
+              src={pvlagerImages.dronespott2}
+              alt="Aurevia Sovereign Estate Villa Luftaufnahme"
               className="w-full h-full object-cover filter brightness-[0.35] contrast-125 scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#050811] via-[#050811]/90 to-transparent" />
@@ -204,10 +204,10 @@ export default function V2LandingPage() {
             <div className="glow-card p-4 rounded-3xl space-y-3.5 shadow-2xl">
               <div
                 className="relative h-72 rounded-2xl overflow-hidden border border-white/10 group cursor-pointer"
-                onClick={() => setActiveImage('/images/luxury-carport.jpg')}
+                onClick={() => setActiveImage(pvlagerImages.carportKitDouble)}
               >
                 <img
-                  src="/images/luxury-carport.jpg"
+                  src={pvlagerImages.carportKitDouble}
                   alt="Zola Pod Sovereign Solar Carport"
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
                 />

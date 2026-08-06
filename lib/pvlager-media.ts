@@ -1,15 +1,23 @@
 export const pvlagerImages = {
-  heroCarport: 'https://le-cdn.website-editor.net/s/40ba10645f184fabbd7e8191cbbeb355/dms3rep/multi/opt/logo_website_w-1920w.png',
-  carportKitDouble: '/images/luxury-carport.jpg',
-  carportKitSingle: '/images/estate-mansion.jpg',
-  bifacialModules: '/images/bifacial-module.jpg',
-  aluminumProfiles: '/images/aluminum-joint.jpg',
-  acdcSolarKlima: '/images/direct-pv-klima.jpg',
+  heroCarport: '/media/front-bearb-tesla-hyndai.webp',
+  carportKitDouble: '/media/front-bearb-tesla-hyndai.webp',
+  carportKitSingle: '/media/front-rechts-tesla-hyndai.webp',
+  carportRostak5x3: '/media/5x3-carport-rostak-22.webp',
+  bifacialModules: '/media/6x2-aufdach-terrasse-anton1.webp',
+  aluminumProfiles: '/media/carport-u-berdachung-eggerling-8.webp',
+  acdcSolarKlima: '/media/6x2-aufdach-terrasse-anton5.webp',
+  dronespott1: '/media/dji-0011.webp',
+  dronespott2: '/media/dji-0081.webp',
+  dronespott3: '/media/dji-0184.webp',
+  dronespott4: '/media/dji-0549.webp',
+  montageDetail: '/media/img-3231-f.webp',
+  pergolaModern: '/media/pergola.webp',
+  referenceEstate: '/media/whatsapp-image-2023-07-17-at-11.05.13.webp',
   heatPumpPanasonic: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80',
   storageBatteryBYD: 'https://images.unsplash.com/photo-1569012871812-a386454f226c?auto=format&fit=crop&w=800&q=80',
   huaweiInverter: 'https://images.unsplash.com/photo-1548337138-e87d889cc369?auto=format&fit=crop&w=800&q=80',
-  pvlagerLogo: 'https://static.wixstatic.com/media/fab3ae_2a52989356354450890bfae642c49cef~mv2.png',
-  solarcarportLogo: 'https://le-cdn.website-editor.net/s/40ba10645f184fabbd7e8191cbbeb355/dms3rep/multi/opt/logo_website_w-1920w.png'
+  pvlagerLogo: '/media/front.webp',
+  solarcarportLogo: '/media/front-bearb-tesla-hyndai.webp'
 };
 
 export const pvlagerVideos = {
