@@ -2,165 +2,94 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/*
-  Aurevia — Engineered Sovereignty
-  Light-primary. The buyer is a Mittelstand owner reading a Gutachten at his desk;
-  the brand's world is paper and instrumentation, not a dark luxury lounge.
-  Copper rather than gold: copper is the conductor, and the metal of the Harz.
-*/
-
 @layer base {
-  :root {
-    --au-ink: #14171A;
-    --au-ink-2: #3A4046;
-    --au-ink-3: #6B747C;
-    --au-paper: #F4F2EE;
-    --au-paper-2: #EAE7E1;
-    --au-surface: #FFFFFF;
-    --au-rule: #D8D4CC;
-    --au-rule-soft: #E6E3DC;
-
-    /* Two coppers on purpose: the display tone fails AA at body sizes, so
-       small text uses the darker one. Verified at 5.87:1 on --au-paper. */
-    --au-copper: #A6603C;
-    --au-copper-text: #8A4E30;
-    --au-copper-soft: #F0E2D8;
-
-    --au-data: #2F4858;
-    --au-positive: #1F6B47;
-    --au-attention: #8A5A12;
-
-    --au-space-1: 0.5rem;
-    --au-space-2: 1rem;
-    --au-space-3: 1.5rem;
-    --au-space-4: 2rem;
-    --au-space-5: 3rem;
-    --au-space-6: 4rem;
-    --au-space-7: 6rem;
-
-    --au-ease: cubic-bezier(0.16, 1, 0.3, 1);
-    --au-dur-micro: 180ms;
-    --au-dur-enter: 520ms;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme='light']) {
-      --au-ink: #F2F0EC;
-      --au-ink-2: #B4BAC0;
-      --au-ink-3: #838C94;
-      --au-paper: #14171A;
-      --au-paper-2: #1B1F23;
-      --au-surface: #1F2429;
-      --au-rule: #2E353B;
-      --au-rule-soft: #242B31;
-      --au-copper: #D08B60;
-      --au-copper-text: #DFA079;
-      --au-copper-soft: #2C231D;
-      --au-data: #9FBACB;
-      --au-positive: #5CB98C;
-      --au-attention: #D9A441;
-    }
-  }
-
-  :root[data-theme='dark'],
-  .dark {
-    --au-ink: #F2F0EC;
-    --au-ink-2: #B4BAC0;
-    --au-ink-3: #838C94;
-    --au-paper: #14171A;
-    --au-paper-2: #1B1F23;
-    --au-surface: #1F2429;
-    --au-rule: #2E353B;
-    --au-rule-soft: #242B31;
-
-    --au-copper: #D08B60;
-    --au-copper-text: #DFA079;
-    --au-copper-soft: #2C231D;
-
-    --au-data: #9FBACB;
-    --au-positive: #5CB98C;
-    --au-attention: #D9A441;
-  }
-
-  html {
-    -webkit-text-size-adjust: 100%;
-  }
-
   body {
-    background-color: var(--au-paper);
-    color: var(--au-ink);
+    background-color: #050811;
+    color: #F8FAFC;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    letter-spacing: -0.01em;
   }
 
-  /* Numbers are this brand's credibility. They line up, everywhere. */
-  table,
-  .tabular,
-  [data-numeric] {
-    font-variant-numeric: tabular-nums;
-    font-feature-settings: 'tnum' 1;
-  }
-
-  h1,
-  h2,
-  h3 {
+  h1, h2, h3, h4 {
     text-wrap: balance;
-    letter-spacing: -0.021em;
-  }
-
-  /* German compounds are long; never let them break the layout. */
-  h1,
-  h2,
-  h3,
-  p {
-    overflow-wrap: break-word;
-    hyphens: auto;
-  }
-
-  :focus-visible {
-    outline: 2px solid var(--au-copper);
-    outline-offset: 3px;
-    border-radius: 2px;
-  }
-
-  ::selection {
-    background: var(--au-copper-soft);
-    color: var(--au-ink);
+    letter-spacing: -0.025em;
   }
 }
 
-@layer components {
-  /* The recurring object of the brand: a measured value, set with care. */
-  .au-measure {
-    font-variant-numeric: tabular-nums lining-nums;
-    letter-spacing: -0.03em;
-    font-feature-settings: 'tnum' 1, 'ss01' 1;
-  }
+/* Apple-Grade Luxury UI/UX Pro Max Utilities */
 
-  .au-label {
-    font-size: 0.6875rem;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    color: var(--au-ink-3);
-  }
-
-  .au-rule {
-    border-top: 1px solid var(--au-rule);
-  }
-
-  /* Hairline separation instead of floating cards — this is a document world. */
-  .au-row {
-    border-bottom: 1px solid var(--au-rule-soft);
-  }
+.glow-card {
+  position: relative;
+  background: rgba(11, 18, 32, 0.8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+.glow-card:hover {
+  border-color: rgba(245, 158, 11, 0.55);
+  box-shadow: 0 25px 70px rgba(245, 158, 11, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.glow-card-emerald {
+  position: relative;
+  background: rgba(11, 18, 32, 0.8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glow-card-emerald:hover {
+  border-color: rgba(16, 185, 129, 0.55);
+  box-shadow: 0 25px 70px rgba(16, 185, 129, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFF5D6 30%, #F59E0B 70%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #FFFFFF 0%, #A7F3D0 40%, #10B981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-silver {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 50%, #94A3B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Smooth Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050811;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F59E0B;
+}
+
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: float-subtle 6s ease-in-out infinite;
 }
