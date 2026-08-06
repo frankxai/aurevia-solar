@@ -9,29 +9,22 @@ import { SellerCopilotModal } from '@/components/SellerCopilotModal';
 import { VoiceAgentWidget } from '@/components/VoiceAgentWidget';
 import { pvlagerImages } from '@/lib/pvlager-media';
 import {
-  Award,
   ShieldCheck,
   Sparkles,
-  Sliders,
   ArrowRight,
   Zap,
-  Building2,
-  Car,
-  Thermometer,
-  Layers,
   Truck,
   Sun,
   BookOpen,
   Maximize2,
   FileCheck,
-  Shield,
-  PhoneCall,
-  CheckCircle2,
-  Video,
+  ChevronRight,
+  Award,
+  Layers,
   Cpu,
-  Eye,
+  Activity,
   Camera,
-  Activity
+  Video
 } from 'lucide-react';
 
 export default function V2LandingPage() {
@@ -44,72 +37,73 @@ export default function V2LandingPage() {
   // Active Gemini Omni Strategy Tab
   const [omniTab, setOmniTab] = useState<'vision' | 'video' | 'telemetry'>('vision');
 
-  // Product Showcase Catalog (100% Authentic Local WebP Images)
+  // Ultra-Curated SOTA Product Catalog (Cool, Real, Authentic)
   const productShowcase = [
     {
-      title: 'Solar-Carport Zola Pod (Doppel-Carport 2 PKW)',
-      category: 'Executive Bausatz',
+      title: 'Zola Pod Sovereign (Doppelcarport)',
+      subtitle: 'Aluminium-Tragwerk 100 × 100 mm',
       price: '3.490 €',
       img: pvlagerImages.carportKitDouble,
-      desc: 'Voll-Aluminium Konstruktion 100x100mm mit Smart Rain Channeling, statisch geprüft für Schneelastzone 3 im Harz.'
+      tag: 'Bestseller Seesen',
+      desc: 'Extrudiertes Struktur-Aluminium mit unsichtbarer Entwässerung. Ausgelegt für Schneelastzone 3 im Harz.'
     },
     {
-      title: 'Einzel-Carport Zola Pod (1 PKW)',
-      category: 'Executive Bausatz',
+      title: 'Zola Pod Sovereign (Einzelcarport)',
+      subtitle: 'Kompaktklasse für SUV & E-Automobile',
       price: '2.190 €',
       img: pvlagerImages.carportKitSingle,
-      desc: 'Kompakte Anwesens-Lösung für SUV & Elektrofahrzeuge. Korrosionsfreies Aluminium-Tragwerk.'
+      desc: 'Architektonischer Unterstand. Witterungsbeständig, wartungsfrei, ohne Pflegeanstrich.'
     },
     {
-      title: '5x3m Solar Carport Premium System',
-      category: 'Bausatz Komplett',
+      title: 'Zola Pod 5 × 3 m Solar-System',
+      subtitle: 'Komplettbausatz inklusive Bifazial-Dach',
       price: '2.990 €',
       img: pvlagerImages.carportRostak5x3,
-      desc: 'Optimiert für maximale Flächenausnutzung mit integrierter bifazialer Solardach-Eindeckung.'
+      desc: 'Optimierte Geometrie für maximale Tageslicht-Ausbeute und direkte Lade-Integration.'
     },
     {
-      title: 'Trina Vertex S+ Bifazial Glas-Glas 440W',
-      category: 'PV Module',
+      title: 'Trina Vertex S+ 440W Glas-Glas',
+      subtitle: 'N-Type i-TOPCon Bifazial-Technologie',
       price: '89 €',
       img: pvlagerImages.bifacialModules,
-      desc: 'Lichtdurchlässiges Doppelglas-Modul mit N-Type i-TOPCon Technologie & 25% Mehrertrag durch Rückseiten-Reflektion.'
+      desc: 'Transparente Doppelglas-Module. Erzeugen durch Rückseiten-Reflektion bis zu 25 % Mehrertrag.'
     },
     {
-      title: 'Heavy-Duty Aluminium-Profile 100x100mm',
-      category: 'Unterkonstruktion',
+      title: 'Aluminium Struktur-Profile 100 × 100 mm',
+      subtitle: 'Präzisions-Profile ab Lager',
       price: 'auf Anfrage',
       img: pvlagerImages.aluminumProfiles,
-      desc: 'Gezogene Aluminium-Tragprofile für Carports, Terrassen & PV-Überdachungen. 30 Jahre Garantie.'
+      desc: '30 Jahre Garantie auf Gefüge und Korrosionsbeständigkeit. Direkt lieferbar ab Seesen.'
     },
     {
-      title: 'AC/DC Direct-PV Solar Klimaanlage',
-      category: 'Solar Klima',
+      title: 'AC/DC Direct Solar-Klimatisierung',
+      subtitle: 'Direkt-Wechselstrom / Gleichstrom System',
       price: '899 €',
       img: pvlagerImages.acdcSolarKlima,
-      desc: 'Direkt-PV betriebenes Klimasystem. Speist Solarstrom ohne Wechselrichter-Verluste für Kühlen & Heizen ein.'
+      desc: 'Kühlt und heizt direkt mit PV-Strom. Ohne Wandlungsverluste durch Wechselrichter.'
     },
     {
-      title: 'Solar Pergola & Terrassen-Überdachung',
-      category: 'Anwesens-Design',
+      title: 'Solar-Pergola & Terrassendach',
+      subtitle: 'Transparente Beschattung',
       price: '3.250 €',
       img: pvlagerImages.pergolaModern,
-      desc: 'Ästhetische Beschattung mit transparenter PV-Verglasung für exklusive Terrassen & Gartenanwesen.'
+      desc: 'Filigrane Integration in bestehende Anwesen. Lichtdurchlässige Solarelemente.'
     },
     {
-      title: 'Souveräne Referenz-Anlage Seesen',
-      category: 'Harz Referenz',
+      title: 'Referenz-Anlage Harzer Vorland',
+      subtitle: '100 % Autarkie-System Seesen',
       price: 'Schlüsselfertig',
       img: pvlagerImages.referenceEstate,
-      desc: 'Demonstrationsobjekt im Harz mit 100% Autarkie-System und BYD-Speicherkopplung.'
+      desc: 'Echtzeit-Kopplung von Carport, BYD-Speicher und dynamischem Energiemanagement.'
     }
   ];
 
   return (
-    <div className="min-h-screen bg-[#050811] text-slate-100 font-sans selection:bg-amber-400 selection:text-slate-950 pb-24 lg:pb-12 relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#04060C] text-slate-100 font-sans selection:bg-amber-400 selection:text-slate-950 pb-24 lg:pb-12 relative overflow-x-hidden">
       {/* Google Fonts */}
       <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,600&display=swap');
-        .font-display { font-family: 'Playfair Display', Georgia, serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap');
+        .font-serif-editorial { font-family: 'Newsreader', Georgia, serif; }
       `}</style>
 
       {/* Floating Header Navigation */}
@@ -119,145 +113,147 @@ export default function V2LandingPage() {
         onOpenVoice={() => setIsVoiceOpen(true)}
       />
 
-      <main className="space-y-28 py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        {/* 1. APPLE-GRADE HERO SECTION */}
-        <section id="hero" className="relative rounded-3xl overflow-hidden bg-slate-950 border border-amber-500/30 p-6 sm:p-16 grid lg:grid-cols-12 gap-10 items-center shadow-2xl">
+      <main className="space-y-32 py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        {/* 1. SOTA APPLE/PORSCHE-GRADE HERO SECTION */}
+        <section id="hero" className="relative rounded-3xl overflow-hidden bg-[#070A14] border border-white/10 p-8 sm:p-16 lg:p-20 grid lg:grid-cols-12 gap-12 items-center shadow-2xl">
           {/* Master Visual Backdrop */}
           <div className="absolute inset-0 z-0">
             <img
               src={pvlagerImages.dronespott2}
-              alt="Aurevia Sovereign Estate Villa Luftaufnahme"
-              className="w-full h-full object-cover filter brightness-[0.35] contrast-125 scale-105"
+              alt="Aurevia Sovereign Estate"
+              className="w-full h-full object-cover filter brightness-[0.3] contrast-125 scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#050811] via-[#050811]/90 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050811] via-[#050811]/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#04060C] via-[#04060C]/90 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#04060C] via-[#04060C]/60 to-transparent" />
           </div>
 
-          {/* Ambient Lighting Orbs */}
-          <div className="absolute top-0 right-0 w-[650px] h-[650px] bg-gradient-to-bl from-amber-500/20 via-emerald-500/10 to-transparent rounded-full blur-[160px] pointer-events-none" />
+          {/* Quiet Ambient Lighting */}
+          <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-gradient-to-bl from-amber-500/15 via-emerald-500/10 to-transparent rounded-full blur-[140px] pointer-events-none" />
 
-          <div className="lg:col-span-7 space-y-7 relative z-10">
-            {/* Top Sovereign Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#070B14]/90 border border-amber-400/35 text-amber-300 text-xs font-semibold tracking-wide shadow-2xl backdrop-blur-md">
-              <Sparkles className="w-4 h-4 text-amber-400 animate-pulse" />
-              <span>Aurevia Sovereign V2 · Harz Zentrallager Seesen</span>
-              <span className="bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded text-[10px] border border-emerald-500/40">
-                0% MwSt.
-              </span>
+          <div className="lg:col-span-7 space-y-8 relative z-10">
+            {/* Minimalist Micro Badge */}
+            <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-slate-900/80 border border-white/15 text-slate-300 text-xs font-medium backdrop-blur-md">
+              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+              <span>Aurevia Sovereign V2 · RIAL Energy GmbH</span>
+              <span className="text-slate-500">|</span>
+              <span className="text-amber-300 font-mono text-[11px]">Seesen / Harz</span>
             </div>
 
-            {/* Apple-Style Main Headline */}
-            <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08]">
-              Die vollendete Form der{' '}
-              <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-emerald-400 bg-clip-text text-transparent italic">
-                Energieautarkie.
+            {/* Powerful Clean Headline */}
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]">
+              Struktur. Licht.{' '}
+              <span className="font-serif-editorial italic font-normal text-amber-300">
+                Autarkie.
               </span>
             </h1>
 
-            {/* Subheadline */}
-            <p className="text-base sm:text-xl text-slate-200 leading-relaxed font-light">
-              Voll-Aluminium Solar Carports 100x100mm, bifaziale Glas-Glas Eindeckung und Speicher-Kopplung. Entwickelt für die höchste Schneelastklasse im Harz. Direkt aus unserem Zentrallager Seesen.
+            {/* Clean Architectural Subtitle */}
+            <p className="text-base sm:text-xl text-slate-300 leading-relaxed font-light max-w-2xl">
+              Voll-Aluminium Solar-Carports 100 × 100 mm und bifaziale Glas-Glas Eindeckung. Entwickelt für hohe Schneelasten. Aus unserem Zentrallager in Seesen.
             </p>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+            {/* Action Group */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3">
               <a
                 href="#configurator-v2"
-                className="px-8 py-4.5 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs sm:text-sm shadow-2xl shadow-amber-500/30 transition-all flex items-center justify-center gap-2.5 transform hover:scale-105 border border-amber-300/40"
+                className="px-8 py-4 rounded-2xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs sm:text-sm shadow-xl transition flex items-center justify-center gap-2 transform hover:scale-[1.02]"
               >
-                <Zap className="w-5 h-5 fill-current" />
-                <span>3D Konfigurator Starten</span>
+                <Zap className="w-4 h-4 fill-current" />
+                <span>3D Konfigurator öffnen</span>
+                <ChevronRight className="w-4 h-4" />
               </a>
 
               <button
                 onClick={() => setIsLeadMagnetOpen(true)}
-                className="px-7 py-4.5 rounded-2xl bg-[#070B14]/90 hover:bg-slate-900 text-slate-200 font-semibold text-xs sm:text-sm border border-amber-500/35 hover:border-amber-400 transition flex items-center justify-center gap-2.5 backdrop-blur-md shadow-xl"
+                className="px-7 py-4 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 font-medium text-xs sm:text-sm border border-white/15 transition flex items-center justify-center gap-2 backdrop-blur-md"
               >
-                <BookOpen className="w-5 h-5 text-amber-400" />
-                <span>Solar Kaufkompass 2026 (PDF Free)</span>
+                <BookOpen className="w-4 h-4 text-amber-400" />
+                <span>Kaufkompass PDF erhalten</span>
               </button>
             </div>
 
-            {/* Trust Features Bar */}
-            <div className="pt-6 grid grid-cols-2 md:grid-cols-4 gap-3 text-left border-t border-white/15">
-              <div className="flex items-center gap-2.5">
-                <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span className="text-[11px] text-slate-300 font-medium">Statik geprüft Schneelast 3</span>
+            {/* Key Facts Row */}
+            <div className="pt-8 grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-white/10 text-xs text-slate-300">
+              <div>
+                <span className="text-amber-400 font-mono font-bold block text-sm">Zone 3</span>
+                <span className="text-slate-400 text-[11px]">Schneelast Harz</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Truck className="w-4 h-4 text-amber-400 shrink-0" />
-                <span className="text-[11px] text-slate-300 font-medium">3-5 Tage Spedition ab Lager</span>
+              <div>
+                <span className="text-amber-400 font-mono font-bold block text-sm">30 Jahre</span>
+                <span className="text-slate-400 text-[11px]">Alu-Profil Garantie</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Award className="w-4 h-4 text-cyan-400 shrink-0" />
-                <span className="text-[11px] text-slate-300 font-medium">30 Jahre Alu-Profil Garantie</span>
+              <div>
+                <span className="text-amber-400 font-mono font-bold block text-sm">3–5 Tage</span>
+                <span className="text-slate-400 text-[11px]">Direktversand Seesen</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <FileCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span className="text-[11px] text-slate-300 font-medium">0% MwSt. (§12 UStG) Befreit</span>
+              <div>
+                <span className="text-emerald-400 font-mono font-bold block text-sm">0 % MwSt.</span>
+                <span className="text-slate-400 text-[11px]">§ 12 (3) UStG</span>
               </div>
             </div>
           </div>
 
-          {/* Right Spotlight Display */}
+          {/* Right Tactile Spotlight */}
           <div className="lg:col-span-5 relative z-10">
-            <div className="glow-card p-4 rounded-3xl space-y-3.5 shadow-2xl">
+            <div className="bg-slate-900/80 border border-white/15 p-4 rounded-3xl space-y-4 shadow-2xl backdrop-blur-md">
               <div
-                className="relative h-72 rounded-2xl overflow-hidden border border-white/10 group cursor-pointer"
+                className="relative h-80 rounded-2xl overflow-hidden border border-white/10 group cursor-pointer"
                 onClick={() => setActiveImage(pvlagerImages.carportKitDouble)}
               >
                 <img
                   src={pvlagerImages.carportKitDouble}
-                  alt="Zola Pod Sovereign Solar Carport"
+                  alt="Zola Pod Doppelcarport"
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
                 />
-                <div className="absolute top-3 left-3 px-3 py-1 rounded-xl bg-slate-950/90 backdrop-blur border border-amber-500/40 text-amber-300 font-mono text-[10px] font-bold">
-                  Zola Pod Sovereign Edition V2
+                <div className="absolute top-3 left-3 px-3 py-1 rounded-xl bg-slate-950/90 border border-white/15 text-amber-300 font-mono text-[10px] font-bold">
+                  Zola Pod Sovereign Edition
                 </div>
-                <div className="absolute bottom-3 right-3 p-2 rounded-xl bg-slate-950/80 text-amber-400 border border-amber-500/30">
+                <div className="absolute bottom-3 right-3 p-2 rounded-xl bg-slate-950/80 text-amber-400 border border-white/15">
                   <Maximize2 className="w-4 h-4" />
                 </div>
               </div>
 
-              <div className="flex justify-between items-center text-xs px-1">
+              <div className="flex justify-between items-center px-2 text-xs">
                 <div>
-                  <span className="text-slate-400 block font-mono text-[9px] uppercase">Zentrallager Seesen Bestseller</span>
-                  <span className="font-serif font-bold text-white text-sm">Alu-Carport 100x100mm mit Bifazial-Dach</span>
+                  <span className="text-slate-400 block text-[10px]">Aluminium 100 × 100 mm Doppelcarport</span>
+                  <span className="font-semibold text-white">Zola Pod Executive Edition</span>
                 </div>
-                <span className="px-3 py-1.5 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-mono text-[11px] font-bold">
-                  Sofort Lieferbar
-                </span>
+                <span className="text-amber-300 font-mono font-bold text-sm">3.490 €</span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 2. APPLE-STYLE BENTO GRID SHOWCASE */}
-        <section id="bento-v2" className="space-y-6">
-          <div className="text-center max-w-3xl mx-auto space-y-2">
-            <span className="text-xs font-mono text-amber-400 uppercase tracking-widest font-bold">Inselkompetenz & Werkstoffe</span>
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white">Präzision in jedem Detail</h2>
-            <p className="text-xs text-slate-300">Gebaut nach den strengsten Harzer Bau- und Schneelastnormen DIN 1055.</p>
+        {/* 2. SOTA APPLE BENTO GRID SHOWCASE */}
+        <section id="bento-v2" className="space-y-8">
+          <div className="max-w-2xl space-y-3">
+            <span className="text-xs font-mono text-amber-400 uppercase tracking-widest font-semibold">Werkstoff & Ingenieurkunst</span>
+            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+              Konstruiert ohne Kompromisse.
+            </h2>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              Verarbeitungsstandards aus dem modernen Industrie-Leichtbau. Langlebig, ästhetisch und völlig wartungsfrei.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="glow-card p-8 rounded-3xl space-y-4 md:col-span-2">
-              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 border border-amber-500/30 flex items-center justify-center font-bold">
-                <ShieldCheck className="w-6 h-6" />
+            <div className="bg-[#070A14] border border-white/10 hover:border-amber-400/40 transition duration-500 p-8 rounded-3xl space-y-4 md:col-span-2 shadow-xl">
+              <div className="w-10 h-10 rounded-xl bg-amber-400/10 text-amber-400 border border-amber-400/20 flex items-center justify-center font-bold">
+                <ShieldCheck className="w-5 h-5" />
               </div>
-              <h3 className="font-display font-bold text-2xl text-white">Heavy-Duty Aluminium 100x100mm</h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Gezogene Aluminium-Tragprofile verziehen sich im Gegensatz zu Leimholz auch nach 30 Jahren im Harzer Schnee nicht. Absolut korrosionsfrei, ohne erforderlichen Nachanstrich und geprüft für Schneelastzone 3.
+              <h3 className="text-2xl font-bold text-white">Heavy-Duty Struktur-Aluminium 100 × 100 mm</h3>
+              <p className="text-slate-300 text-sm leading-relaxed">
+                Extrudierte Aluminium-Tragprofile verziehen sich auch nach Jahrzehnten im Harzer Schnee nicht. Absolut korrosionsfrei, ohne streichbedürftige Pflege und konzipiert für Schneelastzone 3.
               </p>
             </div>
 
-            <div className="glow-card-emerald p-8 rounded-3xl space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center justify-center font-bold">
-                <Sun className="w-6 h-6" />
+            <div className="bg-[#070A14] border border-white/10 hover:border-emerald-400/40 transition duration-500 p-8 rounded-3xl space-y-4 shadow-xl">
+              <div className="w-10 h-10 rounded-xl bg-emerald-400/10 text-emerald-400 border border-emerald-400/20 flex items-center justify-center font-bold">
+                <Sun className="w-5 h-5" />
               </div>
-              <h3 className="font-display font-bold text-xl text-white">Trina Vertex S+ 440W Bifazial</h3>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                N-Type i-TOPCon Doppelglas-Module. Lassen diffuses Tageslicht durch und erzeugen durch Lichtreflektion auf der Unterseite bis zu 25% Mehrertrag.
+              <h3 className="text-xl font-bold text-white">Trina Vertex S+ 440W Bifazial</h3>
+              <p className="text-slate-300 text-xs leading-relaxed">
+                Doppelglas-Technologie mit Lichtdurchlässigkeit. Die Unterseite nutzt reflektiertes Bodenlicht für bis zu 25 % Mehrertrag.
               </p>
             </div>
           </div>
@@ -269,24 +265,24 @@ export default function V2LandingPage() {
         </section>
 
         {/* 4. GEMINI OMNI MULTIMODAL AI STRATEGY ROADMAP */}
-        <section id="gemini-omni" className="glow-card p-8 sm:p-12 rounded-3xl space-y-8 border border-emerald-500/35">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-emerald-500/20 pb-6">
+        <section id="gemini-omni" className="bg-[#070A14] border border-emerald-500/30 p-8 sm:p-12 rounded-3xl space-y-8 shadow-2xl">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-white/10 pb-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-[11px] font-mono font-bold uppercase tracking-widest mb-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-[11px] font-mono font-medium uppercase tracking-wider mb-2">
                 <Cpu className="w-3.5 h-3.5" />
-                <span>Next-Gen Strategy Roadmap</span>
+                <span>Zukunftskonzept · Gemini Omni Integration</span>
               </div>
-              <h2 className="font-display text-2xl sm:text-4xl font-bold text-white">
-                Gemini Omni & Vision AI Integration Strategy
+              <h2 className="text-2xl sm:text-4xl font-bold text-white">
+                Multimodale KI-Planung & Digital Twin
               </h2>
             </div>
 
-            {/* Strategy Tabs */}
+            {/* Tabs */}
             <div className="flex items-center gap-2">
               {[
-                { id: 'vision', label: 'Vision Inspection', icon: Camera },
-                { id: 'video', label: 'Synthetic 4K Video', icon: Video },
-                { id: 'telemetry', label: 'Live Digital Twin', icon: Activity },
+                { id: 'vision', label: 'Kamera Intake', icon: Camera },
+                { id: 'video', label: '4K Drohnen Video', icon: Video },
+                { id: 'telemetry', label: 'Echtzeit Telemetrie', icon: Activity },
               ].map((tab) => {
                 const Icon = tab.icon;
                 return (
@@ -295,8 +291,8 @@ export default function V2LandingPage() {
                     onClick={() => setOmniTab(tab.id as any)}
                     className={`px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition ${
                       omniTab === tab.id
-                        ? 'bg-emerald-500 text-slate-950 font-bold shadow-lg'
-                        : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+                        ? 'bg-emerald-400 text-slate-950 font-bold shadow-lg'
+                        : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-white/10'
                     }`}
                   >
                     <Icon className="w-3.5 h-3.5" />
@@ -307,85 +303,82 @@ export default function V2LandingPage() {
             </div>
           </div>
 
-          {/* Strategy Tab Content */}
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-4">
               {omniTab === 'vision' && (
                 <>
-                  <span className="text-xs font-mono text-emerald-400 uppercase tracking-wider block font-bold">Pillar 1: Multimodal Vision Site Intake</span>
-                  <h3 className="font-display text-2xl font-bold text-white">Echtzeit Kamera-Diagnose via Gemini 1.5 / 2.0 Flash</h3>
-                  <p className="text-xs text-slate-300 leading-relaxed">
-                    Der Anwesensbesitzer richtet seine Smartphone-Kamera auf die Einfahrt oder Terrasse. Gemini Vision erkennt Fundament-Typen, Schattenwurf und Dachneigung in Echtzeit und speist die Daten direkt in die Weclapp ERP-Stückliste ein.
+                  <span className="text-xs font-mono text-emerald-400 uppercase tracking-wider block font-bold">1. Smartphone Kamera Vermessung</span>
+                  <h3 className="text-2xl font-bold text-white">Automatische Baustellendiagnose</h3>
+                  <p className="text-slate-300 text-xs leading-relaxed">
+                    Der Kunde richtet sein Smartphone auf die Einfahrt. Gemini Vision analysiert Fundamente, Untergrund und Schattenverlauf und berechnet automatisch die optimale Modulbelegung.
                   </p>
                 </>
               )}
 
               {omniTab === 'video' && (
                 <>
-                  <span className="text-xs font-mono text-emerald-400 uppercase tracking-wider block font-bold">Pillar 2: Personalisierte 4K Drohnen-Flythroughs</span>
-                  <h3 className="font-display text-2xl font-bold text-white">Synthetische Renderings & Video-Einbettung</h3>
-                  <p className="text-xs text-slate-300 leading-relaxed">
-                    Mithilfe von Veo 2 / NanoBanana Pipelines generieren wir innerhalb von 30 Sekunden ein 4K Drohnen-Video, das das konfigurierte Zola Pod Carport direkt auf dem Grundstück des Kunden zeigt.
+                  <span className="text-xs font-mono text-emerald-400 uppercase tracking-wider block font-bold">2. Synthetische Visualisierung</span>
+                  <h3 className="text-2xl font-bold text-white">Persönlicher Drohnen-Flythrough</h3>
+                  <p className="text-slate-300 text-xs leading-relaxed">
+                    Innerhalb von Sekunden generieren wir ein hochauflösendes 3D-Video des gewählten Carports direkt im Kontext des Kundenanwesens.
                   </p>
                 </>
               )}
 
               {omniTab === 'telemetry' && (
                 <>
-                  <span className="text-xs font-mono text-emerald-400 uppercase tracking-wider block font-bold">Pillar 3: Predicitive Autarky Optimization</span>
-                  <h3 className="font-display text-2xl font-bold text-white">Gemini Digital Twin Telemetrie</h3>
-                  <p className="text-xs text-slate-300 leading-relaxed">
-                    Kopplung des Haus-Speichers und der AC/DC Direct Klimaanlage an Gemini Omni zur prädiktiven Steuerung basierend auf Wettermodellen und dynamischen Stromtarifen.
+                  <span className="text-xs font-mono text-emerald-400 uppercase tracking-wider block font-bold">3. Digital Twin Energiemanagement</span>
+                  <h3 className="text-2xl font-bold text-white">Vorausschauende Steuerung</h3>
+                  <p className="text-slate-300 text-xs leading-relaxed">
+                    Kopplung des Speichers und der Solar-Klimatisierung an Wetterdaten und dynamische Stromtarife für maximale Autarkie.
                   </p>
                 </>
               )}
 
-              <div className="pt-2 flex items-center gap-3">
+              <div className="pt-2">
                 <button
                   onClick={() => setIsCopilotOpen(true)}
-                  className="px-6 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shadow-lg transition"
+                  className="px-6 py-3 rounded-2xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-bold text-xs shadow-lg transition"
                 >
-                  AI Strategy Demo Starten ➔
+                  KI-Concierge Demo öffnen ➔
                 </button>
               </div>
             </div>
 
-            <div className="lg:col-span-5 p-6 rounded-2xl bg-slate-950 border border-emerald-500/30 space-y-3 font-mono text-xs">
+            <div className="lg:col-span-5 p-6 rounded-2xl bg-slate-950 border border-emerald-500/20 space-y-3 font-mono text-xs">
               <div className="flex justify-between items-center text-emerald-400 border-b border-slate-800 pb-2">
-                <span>Gemini Omni Pipeline</span>
-                <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-[10px]">LIVE</span>
+                <span>Gemini Telemetry Log</span>
+                <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-[10px]">ONLINE</span>
               </div>
-              <p className="text-slate-400 text-[11px]">
-                {omniTab === 'vision' && '> Input: Real-time Camera Feed (30fps)\n> Processing: Gemini Vision Spatial Grid\n> Output: Structural Foundation Code & Schneelast Statik'}
-                {omniTab === 'video' && '> Input: 3D CAD Bounding Box\n> Model: Veo 2 High-Res Generator\n> Output: Personalized 4K Drone Video Flythrough'}
-                {omniTab === 'telemetry' && '> Input: Harz Weather Station Feed\n> Forecast: 48h Solar Production Model\n> Action: Autonomous Battery Discharge Command'}
+              <p className="text-slate-400 text-[11px] leading-relaxed">
+                {omniTab === 'vision' && '> Video Stream: 30 fps 1080p\n> Model: Gemini 1.5 Vision Grid\n> Output: Fundament-Code & Schneelast-Klasse'}
+                {omniTab === 'video' && '> Render Pipeline: Veo 2 / NanoBanana\n> Latency: 4.2 sec\n> Output: 4K Drone Visual Embed'}
+                {omniTab === 'telemetry' && '> Weather Engine: DWD Harz Station\n> Storage Strategy: Charge at 02:00 / Discharge at 18:00\n> Net Autarky: 92.4 %'}
               </p>
             </div>
           </div>
         </section>
 
-        {/* 5. EXCLUSIVE PRODUCT SHOWCASE GALLERY */}
-        <section id="showcase-v2" className="space-y-6">
-          <div className="text-center max-w-3xl mx-auto space-y-2">
-            <span className="text-xs font-mono text-amber-400 uppercase tracking-widest font-bold">
-              Original Lagerware & Komponenten V2
-            </span>
-            <h2 className="font-display text-2xl sm:text-4xl font-bold text-white">
-              Authentisches PV Lager Sortiment aus Seesen
+        {/* 5. CURATED PRODUCT CATALOG */}
+        <section id="showcase-v2" className="space-y-8">
+          <div className="max-w-2xl space-y-2">
+            <span className="text-xs font-mono text-amber-400 uppercase tracking-widest font-semibold">Zentrallager Seesen</span>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+              Vorrätige Lagerware & Systeme
             </h2>
-            <p className="text-xs text-slate-400">
-              Alle gezeigten Produkte sind in unserem Zentrallager Seesen vorrätig und sofort abrufbereit. 0% MwSt. § 12 (3) UStG.
+            <p className="text-slate-400 text-xs">
+              Direkt ab Lager Seesen verfügbar. Versandfertig innerhalb von 24–48 Stunden.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {productShowcase.map((item, i) => (
               <div
                 key={i}
-                className="glow-card rounded-2xl overflow-hidden flex flex-col justify-between group"
+                className="bg-[#070A14] border border-white/10 hover:border-amber-400/40 rounded-2xl overflow-hidden flex flex-col justify-between group transition duration-500 shadow-lg"
               >
                 <div
-                  className="relative h-44 overflow-hidden bg-slate-950 cursor-pointer"
+                  className="relative h-48 overflow-hidden bg-slate-950 cursor-pointer"
                   onClick={() => setActiveImage(item.img)}
                 >
                   <img
@@ -393,14 +386,14 @@ export default function V2LandingPage() {
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                   />
-                  <div className="absolute top-2 right-2 px-2 py-0.5 rounded bg-slate-950/85 text-amber-300 text-[10px] font-mono font-bold border border-amber-500/30">
-                    {item.category}
+                  <div className="absolute top-2 right-2 px-2.5 py-1 rounded-lg bg-slate-950/90 text-amber-300 text-[10px] font-mono font-bold border border-white/10">
+                    {item.subtitle}
                   </div>
                 </div>
 
-                <div className="p-4 space-y-2.5 flex-1 flex flex-col justify-between">
+                <div className="p-5 space-y-3 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="font-serif font-bold text-sm text-white group-hover:text-amber-300 transition-colors">
+                    <h3 className="font-bold text-sm text-white group-hover:text-amber-300 transition-colors">
                       {item.title}
                     </h3>
                     <p className="text-[11px] text-slate-400 mt-1 leading-relaxed">
@@ -408,16 +401,16 @@ export default function V2LandingPage() {
                     </p>
                   </div>
 
-                  <div className="flex justify-between items-center pt-2.5 border-t border-slate-800">
+                  <div className="flex justify-between items-center pt-3 border-t border-white/10">
                     <div>
-                      <span className="text-[9px] text-slate-500 block">Ab Lager Seesen</span>
-                      <span className="amber-gradient-text font-bold font-mono text-sm">{item.price}</span>
+                      <span className="text-[9px] text-slate-500 block">Lager Seesen</span>
+                      <span className="text-amber-300 font-bold font-mono text-sm">{item.price}</span>
                     </div>
                     <a
                       href="#configurator-v2"
-                      className="text-[11px] font-semibold text-slate-300 hover:text-white flex items-center gap-1 bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-700"
+                      className="text-[11px] font-semibold text-slate-200 hover:text-white flex items-center gap-1 bg-slate-900 px-3 py-1.5 rounded-xl border border-white/15"
                     >
-                      <span>Auswählen</span>
+                      <span>Wählen</span>
                       <ArrowRight className="w-3 h-3 text-amber-400" />
                     </a>
                   </div>
@@ -427,53 +420,53 @@ export default function V2LandingPage() {
           </div>
         </section>
 
-        {/* 6. JAY ABRAHAM PREEMINENCE ENGINEERING TRANSPARENCY HUB */}
-        <section id="engineering" className="glow-card p-6 sm:p-12 rounded-3xl space-y-8 border border-amber-500/35">
-          <div className="text-center space-y-2 max-w-2xl mx-auto">
-            <span className="text-xs font-mono uppercase text-amber-400 tracking-wider font-bold">Ingenieurkunst & Werkstoff-Analyse</span>
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white">Warum Heavy-Duty Aluminium 100x100mm?</h2>
-            <p className="text-xs text-slate-300">Der transparente Werkstoff-Vergleich für Ihr Anwesen im Harz.</p>
+        {/* 6. ENGINEERING TRANSPARENCY HUB */}
+        <section id="engineering" className="bg-[#070A14] border border-white/10 p-8 sm:p-12 rounded-3xl space-y-8 shadow-2xl">
+          <div className="max-w-2xl space-y-2">
+            <span className="text-xs font-mono uppercase text-amber-400 tracking-wider font-semibold">Werkstoff-Vergleich</span>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white">Struktur-Aluminium vs. Holz & Stahl</h2>
+            <p className="text-slate-400 text-xs">Transparente Gegenüberstellung für Ihr Anwesen im Harz.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 pt-2">
-            <div className="p-6 rounded-2xl bg-slate-950 border border-amber-500/40 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold font-mono text-sm">01</div>
-              <h3 className="font-serif font-bold text-white text-lg">Heavy-Duty Alu 100x100mm</h3>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                Anodisiertes Aluminium verzieht sich nie, benötigt keinerlei Nachanstrich und bleibt auch nach 30 Jahren im Harzer Schnee absolut korrosionsfrei.
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-950 border border-amber-400/30 space-y-3">
+              <div className="w-8 h-8 rounded-lg bg-amber-400/10 text-amber-400 flex items-center justify-center font-mono text-xs font-bold">01</div>
+              <h3 className="font-bold text-white text-base">Aluminium 100 × 100 mm</h3>
+              <p className="text-slate-300 text-xs leading-relaxed">
+                Dauerhaft wartungsfrei, korrosionsbeständig, formstabil unter hoher Schneelast im Harz.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-slate-800 text-slate-400 flex items-center justify-center font-bold font-mono text-sm">02</div>
-              <h3 className="font-serif font-bold text-slate-300 text-lg">Leimholz & BS-Holz</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Holz nimmt Feuchtigkeit auf, erfordert alle 2 Jahre Abschleifen/Lasieren und neigt unter hoher Schneelast im Harz zu Rissbildung.
+            <div className="p-6 rounded-2xl bg-slate-950 border border-white/10 space-y-3">
+              <div className="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 flex items-center justify-center font-mono text-xs font-bold">02</div>
+              <h3 className="font-bold text-slate-300 text-base">Leimholz & BSH</h3>
+              <p className="text-slate-400 text-xs leading-relaxed">
+                Benötigt regelmäßigen Schutzanstrich, nimmt Feuchtigkeit auf und neigt zu Rissbildung.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-slate-800 text-slate-400 flex items-center justify-center font-bold font-mono text-sm">03</div>
-              <h3 className="font-serif font-bold text-slate-300 text-lg">Verzinkter Stahl</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Sehr schwer, neigt an Bohrlöchern und Verschraubungen zu Rostbildung und ist schwerer an Gebäude-Fassaden anzupassen.
+            <div className="p-6 rounded-2xl bg-slate-950 border border-white/10 space-y-3">
+              <div className="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 flex items-center justify-center font-mono text-xs font-bold">03</div>
+              <h3 className="font-bold text-slate-300 text-base">Verzinkter Stahl</h3>
+              <p className="text-slate-400 text-xs leading-relaxed">
+                Hohes Eigengewicht. Korrosionsrisiko an Bohrpunkten und Schnittkanten.
               </p>
             </div>
           </div>
         </section>
       </main>
 
-      {/* MOBILE STICKY QUICK ACTION DOCK */}
+      {/* MOBILE STICKY DOCK */}
       <MobileStickyBarV2
         onOpenLeadMagnet={() => setIsLeadMagnetOpen(true)}
         onOpenCopilot={() => setIsCopilotOpen(true)}
       />
 
-      {/* LIGHTBOX MODAL FOR HIGH-RES PHOTOS */}
+      {/* LIGHTBOX MODAL */}
       {activeImage && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-lg cursor-pointer" onClick={() => setActiveImage(null)}>
-          <div className="relative max-w-5xl max-h-[90vh] overflow-hidden rounded-2xl border border-amber-500/40 shadow-2xl">
-            <img src={activeImage} alt="Hochauflösendes PV Lager Produktbild" className="w-full h-full object-contain max-h-[85vh]" />
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md cursor-pointer" onClick={() => setActiveImage(null)}>
+          <div className="relative max-w-5xl max-h-[90vh] overflow-hidden rounded-2xl border border-white/15 shadow-2xl">
+            <img src={activeImage} alt="Vergrößertes Produktbild" className="w-full h-full object-contain max-h-[85vh]" />
           </div>
         </div>
       )}
