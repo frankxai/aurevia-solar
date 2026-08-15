@@ -279,11 +279,13 @@ export default function V2LandingPage() {
 
             {/* Tabs */}
             <div className="flex items-center gap-2">
-              {[
-                { id: 'vision', label: 'Kamera Intake', icon: Camera },
-                { id: 'video', label: '4K Drohnen Video', icon: Video },
-                { id: 'telemetry', label: 'Echtzeit Telemetrie', icon: Activity },
-              ].map((tab) => {
+              {(
+                [
+                  { id: 'vision', label: 'Kamera Intake', icon: Camera },
+                  { id: 'video', label: '4K Drohnen Video', icon: Video },
+                  { id: 'telemetry', label: 'Echtzeit Telemetrie', icon: Activity },
+                ] as const
+              ).map((tab) => {
                 const Icon = tab.icon;
                 return (
                   <button
