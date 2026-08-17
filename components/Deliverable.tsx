@@ -11,12 +11,12 @@ const contents = [
   {
     n: '02',
     title: 'Erzeugungsprognose',
-    body: 'Ertragsrechnung für Dach-, Fassaden- und Freiflächen Ihres Grundstücks, nach Ausrichtung und Verschattung getrennt ausgewiesen.',
+    body: 'Ertragsprognose für betrachtete Dach-, Fassaden- und Freiflächen, mit Annahmen zu Ausrichtung, Verschattung und Datengrundlage.',
   },
   {
     n: '03',
     title: 'Speicher- und Notstromauslegung',
-    body: 'Dimensionierung für Eigenverbrauch und, davon getrennt betrachtet, für echten Inselbetrieb bei Netzausfall. Das sind zwei verschiedene Anlagen.',
+    body: 'Konzeptionelle Dimensionierung für Eigenverbrauch und eine getrennte Betrachtung der gewünschten Ersatz- oder Inselbetriebsfunktion.',
   },
   {
     n: '04',
@@ -26,7 +26,7 @@ const contents = [
   {
     n: '05',
     title: 'Komponentenliste',
-    body: 'Konkrete Fabrikate und Stückzahlen, kalkuliert aus tatsächlich verfügbarem Lagerbestand — keine Platzhalter, keine Preisgleitklausel.',
+    body: 'Vorgesehene Fabrikate und Stückzahlen mit gekennzeichnetem Verfügbarkeitsstand. Bestand und Konditionen werden vor Beauftragung erneut bestätigt.',
   },
   {
     n: '06',
@@ -45,9 +45,9 @@ export function Deliverable() {
             Ein Dokument, mit dem Sie arbeiten können.
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-ink-2">
-            Kein Angebot mit drei Zeilen und einer Summe. Ein Konzept, das Ihre Anlage
-            nachvollziehbar herleitet — prüfbar durch Ihren Steuerberater, Ihren Architekten und
-            jeden Zweitanbieter, den Sie hinzuziehen möchten.
+            Kein Angebot mit drei Zeilen und einer Summe. Ein Konzept, das Annahmen, Varianten und
+            offene Prüfbedarfe nachvollziehbar herleitet — als Grundlage für die von Ihnen
+            beauftragten Fach- und Freigabestellen.
           </p>
         </div>
 

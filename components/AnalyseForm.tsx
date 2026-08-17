@@ -2,6 +2,7 @@
 
 import { useId, useState } from 'react';
 import Link from 'next/link';
+import { COMPANY } from '@/lib/company';
 import { PRICING } from '@/lib/pricing';
 
 type Errors = Partial<Record<'name' | 'email' | 'postalCode' | 'projectType', string>>;
@@ -24,81 +25,66 @@ const budgets = [
 export function AnalyseForm() {
   const uid = useId();
   const [errors, setErrors] = useState<Errors>({});
-  const [state, setState] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
-  const [projectId, setProjectId] = useState<string | null>(null);
-  const [serverError, setServerError] = useState<string | null>(null);
+  const [mailPrepared, setMailPrepared] = useState(false);
 
-  const fid = (n: string) => `${uid}-${n}`;
+  const fid = (name: string) => `${uid}-${name}`;
 
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const fd = new FormData(e.currentTarget);
-    const get = (k: string) => String(fd.get(k) ?? '').trim();
+  function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const get = (key: string) => String(formData.get(key) ?? '').trim();
 
     const next: Errors = {};
     if (!get('name')) next.name = 'Bitte geben Sie Ihren Namen an.';
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(get('email')))
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(get('email'))) {
       next.email = 'Bitte geben Sie eine gültige E-Mail-Adresse an.';
-    if (!/^\d{5}$/.test(get('postalCode')))
+    }
+    if (!/^\d{5}$/.test(get('postalCode'))) {
       next.postalCode = 'Bitte geben Sie eine fünfstellige Postleitzahl an.';
+    }
     if (!get('projectType')) next.projectType = 'Bitte wählen Sie eine Objektart.';
 
     setErrors(next);
-    if (Object.keys(next).length) {
-      document.getElementById(fid(Object.keys(next)[0]))?.focus();
+    if (Object.keys(next).length > 0) {
+      const firstError = Object.keys(next)[0] as keyof Errors;
+      if (firstError === 'projectType') {
+        document.querySelector<HTMLInputElement>('input[name="projectType"]')?.focus();
+      } else {
+        document.getElementById(fid(firstError))?.focus();
+      }
       return;
     }
 
-    setState('sending');
-    setServerError(null);
-    try {
-      const res = await fetch('/api/quiz', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: get('name'),
-          email: get('email'),
-          phone: get('phone'),
-          postalCode: get('postalCode'),
-          projectType: get('projectType'),
-          budgetRange: get('budgetRange'),
-          sofortStart: fd.get('sofortStart') === 'on',
-          notes: get('notes'),
-        }),
-      });
-      const json = await res.json();
-      if (!res.ok) throw new Error(json?.error ?? 'Unbekannter Fehler.');
-      setProjectId(json?.dossier?.projectId ?? null);
-      setState('done');
-    } catch (err) {
-      setServerError(err instanceof Error ? err.message : 'Unbekannter Fehler.');
-      setState('error');
-    }
-  }
+    const projectLabel =
+      projectTypes.find((project) => project.value === get('projectType'))?.label ??
+      get('projectType');
+    const budgetLabel =
+      budgets.find((budget) => budget.value === get('budgetRange'))?.label ?? 'Keine Angabe';
+    const subject = `Anfrage Autarkie-Analyse · ${get('postalCode')}`;
+    const body = [
+      'Guten Tag,',
+      '',
+      'ich möchte eine objektbezogene Autarkie-Analyse anfragen.',
+      '',
+      `Name: ${get('name')}`,
+      `E-Mail: ${get('email')}`,
+      `Telefon: ${get('phone') || 'Keine Angabe'}`,
+      `Postleitzahl: ${get('postalCode')}`,
+      `Objektart: ${projectLabel}`,
+      `Investitionsrahmen: ${budgetLabel}`,
+      `Hinweise: ${get('notes') || 'Keine Angabe'}`,
+      '',
+      'Bitte bestätigen Sie vor einer Beauftragung Umfang, Honorar, Zeitplan und benötigte Unterlagen.',
+    ].join('\n');
 
-  if (state === 'done') {
-    return (
-      <div role="status" className="border border-rule bg-surface p-8">
-        <p className="au-label text-copper-text">Eingegangen</p>
-        <h2 className="mt-4 font-display text-title font-semibold">Ihre Anfrage liegt uns vor.</h2>
-        <p className="mt-5 max-w-prose leading-relaxed text-ink-2">
-          Wir prüfen Ihre Angaben und melden uns innerhalb eines Werktages mit einer Bestätigung und
-          den nächsten Schritten. Sollten für die Analyse Angaben fehlen, fragen wir gezielt nach —
-          es entsteht kein Termindruck.
-        </p>
-        {projectId ? (
-          <p className="mt-6 border-t border-rule pt-5 text-sm text-ink-2">
-            Ihre Vorgangsnummer: <span className="au-measure font-medium text-ink">{projectId}</span>
-          </p>
-        ) : null}
-      </div>
-    );
+    setMailPrepared(true);
+    window.location.href = `mailto:${COMPANY.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
   const field =
-    'mt-2 block w-full min-h-[52px] border border-rule bg-surface px-4 text-base text-ink outline-none transition-colors duration-micro ease-au focus:border-ink';
+    'mt-2 block min-h-[52px] w-full border border-rule bg-surface px-4 text-base text-ink outline-none transition-colors duration-micro ease-au focus:border-ink';
   const label = 'block text-sm font-medium text-ink';
-  const errCls = 'mt-2 text-sm text-copper-text';
+  const errorClass = 'mt-2 text-sm text-copper-text';
 
   return (
     <form onSubmit={onSubmit} noValidate className="space-y-7">
@@ -112,11 +98,11 @@ export function AnalyseForm() {
             name="name"
             autoComplete="name"
             aria-invalid={!!errors.name}
-            aria-describedby={errors.name ? fid('name-err') : undefined}
+            aria-describedby={errors.name ? fid('name-error') : undefined}
             className={field}
           />
           {errors.name ? (
-            <p id={fid('name-err')} className={errCls}>
+            <p id={fid('name-error')} className={errorClass}>
               {errors.name}
             </p>
           ) : null}
@@ -133,11 +119,11 @@ export function AnalyseForm() {
             inputMode="email"
             autoComplete="email"
             aria-invalid={!!errors.email}
-            aria-describedby={errors.email ? fid('email-err') : undefined}
+            aria-describedby={errors.email ? fid('email-error') : undefined}
             className={field}
           />
           {errors.email ? (
-            <p id={fid('email-err')} className={errCls}>
+            <p id={fid('email-error')} className={errorClass}>
               {errors.email}
             </p>
           ) : null}
@@ -168,11 +154,11 @@ export function AnalyseForm() {
             autoComplete="postal-code"
             maxLength={5}
             aria-invalid={!!errors.postalCode}
-            aria-describedby={errors.postalCode ? fid('postalCode-err') : undefined}
+            aria-describedby={errors.postalCode ? fid('postalCode-error') : undefined}
             className={field}
           />
           {errors.postalCode ? (
-            <p id={fid('postalCode-err')} className={errCls}>
+            <p id={fid('postalCode-error')} className={errorClass}>
               {errors.postalCode}
             </p>
           ) : null}
@@ -182,22 +168,29 @@ export function AnalyseForm() {
       <fieldset>
         <legend className={label}>Um welches Objekt geht es?</legend>
         <div className="mt-3 grid gap-px bg-rule-soft sm:grid-cols-2">
-          {projectTypes.map((p) => (
+          {projectTypes.map((project) => (
             <label
-              key={p.value}
+              key={project.value}
               className="flex min-h-[52px] cursor-pointer items-center gap-3 bg-surface px-4 text-base text-ink has-[:checked]:bg-copper-soft"
             >
               <input
+                id={fid(project.value)}
                 type="radio"
                 name="projectType"
-                value={p.value}
-                className="h-4 w-4 accent-[color:var(--au-copper)]"
+                value={project.value}
+                aria-invalid={!!errors.projectType}
+                aria-describedby={errors.projectType ? fid('projectType-error') : undefined}
+                className="h-5 w-5 accent-[color:var(--au-copper)]"
               />
-              {p.label}
+              {project.label}
             </label>
           ))}
         </div>
-        {errors.projectType ? <p className={errCls}>{errors.projectType}</p> : null}
+        {errors.projectType ? (
+          <p id={fid('projectType-error')} className={errorClass}>
+            {errors.projectType}
+          </p>
+        ) : null}
       </fieldset>
 
       <div>
@@ -206,9 +199,9 @@ export function AnalyseForm() {
         </label>
         <select id={fid('budgetRange')} name="budgetRange" className={field} defaultValue="">
           <option value="">Keine Angabe</option>
-          {budgets.map((b) => (
-            <option key={b.value} value={b.value}>
-              {b.label}
+          {budgets.map((budget) => (
+            <option key={budget.value} value={budget.value}>
+              {budget.label}
             </option>
           ))}
         </select>
@@ -222,31 +215,25 @@ export function AnalyseForm() {
           id={fid('notes')}
           name="notes"
           rows={4}
+          maxLength={1200}
           className={`${field} min-h-[7rem] py-3 leading-relaxed`}
         />
       </div>
 
-      {/*
-        Deliberately unchecked by default. The Widerrufsbelehrung promises the customer
-        decides this actively, and § 356 Abs. 4 BGB only lets the right lapse on express
-        consent — a pre-ticked box would void both the promise and the legal basis.
-      */}
-      <label className="flex cursor-pointer items-start gap-3 border border-rule bg-surface p-5 text-[15px] leading-relaxed text-ink-2">
-        <input type="checkbox" name="sofortStart" className="mt-1 h-4 w-4 shrink-0 accent-[color:var(--au-copper)]" />
-        <span>
-          Ich verlange ausdrücklich, dass Sie vor Ablauf der Widerrufsfrist mit der Analyse
-          beginnen. Mir ist bekannt, dass ich mein{' '}
-          <Link href="/widerruf" className="text-ink underline underline-offset-4">
-            Widerrufsrecht
-          </Link>{' '}
-          mit vollständiger Erbringung verliere. Ohne dieses Häkchen beginnen wir nach Fristablauf.
-        </span>
-      </label>
+      <p className="border-l border-rule pl-4 text-sm leading-relaxed text-ink-3">
+        Beim Fortfahren öffnet sich Ihr E-Mail-Programm mit einem vorbereiteten Entwurf. Diese
+        Website übermittelt oder speichert die Angaben nicht. Sie versenden die Nachricht erst
+        selbst. Mehr dazu in der <Link href="/datenschutz" className="text-ink underline underline-offset-4">Datenschutzerklärung</Link>.
+      </p>
 
-      {state === 'error' ? (
-        <p role="alert" className="border border-copper-text bg-copper-soft p-4 text-sm text-ink">
-          Die Anfrage konnte nicht übermittelt werden: {serverError} Bitte versuchen Sie es erneut
-          oder schreiben Sie uns direkt.
+      {mailPrepared ? (
+        <p role="status" className="border border-rule bg-copper-soft p-4 text-sm leading-relaxed text-ink">
+          Der E-Mail-Entwurf wurde vorbereitet. Bitte prüfen und senden Sie ihn in Ihrem
+          E-Mail-Programm. Falls sich kein Programm öffnet, schreiben Sie an{' '}
+          <a href={`mailto:${COMPANY.email}`} className="font-medium underline underline-offset-4">
+            {COMPANY.email}
+          </a>
+          .
         </p>
       ) : null}
 
@@ -257,10 +244,9 @@ export function AnalyseForm() {
         </p>
         <button
           type="submit"
-          disabled={state === 'sending'}
-          className="flex min-h-[52px] items-center justify-center bg-ink px-8 text-base font-medium text-paper transition-opacity duration-micro ease-au hover:opacity-85 disabled:opacity-50"
+          className="flex min-h-[52px] items-center justify-center bg-ink px-8 text-base font-medium text-paper transition-opacity duration-micro ease-au hover:opacity-85"
         >
-          {state === 'sending' ? 'Wird übermittelt …' : 'Analyse anfragen'}
+          E-Mail vorbereiten
         </button>
       </div>
     </form>

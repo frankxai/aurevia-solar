@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 };
 
 /**
- * Scoped deliberately to the PLANNING ladder (Analyse / Konzept), which is what this
- * site actually sells. Werkvertrag terms for the physical installation are a different
+ * Scoped deliberately to the planning ladder (Analyse / Konzept), which is what this
+ * site describes and accepts inquiries for. Werkvertrag terms for physical installation are a different
  * legal animal (VOB/B, Abnahme, Gewährleistung, Sicherheitseinbehalt) and are handled
  * in the individual contract — this document says so rather than pretending to cover it.
  */
@@ -22,14 +22,14 @@ export default function AGB() {
       <PageHeader
         label="Rechtliches"
         title="Allgemeine Geschäftsbedingungen"
-        lead="Diese Bedingungen gelten für die über diese Website beauftragten Planungsleistungen. Für die bauliche Realisierung gilt ergänzend der jeweils individuell geschlossene Vertrag."
+        lead="Diese Bedingungen gelten, wenn die auf dieser Website beschriebenen Planungsleistungen gesondert beauftragt werden. Für die bauliche Realisierung gilt ergänzend der jeweils individuell geschlossene Vertrag."
       />
 
       <LegalProse>
         <h2>§ 1 Geltungsbereich und Vertragspartner</h2>
         <p>
-          Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge, die über diese Website
-          zwischen Ihnen und der {COMPANY.legalName}, {COMPANY.street}, {COMPANY.postalCode}{' '}
+          Diese Allgemeinen Geschäftsbedingungen gelten für Verträge über die beschriebenen
+          Planungsleistungen zwischen Ihnen und der {COMPANY.legalName}, {COMPANY.street}, {COMPANY.postalCode}{' '}
           {COMPANY.city} (nachfolgend „wir") geschlossen werden. Aurevia ist eine Marke der{' '}
           {COMPANY.legalName}.
         </p>
@@ -55,8 +55,9 @@ export default function AGB() {
         <h2>§ 3 Vertragsschluss</h2>
         <p>
           Die Darstellung der Leistungen auf dieser Website ist kein bindendes Angebot, sondern eine
-          Aufforderung zur Bestellung. Mit Absenden des Bestellformulars geben Sie ein verbindliches
-          Angebot ab. Der Vertrag kommt mit unserer Auftragsbestätigung in Textform zustande.
+          Einladung zur Anfrage. Auch die über das eigene E-Mail-Programm versandte Analyseanfrage
+          ist noch keine kostenpflichtige Bestellung. Ein Vertrag kommt erst durch eine gesonderte
+          Beauftragung und unsere Auftragsbestätigung in Textform zustande.
         </p>
 
         <h2>§ 4 Preise und Zahlung</h2>
@@ -64,10 +65,10 @@ export default function AGB() {
           Es gelten die zum Zeitpunkt der Bestellung ausgewiesenen Preise. {PRICE_DISCLOSURE}
         </p>
         <p>
-          Das Entgelt für die Autarkie-Analyse wird bei Beauftragung fällig. Wird auf Grundlage der
-          Analyse innerhalb von zwölf Monaten ein Autarkie-Konzept beauftragt, rechnen wir das
-          bereits gezahlte Entgelt vollständig auf dieses an. Entsprechendes gilt für die Anrechnung
-          des Konzepts auf eine anschließende Realisierung.
+          Fälligkeit und Zahlungsweg ergeben sich aus dem jeweiligen Angebot und der
+          Auftragsbestätigung. Ob Leistungen aus einer vorangegangenen Stufe angerechnet werden,
+          wird dort ausdrücklich ausgewiesen; eine pauschale Anrechnung wird auf dieser Website
+          nicht zugesagt.
         </p>
         <p>
           Für Photovoltaikanlagen auf und an Wohngebäuden kann nach § 12 Abs. 3 UStG der

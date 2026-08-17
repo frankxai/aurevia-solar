@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { COMPANY, ODR_URL } from '@/lib/company';
+import { COMPANY } from '@/lib/company';
 import { PageHeader, LegalProse } from '@/components/PageHeader';
 
 export const metadata: Metadata = {
@@ -60,15 +60,6 @@ export default function Impressum() {
           {COMPANY.legalName}, {COMPANY.street}, {COMPANY.postalCode} {COMPANY.city}
         </p>
 
-        <h2>EU-Streitschlichtung</h2>
-        <p>
-          Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{' '}
-          <a href={ODR_URL} target="_blank" rel="noopener noreferrer">
-            {ODR_URL}
-          </a>
-          . Unsere E-Mail-Adresse finden Sie oben.
-        </p>
-
         <h2>Verbraucherstreitbeilegung</h2>
         <p>
           Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer
@@ -102,8 +93,9 @@ export default function Impressum() {
           Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen
           dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art
           der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen
-          Zustimmung der {COMPANY.legalName}. Sämtliche Anlagenfotografien auf dieser Website zeigen
-          von der {COMPANY.legalName} ausgeführte Projekte.
+          Zustimmung der {COMPANY.legalName}. Soweit Inhalte nicht vom Seitenbetreiber erstellt
+          wurden, werden die Urheberrechte Dritter beachtet und entsprechende Inhalte als solche
+          gekennzeichnet.
         </p>
       </LegalProse>
     </>

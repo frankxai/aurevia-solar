@@ -7,18 +7,18 @@ const stufen = [
     name: 'Autarkie-Analyse',
     price: PRICING.analyse.display,
     priceNote: PRICING.analyse.note,
-    body: 'Sie beschreiben Ihr Anwesen und Ihren Verbrauch. Sie erhalten ein belastbares Konzeptpapier: Erzeugungsprognose, Speicherdimensionierung, Notstromfähigkeit, Einbindung von Wärmepumpe und Ladeinfrastruktur — mit einer Komponentenliste, die aus tatsächlich verfügbarem Bestand kalkuliert ist.',
-    detail: 'Ohne Termin. Ohne Vertreterbesuch.',
+    body: 'Sie beschreiben Ihr Anwesen, den Verbrauch und Ihre Ziele. Die Analyse ordnet Erzeugung, Speicher, Ersatzstrom, Wärme und Mobilität als Szenario ein und benennt Datenlücken sowie weitere Prüfbedarfe.',
+    detail: 'Konzeptionelle Vorplanung ohne Vor-Ort-Freigabe.',
     href: '/analyse',
-    cta: 'Analyse starten',
+    cta: 'Analyse anfragen',
   },
   {
     stufe: 'Stufe 2',
     name: 'Autarkie-Konzept',
     price: PRICING.konzept.display,
     priceNote: PRICING.konzept.note,
-    body: 'Ein Ingenieur prüft die Analyse vor Ort, validiert Dach- und Flächengeometrie, Netzanschluss und genehmigungsrechtliche Randbedingungen. Ergebnis ist ein umsetzungsreifes Konzept mit Phasenplan und Festpreisrahmen.',
-    detail: 'Inklusive Zugang zum Planungsassistenten für eigene Szenarien.',
+    body: 'Die Annahmen werden am Objekt konkretisiert. Flächen, Bestand, Netzanschluss und Genehmigungsweg werden aufgenommen; erforderliche Statik-, Elektro- und Fachnachweise bleiben den jeweils zuständigen qualifizierten Stellen vorbehalten.',
+    detail: 'Ergebnis und offene Freigaben werden getrennt dokumentiert.',
     href: '/konzept',
     cta: 'Konzept ansehen',
   },
@@ -27,8 +27,8 @@ const stufen = [
     name: 'Realisierung',
     price: PRICING.realisierung.display,
     priceNote: PRICING.realisierung.note,
-    body: 'Beschaffung, Montage, Netzanmeldung und Inbetriebnahme. Ausgeführt durch die RIAL Energy GmbH mit eigenem Lager in Seesen und eigener Gebäudetechnik. Aurevia bleibt Ihr einziger Ansprechpartner.',
-    detail: 'Auf Wunsch mit anschließender Betriebsführung.',
+    body: 'Beschaffung, Montagekoordination, Netzanmeldung und Inbetriebnahme werden im gesonderten Werkvertrag festgelegt. Zuständige Fachbetriebe und Netzbetreiber erteilen die erforderlichen technischen Freigaben.',
+    detail: 'Umfang, Termine und Verantwortlichkeiten gelten wie vertraglich vereinbart.',
     href: '/realisierung',
     cta: 'Ablauf ansehen',
   },
@@ -40,7 +40,7 @@ export function Ladder() {
       <div className="mx-auto w-full max-w-6xl px-5 py-section sm:px-8">
         <p className="au-label">Der Weg</p>
         <h2 className="mt-5 max-w-[24ch] font-display text-title font-semibold">
-          Drei Stufen. Jede rechnet sich auf die nächste an.
+          Drei Stufen. Jede wird klar beauftragt.
         </h2>
 
         <ol className="mt-12 flex flex-col">

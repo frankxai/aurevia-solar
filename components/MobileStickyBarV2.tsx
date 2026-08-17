@@ -1,48 +1,43 @@
 'use client';
 
 import React from 'react';
-import { Zap, PhoneCall, Sparkles, BookOpen } from 'lucide-react';
+import { Layers, PhoneCall, Cpu, Zap } from 'lucide-react';
 
-interface MobileStickyBarV2Props {
-  onOpenLeadMagnet: () => void;
-  onOpenCopilot: () => void;
-}
-
-export function MobileStickyBarV2({ onOpenLeadMagnet, onOpenCopilot }: MobileStickyBarV2Props) {
+export function MobileStickyBarV2() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-[#070B14]/95 backdrop-blur-3xl border-t border-amber-500/40 p-3 shadow-2xl px-5">
-      <div className="grid grid-cols-4 gap-2 items-center text-center">
+    <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-[#070B14]/95 backdrop-blur-2xl border-t border-white/10 p-2.5 px-4 shadow-2xl">
+      <div className="grid grid-cols-4 gap-2 text-center text-[10px] font-semibold">
         <a
-          href="#configurator-v2"
-          className="flex flex-col items-center justify-center p-2 rounded-2xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-slate-950 font-bold active:scale-95 transition shadow-lg"
+          href="/v2"
+          className="flex flex-col items-center justify-center p-2 rounded-xl bg-slate-900 border border-white/10 text-slate-200"
         >
-          <Zap className="w-4 h-4 fill-current mb-0.5" />
-          <span className="text-[10px] font-semibold">3D Planer</span>
+          <Zap className="w-4 h-4 text-amber-400 mb-0.5" />
+          <span>Souverän</span>
+        </a>
+
+        <a
+          href="/atelier"
+          className="flex flex-col items-center justify-center p-2 rounded-xl bg-amber-400 text-slate-950 font-bold shadow-lg"
+        >
+          <Layers className="w-4 h-4 mb-0.5" />
+          <span>Atelier</span>
+        </a>
+
+        <a
+          href="/dossier"
+          className="flex flex-col items-center justify-center p-2 rounded-xl bg-slate-900 border border-emerald-500/30 text-emerald-300"
+        >
+          <Cpu className="w-4 h-4 text-emerald-400 mb-0.5" />
+          <span>AI Skill</span>
         </a>
 
         <a
           href="tel:+49538198000"
-          className="flex flex-col items-center justify-center p-2 rounded-2xl bg-slate-900 border border-slate-700 text-slate-200 active:scale-95 transition"
+          className="flex flex-col items-center justify-center p-2 rounded-xl bg-slate-900 border border-white/10 text-slate-200"
         >
           <PhoneCall className="w-4 h-4 text-amber-400 mb-0.5" />
-          <span className="text-[10px] font-semibold">Direktruf</span>
+          <span>Direktruf</span>
         </a>
-
-        <button
-          onClick={onOpenCopilot}
-          className="flex flex-col items-center justify-center p-2 rounded-2xl bg-slate-900 border border-cyan-500/40 text-cyan-300 active:scale-95 transition"
-        >
-          <Sparkles className="w-4 h-4 text-cyan-400 mb-0.5" />
-          <span className="text-[10px] font-semibold">Concierge</span>
-        </button>
-
-        <button
-          onClick={onOpenLeadMagnet}
-          className="flex flex-col items-center justify-center p-2 rounded-2xl bg-slate-900 border border-emerald-500/40 text-emerald-300 active:scale-95 transition"
-        >
-          <BookOpen className="w-4 h-4 text-emerald-400 mb-0.5" />
-          <span className="text-[10px] font-semibold">Leitfaden</span>
-        </button>
       </div>
     </div>
   );

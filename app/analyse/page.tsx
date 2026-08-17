@@ -7,7 +7,7 @@ import { PRICING } from '@/lib/pricing';
 export const metadata: Metadata = {
   title: 'Autarkie-Analyse',
   description:
-    'Die Autarkie-Analyse ist die belastbare Grundlage für jede weitere Entscheidung: Verbrauchsprofil, Erzeugungsprognose, Speicherauslegung und eine Komponentenliste aus tatsächlich verfügbarem Bestand.',
+    'Objektbezogene konzeptionelle Vorplanung für Verbrauch, Erzeugung, Speicher, Wärme und Mobilität — mit transparenten Annahmen und Prüfbedarfen.',
 };
 
 const einwaende = [
@@ -23,12 +23,13 @@ const einwaende = [
   },
   {
     frage: 'Was, wenn ich danach doch baue?',
-    antwort: `Dann werden die ${PRICING.analyse.display} vollständig auf das Konzept angerechnet, und das Konzept wiederum auf die Realisierung. Sie zahlen denselben Schritt nie zweimal.`,
+    antwort:
+      'Analyse, Konzept und Realisierung bauen inhaltlich aufeinander auf. Ob und in welcher Höhe Leistungen angerechnet werden, weisen wir vor Beauftragung transparent im jeweiligen Angebot aus.',
   },
   {
     frage: 'Brauchen Sie einen Vor-Ort-Termin?',
     antwort:
-      'Für die Analyse nicht. Sie beschreiben Ihr Anwesen, wir rechnen. Erst für das Konzept kommt ein Ingenieur — dann aber, um zu prüfen, nicht um zu verkaufen.',
+      'Für die erste Analyse in der Regel nicht. Eine spätere Objektprüfung konkretisiert die Annahmen; erforderliche Statik-, Elektro-, Netz- und Genehmigungsfreigaben erfolgen separat durch die zuständigen Stellen.',
   },
 ];
 
@@ -50,11 +51,11 @@ export default function Analyse() {
                 <li className="au-row pb-3">Erzeugungsprognose nach Ausrichtung und Verschattung</li>
                 <li className="au-row pb-3">Speicher- und Notstromauslegung, getrennt betrachtet</li>
                 <li className="au-row pb-3">Einbindung von Wärmepumpe und Ladeinfrastruktur</li>
-                <li className="au-row pb-3">Komponentenliste aus verfügbarem Lagerbestand</li>
+                <li className="au-row pb-3">Komponentenvorschlag mit gekennzeichnetem Verfügbarkeitsstand</li>
                 <li className="pb-3">Phasenplan mit Budget je Ausbaustufe</li>
               </ul>
               <p className="mt-6 text-sm leading-relaxed text-ink-3">
-                Bearbeitung in der Regel innerhalb von zehn Werktagen nach Eingang aller Angaben.
+                Benötigte Unterlagen, Zeitplan und Honorar werden vor Beauftragung bestätigt.
               </p>
             </div>
           </div>

@@ -6,34 +6,34 @@ import { PRICING, PRICE_DISCLOSURE } from '@/lib/pricing';
 export const metadata: Metadata = {
   title: 'Autarkie-Konzept',
   description:
-    'Stufe 2: Ein Ingenieur prüft die Analyse vor Ort und überführt sie in ein umsetzungsreifes Konzept mit Phasenplan und Festpreisrahmen.',
+    'Stufe 2 konkretisiert die Autarkie-Analyse am Objekt und dokumentiert Varianten, Schnittstellen sowie erforderliche Fach- und Freigabeschritte.',
 };
 
 const schritte = [
   {
     n: '01',
     title: 'Objektbegehung',
-    body: 'Aufmaß der Dach-, Fassaden- und Freiflächen, Prüfung der Verschattungssituation über den Jahresverlauf, Zustand der Unterkonstruktion und der bestehenden Elektroinstallation.',
+    body: 'Erfassung zugänglicher Dach-, Fassaden- und Freiflächen, der sichtbaren Bestandssituation und der für weitere Prüfungen benötigten Unterlagen.',
   },
   {
     n: '02',
     title: 'Netzanschluss und Anmeldung',
-    body: 'Klärung der verfügbaren Anschlussleistung mit dem Netzbetreiber, Prüfung der Zählerplatzsituation und des Anmeldewegs. Hier entscheidet sich, was tatsächlich genehmigungsfähig ist.',
+    body: 'Vorprüfung von Zählerplatz, Anschlussannahmen und Anmeldeweg. Verbindliche Anschlussaussagen und Netzfreigaben erteilt ausschließlich der zuständige Netzbetreiber.',
   },
   {
     n: '03',
-    title: 'Statik und Genehmigung',
-    body: 'Bewertung von Schnee- und Windlast nach Standort, Nachweisführung für Unterkonstruktionen und Klärung, ob das Vorhaben verfahrensfrei ist oder eine Baugenehmigung erfordert.',
+    title: 'Prüf- und Genehmigungsbedarf',
+    body: 'Dokumentation der bekannten Standort- und Bestandsdaten sowie der benötigten Nachweise. Statik, Genehmigungsplanung und behördliche Entscheidungen erfolgen separat durch die jeweils zuständigen Stellen.',
   },
   {
     n: '04',
     title: 'Systemtopologie',
-    body: 'Festlegung von Wechselrichterkonzept, Netztrennstelle und Energiemanagement — abgeleitet aus der Autarkiestufe, die Sie tatsächlich erreichen wollen.',
+    body: 'Konzeptionelle Zuordnung von Erzeugung, Speicher, Ersatzstrom, Wärme und Mobilität. Die Elektroplanung und technische Freigabe sind nicht Bestandteil der Online-Analyse.',
   },
   {
     n: '05',
-    title: 'Phasenplan und Festpreisrahmen',
-    body: 'Was zuerst gebaut wird, was später ergänzt werden kann, und zu welchen Konditionen. Grundlage für den Werkvertrag der Realisierung.',
+    title: 'Phasen- und Budgetrahmen',
+    body: 'Welche Schritte aufeinander folgen, welche Fachnachweise zuvor benötigt werden und welche Leistungen als Nächstes angeboten werden können.',
   },
 ];
 
@@ -43,7 +43,7 @@ export default function Konzept() {
       <PageHeader
         label={`Stufe 2 · ${PRICING.konzept.display}`}
         title="Autarkie-Konzept"
-        lead="Die Analyse rechnet. Das Konzept prüft. Ein Ingenieur validiert vor Ort, was am Schreibtisch plausibel war — und überführt es in eine Planung, nach der gebaut werden kann."
+        lead="Die Analyse stellt Annahmen auf. Das Konzept konkretisiert sie am Objekt, trennt Varianten von Freigaben und macht die nächsten Fachschritte nachvollziehbar."
       />
 
       <section className="mx-auto w-full max-w-6xl px-5 pb-section sm:px-8">
@@ -69,21 +69,23 @@ export default function Konzept() {
             <div>
               <p className="au-label">Anrechnung</p>
               <h2 className="mt-5 font-display text-title font-semibold">
-                Sie zahlen denselben Schritt nie zweimal.
+                Jede Stufe bleibt nachvollziehbar.
               </h2>
             </div>
             <div className="max-w-prose space-y-5 text-lg leading-relaxed text-ink-2">
               <p>
-                Das Entgelt der Autarkie-Analyse wird vollständig auf das Konzept angerechnet. Das
-                Konzept wiederum wird vollständig auf die Realisierung angerechnet.
+                Analyse, Konzept und Realisierung bauen aufeinander auf. Bereits erarbeitete
+                Grundlagen werden deshalb im Folgeangebot sichtbar vom neuen Leistungsumfang
+                getrennt.
               </p>
               <p>
-                Das ist kein Rabattmechanismus, sondern die logische Folge daraus, dass jede Stufe
-                auf der vorherigen aufbaut: Es wäre unredlich, dieselbe Grundlagenermittlung zweimal
-                in Rechnung zu stellen.
+                Ob und in welcher Höhe eine Anrechnung erfolgt, wird vor Beauftragung in Textform
+                ausgewiesen. Maßgeblich ist das jeweilige Angebot, nicht eine pauschale Aussage auf
+                dieser Website.
               </p>
               <p className="text-ink">
-                Sie können nach jeder Stufe aufhören. Die Unterlagen bleiben Ihre.
+                Der Umfang der übergebenen Unterlagen und die zugehörigen Nutzungsrechte ergeben
+                sich aus der jeweiligen Beauftragung.
               </p>
             </div>
           </div>
@@ -104,7 +106,7 @@ export default function Konzept() {
             href="/analyse"
             className="mt-9 inline-flex min-h-[52px] items-center justify-center bg-ink px-8 text-base font-medium text-paper transition-opacity duration-micro ease-au hover:opacity-85"
           >
-            Autarkie-Analyse starten
+            Autarkie-Analyse anfragen
           </Link>
         </div>
       </section>

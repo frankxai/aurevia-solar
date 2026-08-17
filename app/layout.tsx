@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: '%s · Aurevia',
   },
   description:
-    'Geplante Energieautarkie für Anwesen, Höfe und Unternehmerhäuser in Niedersachsen. Ein belastbares Autarkie-Konzept mit Komponentenliste aus eigenem Lager — statt sechs Gewerken und acht Monaten Koordination.',
+    'Objektbezogene Beratung für die Energieautonomie von Wohnhäusern, Höfen und privaten Anwesen in Niedersachsen und im Harz.',
   openGraph: {
     type: 'website',
     locale: 'de_DE',
@@ -64,8 +64,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <div className="max-w-sm">
                 <p className="font-display text-lg font-semibold tracking-tight">Aurevia</p>
                 <p className="mt-2 text-sm leading-relaxed text-ink-2">
-                  Planung und Realisierung von Energieautarkie. Umsetzung durch die RIAL Energy GmbH,
-                  Seesen (Harz) — eigenes Lager, eigene Montage.
+                  Objektbezogene Analyse und Konzeptentwicklung für Energieautonomie. Aurevia ist
+                  eine Beratungsmarke der RIAL Energy GmbH, Seesen (Harz).
                 </p>
               </div>
 
@@ -75,7 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="text-sm text-ink-2 underline-offset-4 transition-colors duration-micro ease-au hover:text-ink hover:underline"
+                    className="inline-flex min-h-11 items-center text-sm text-ink-2 underline-offset-4 transition-colors duration-micro ease-au hover:text-ink hover:underline"
                   >
                     {item.label}
                   </Link>

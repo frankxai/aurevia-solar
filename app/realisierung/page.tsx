@@ -7,25 +7,25 @@ import { PRICING } from '@/lib/pricing';
 
 export const metadata: Metadata = {
   title: 'Realisierung',
-  description: `Stufe 3: Beschaffung, Montage, Netzanmeldung und Inbetriebnahme durch die ${COMPANY.legalName} — mit Aurevia als einzigem Ansprechpartner.`,
+  description: `Stufe 3 regelt Beschaffung, Ausführung, Fachnachweise, Netzanmeldung und Inbetriebnahme im individuellen Werkvertrag mit der ${COMPANY.legalName}.`,
 };
 
 const phasen = [
   {
     title: 'Beschaffung',
-    body: `Die im Konzept festgelegten Komponenten werden aus dem Zentrallager in ${COMPANY.city} disponiert. Was nicht vorrätig ist, wird vor Montagebeginn beschafft — nicht während.`,
+    body: `Vorgesehene Komponenten, Verfügbarkeit und Alternativen werden vor Beauftragung bestätigt. Die Disposition erfolgt nach dem vereinbarten Werkvertrag; Live-Bestand wird auf dieser Website nicht zugesagt.`,
   },
   {
     title: 'Montage',
-    body: 'Unterkonstruktion, Modulmontage und Gebäudetechnik durch eigene Monteure. Elektroarbeiten und Netzanschluss durch eingetragene Fachbetriebe.',
+    body: 'Unterkonstruktion, Modulmontage und Gebäudetechnik gemäß vereinbartem Leistungsumfang. Elektroarbeiten und Netzanschluss erfolgen durch die dafür beauftragten qualifizierten Fachbetriebe.',
   },
   {
     title: 'Anmeldung und Inbetriebnahme',
-    body: 'Anmeldung beim Netzbetreiber, Eintragung im Marktstammdatenregister, Inbetriebnahmeprotokoll und Einweisung in das Energiemanagement.',
+    body: 'Anmelde- und Inbetriebnahmeschritte richten sich nach Anlage, Netzbetreiber und Vertrag. Freigaben erteilen die jeweils zuständigen Stellen.',
   },
   {
     title: 'Übergabe',
-    body: 'Dokumentation, Nachweise und Gewährleistungsunterlagen in einer Mappe. Auf Wunsch anschließende Betriebsführung mit Ertragskontrolle.',
+    body: 'Übergabe der vertraglich vereinbarten Dokumentation, Nachweise und Gewährleistungsunterlagen nach Abschluss der jeweiligen Leistungen.',
   },
 ];
 
@@ -35,15 +35,16 @@ export default function Realisierung() {
       <PageHeader
         label={`Stufe 3 · ${PRICING.realisierung.display}`}
         title="Realisierung"
-        lead={`Ausgeführt durch die ${COMPANY.legalName} mit eigenem Lager, eigener Montage und eigener Gebäudetechnik. Aurevia bleibt Ihr einziger Ansprechpartner — auch dann, wenn mehrere Gewerke beteiligt sind.`}
+        lead={`Die ${COMPANY.legalName} ist der benannte Vertragspartner. Welche Leistungen sie selbst ausführt oder durch qualifizierte Fachbetriebe koordinieren lässt, wird im individuellen Werkvertrag festgelegt.`}
       />
 
       <section className="mx-auto w-full max-w-6xl px-5 pb-block sm:px-8">
         <Plate
           slug="dji-fly-20241130-115920-0236-1732973889561-photo"
-          alt="Luftaufnahme einer fertiggestellten Solarüberdachung"
+          alt="Untersicht einer PV-Modulfläche auf einer Stahltragkonstruktion"
           priority
           ratio="21 / 9"
+          captionText="Referenzaufnahme einer vorhandenen Modul- und Tragwerksituation. Sie ist kein Statik-, Ausführungs- oder Eignungsnachweis für ein anderes Objekt."
         />
       </section>
 
@@ -64,7 +65,7 @@ export default function Realisierung() {
             <div>
               <p className="au-label">Vertragliche Grundlage</p>
               <h2 className="mt-5 font-display text-title font-semibold">
-                Festpreis auf Basis des Konzepts.
+                Ein Angebot auf Basis des Konzepts.
               </h2>
             </div>
             <div className="max-w-prose space-y-5 text-lg leading-relaxed text-ink-2">
@@ -73,13 +74,14 @@ export default function Realisierung() {
                 Leistungsumfang, Vergütung, Termine, Abnahme und Gewährleistung abschließend regelt.
               </p>
               <p>
-                Weil das Konzept Mengen, Fabrikate und Randbedingungen bereits geklärt hat, ist der
-                Preis zum Zeitpunkt der Beauftragung belastbar — und nicht an eine
-                Preisgleitklausel gebunden.
+                Das Konzept reduziert offene Annahmen. Verbindlich werden Preis, Termine,
+                Fabrikate und mögliche Preisanpassungsregeln jedoch erst durch den gesonderten
+                Werkvertrag.
               </p>
               <p className="text-ink">
                 Für Photovoltaik auf und an Wohngebäuden kann der Nullsteuersatz nach § 12 Abs. 3
-                UStG greifen. Ob die Voraussetzungen vorliegen, weisen wir im Angebot gesondert aus.
+                UStG greifen. Ob die Voraussetzungen vorliegen, wird im Angebot gesondert
+                ausgewiesen; diese Website ersetzt keine steuerliche Beratung.
               </p>
             </div>
           </div>
@@ -95,7 +97,7 @@ export default function Realisierung() {
             href="/analyse"
             className="mt-9 inline-flex min-h-[52px] items-center justify-center bg-ink px-8 text-base font-medium text-paper transition-opacity duration-micro ease-au hover:opacity-85"
           >
-            Autarkie-Analyse starten
+            Autarkie-Analyse anfragen
           </Link>
         </div>
       </section>

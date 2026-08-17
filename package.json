@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "check:public": "node scripts/check-public-invariants.mjs",
     "start": "next start",
     "lint": "next lint"
   },

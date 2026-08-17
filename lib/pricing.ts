@@ -1,30 +1,22 @@
 /**
- * NEEDS FRANK'S CONFIRMATION BEFORE THIS SITE LEAVES *.vercel.app.
- *
- * These are recommended figures, not established ones. They were derived from what a
- * Planungsbüro charges for comparable work (€2.500–6.000, six weeks) and from the
- * position that Stufe 1 must be cheap enough to buy without a meeting and expensive
- * enough to qualify. Nothing here came from RIAL Energy.
- *
- * The ladder logic that matters more than the numbers: Stufe 1 is credited against
- * Stufe 2, and Stufe 2 is credited against the installation. The customer is never
- * paying twice, which is what makes the first step easy to take.
+ * Commercial terms are deliberately non-numeric until RIAL has approved a live price.
+ * The website may explain the commissioning model, but it must not turn an internal
+ * recommendation into a universal public offer.
  */
 export const PRICING = {
   analyse: {
-    amount: 390,
-    display: '390 €',
-    note: 'Einmalig. Wird vollständig auf ein Konzept angerechnet.',
+    display: 'Honorar nach Umfang',
+    note: 'Wird vor Beauftragung verbindlich in Textform ausgewiesen.',
   },
   konzept: {
-    display: 'ab 2.900 €',
-    note: 'Wird vollständig auf die Realisierung angerechnet.',
+    display: 'Objektbezogenes Angebot',
+    note: 'Umfang und Vergütung folgen aus Analyse und benötigten Prüfleistungen.',
   },
   realisierung: {
-    display: 'nach Konzept',
-    note: 'Festpreis auf Basis des Konzepts. Umsetzung durch die RIAL Energy GmbH.',
+    display: 'Individuelles Angebot',
+    note: 'Leistungsumfang und Preis regelt ausschließlich der gesonderte Werkvertrag.',
   },
 } as const;
 
-/** Prices are shown to consumers, so they are gross and must say so (PAngV). */
-export const PRICE_DISCLOSURE = 'Alle Preise inkl. gesetzlicher Umsatzsteuer.';
+export const PRICE_DISCLOSURE =
+  'Konkrete Vergütung, Umsatzsteuerbehandlung und eine mögliche Anrechnung werden vor Beauftragung in Textform ausgewiesen.';

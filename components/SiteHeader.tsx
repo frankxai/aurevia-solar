@@ -14,7 +14,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-rule bg-paper/95 backdrop-blur-sm supports-[backdrop-filter]:bg-paper/80">
+    <header className="sticky top-0 z-40 border-b border-rule bg-paper">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-4 sm:px-8">
         <Link
           href="/"
@@ -28,14 +28,14 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm text-ink-2 underline-offset-[6px] transition-colors duration-micro ease-au hover:text-ink hover:underline"
+              className="inline-flex min-h-11 items-center text-sm text-ink-2 underline-offset-[6px] transition-colors duration-micro ease-au hover:text-ink hover:underline"
             >
               {item.label}
             </Link>
           ))}
           <Link
             href="/analyse"
-            className="border border-ink px-5 py-2.5 text-sm font-medium text-ink transition-colors duration-micro ease-au hover:bg-ink hover:text-paper"
+            className="inline-flex min-h-11 items-center border border-ink px-5 py-2.5 text-sm font-medium text-ink transition-colors duration-micro ease-au hover:bg-ink hover:text-paper"
           >
             Autarkie-Analyse
           </Link>
@@ -46,7 +46,7 @@ export function SiteHeader() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="mobile-nav"
-          className="-mr-2 flex h-11 w-11 items-center justify-center md:hidden"
+          className="-mr-2 flex h-11 w-11 items-center justify-center border border-transparent text-ink transition-colors duration-micro ease-au hover:border-rule md:hidden"
         >
           <span className="sr-only">{open ? 'Menü schließen' : 'Menü öffnen'}</span>
           <svg width="20" height="14" viewBox="0 0 20 14" aria-hidden="true" fill="none">

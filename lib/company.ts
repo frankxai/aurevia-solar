@@ -29,7 +29,6 @@ export const COMPANY_ADDRESS_LINES = [
 ] as const;
 
 /**
- * EU ODR platform reference is mandatory for traders selling online to consumers
- * (Art. 14 ODR-VO). RIAL sells to consumers, so it belongs on every legal page.
+ * The former EU online-dispute platform was discontinued in 2025. Its obsolete link
+ * must not be restored; the separate consumer-dispute statement lives in the Impressum.
  */
-export const ODR_URL = 'https://ec.europa.eu/consumers/odr/';

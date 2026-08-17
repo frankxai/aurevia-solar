@@ -19,7 +19,3 @@ export const pvlagerImages = {
   pvlagerLogo: '/media/front.webp',
   solarcarportLogo: '/media/front-bearb-tesla-hyndai.webp'
 };
-
-export const pvlagerVideos = {
-  carportFlythrough: 'https://www.w3schools.com/html/mov_bbb.mp4'
-};

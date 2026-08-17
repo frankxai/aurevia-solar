@@ -12,19 +12,19 @@ export const metadata: Metadata = {
 
 const grade = [
   {
-    value: '60–75 %',
-    unit: 'Eigenverbrauchsquote',
-    note: 'Photovoltaik plus Speicher, netzparallel betrieben. Der übliche Ausbaustand. Bei Netzausfall steht die Anlage still.',
+    value: 'Netzparallel',
+    unit: 'Eigenverbrauch',
+    note: 'Photovoltaik und Speicher optimieren den Eigenverbrauch. Verhalten bei Netzausfall hängt von der konkret geplanten Technik ab.',
   },
   {
-    value: '85–95 %',
-    unit: 'Bilanzielle Autarkie',
-    note: 'Zusätzlich Wärmepumpe und Ladeinfrastruktur im gemeinsamen Energiemanagement. Über das Jahr gerechnet nahezu unabhängig.',
+    value: 'Gekoppelt',
+    unit: 'Wärme und Mobilität',
+    note: 'Wärmepumpe und Ladeinfrastruktur werden in das Energieszenario einbezogen. Eine Quote ergibt sich erst aus Objekt- und Verbrauchsdaten.',
   },
   {
-    value: 'Inselfähig',
-    unit: 'Echter Netzersatzbetrieb',
-    note: 'Schwarzstartfähiger Wechselrichter, Netztrennstelle, ausgelegte Reserve. Das Haus läuft weiter, wenn die Straße dunkel ist.',
+    value: 'Geplant',
+    unit: 'Ersatz- oder Inselbetrieb',
+    note: 'Gewünschte Lasten, Umschaltung und Reserve werden separat betrachtet. Eignung und Freigabe sind objekt- und anlagenspezifisch.',
   },
 ];
 
@@ -40,9 +40,10 @@ export default function Autarkie() {
       <section className="mx-auto w-full max-w-6xl px-5 pb-block sm:px-8">
         <Plate
           slug="dji-0184"
-          alt="Luftaufnahme eines Anwesens mit vollflächig belegter Solarüberdachung"
+          alt="PV-Module als Überdachung einer bestehenden Terrasse"
           priority
           ratio="21 / 9"
+          captionText="Referenzaufnahme einer vorhandenen Terrassenüberdachung. Sie belegt die bauliche Idee, nicht Ertrag, Autarkiegrad oder Eignung eines anderen Objekts."
         />
       </section>
 
@@ -64,21 +65,19 @@ export default function Autarkie() {
           </div>
           <div className="max-w-prose space-y-5 text-lg leading-relaxed text-ink-2">
             <p>
-              Die häufigste Fehlinvestition, die uns begegnet, ist ein nachträglich vergrößerter
-              Speicher an einer Anlage, die konstruktiv nie für Inselbetrieb vorgesehen war. Der
-              Speicher ist dann größer, teurer — und bei Netzausfall trotzdem wirkungslos, weil der
-              Wechselrichter nicht schwarzstartfähig ist und keine Netztrennstelle existiert.
+              Ein größerer Speicher allein macht eine Anlage nicht ersatzstrom- oder inselfähig.
+              Dafür müssen unter anderem Wechselrichter, Umschaltung, Schutzkonzept und die zu
+              versorgenden Lasten zusammenpassen und fachlich freigegeben werden.
             </p>
             <p>
-              Die zweite ist die getrennte Beschaffung: Photovoltaik von einem Betrieb, Wärmepumpe
-              vom zweiten, Wallbox vom dritten. Jede Komponente für sich korrekt dimensioniert, im
-              Zusammenspiel aber ohne gemeinsame Regelung — und damit ohne den Effekt, für den
-              bezahlt wurde.
+              Auch getrennt beschaffte Photovoltaik, Wärmepumpe und Ladepunkt brauchen definierte
+              Schnittstellen. Ob eine gemeinsame Regelung sinnvoll und technisch möglich ist,
+              hängt vom Bestand und den gewählten Komponenten ab.
             </p>
             <p className="text-ink">
-              Deshalb steht bei uns die Auslegung vor der Beschaffung. Welche Autarkiestufe Sie
-              tatsächlich wollen, entscheidet über Wechselrichtertopologie, Netztrennstelle und
-              Reservebemessung — und diese Entscheidungen lassen sich später nur teuer korrigieren.
+              Deshalb steht die konzeptionelle Auslegung vor der Beschaffung. Ziel, Lasten und
+              gewünschtes Verhalten bei Netzausfall bestimmen, welche technische Fachplanung als
+              Nächstes erforderlich ist.
             </p>
           </div>
         </div>
@@ -86,13 +85,14 @@ export default function Autarkie() {
 
       <section className="border-t border-rule bg-paper-2">
         <div className="mx-auto w-full max-w-6xl px-5 py-section sm:px-8">
-          <p className="au-label">Ausgeführte Anlagen</p>
+          <p className="au-label">Referenzaufnahmen</p>
           <h2 className="mt-5 max-w-[24ch] font-display text-title font-semibold">
-            Jede Fläche, die Sie ohnehin bauen, kann Ertrag liefern.
+            Nebenflächen können Teil des Energiekonzepts werden.
           </h2>
           <p className="mt-6 max-w-prose text-lg leading-relaxed text-ink-2">
-            Carport, Terrassendach, Zaun, Pergola: Flächen, die auf einem Anwesen ohnehin entstehen,
-            tragen Module, ohne dass ein Quadratmeter Dachfläche zusätzlich beansprucht wird.
+            Carport, Terrassendach, Zaun oder Pergola können als Modulflächen geprüft werden. Ob
+            eine Fläche geeignet ist und welchen Ertrag sie erwarten lässt, ergibt sich erst aus
+            Standort, Verschattung, Konstruktion und Fachplanung.
           </p>
 
           <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
@@ -131,7 +131,7 @@ export default function Autarkie() {
             href="/analyse"
             className="mt-9 inline-flex min-h-[52px] items-center justify-center bg-ink px-8 text-base font-medium text-paper transition-opacity duration-micro ease-au hover:opacity-85"
           >
-            Autarkie-Analyse starten
+            Autarkie-Analyse anfragen
           </Link>
         </div>
       </section>

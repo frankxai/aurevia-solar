@@ -12,7 +12,7 @@ export const metadata: Metadata = {
  * Follows the statutory model instruction (Anlage 1 zu Art. 246a § 1 Abs. 2 EGBGB).
  * The digital-service carve-out matters here: the Autarkie-Analyse is a paid digital
  * service, so § 356 Abs. 4 BGB governs when the right lapses — that is why the
- * checkout must capture express consent, not just a tickbox.
+ * a later contract flow must capture express consent separately from the inquiry.
  */
 export default function Widerruf() {
   return (
@@ -81,9 +81,10 @@ export default function Widerruf() {
           </li>
         </ul>
         <p>
-          Solange Sie diese Zustimmung nicht erteilen, beginnen wir mit der Erstellung Ihrer Analyse
-          erst nach Ablauf der Widerrufsfrist. Sie entscheiden das im Bestellvorgang aktiv — es gibt
-          keine Voreinstellung.
+          Eine Anfrage über das auf dieser Website vorbereitete E-Mail-Formular enthält diese
+          Zustimmung nicht. Wenn später ein Vertrag zustande kommt und Sie einen Beginn vor Ablauf
+          der Widerrufsfrist wünschen, wird die Erklärung gesondert und ohne Voreinstellung
+          eingeholt. Ohne eine solche Erklärung beginnen wir erst nach Ablauf der Widerrufsfrist.
         </p>
         <p>
           Verlangen Sie ausdrücklich, dass wir vor Fristablauf beginnen, und widerrufen Sie danach,

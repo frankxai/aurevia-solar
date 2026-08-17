@@ -7,7 +7,7 @@ import { COMPANY } from '@/lib/company';
 
 export const metadata: Metadata = {
   title: 'Herkunft',
-  description: `Aurevia ist eine Marke der ${COMPANY.legalName} in ${COMPANY.city} — mit eigenem Zentrallager, eigener Montage und eigener Gebäudetechnik.`,
+  description: `Aurevia ist eine Beratungsmarke der ${COMPANY.legalName} mit Sitz in ${COMPANY.city}.`,
 };
 
 export default function Herkunft() {
@@ -16,20 +16,20 @@ export default function Herkunft() {
       <PageHeader
         label="Herkunft"
         title="Seesen, am Nordrand des Harzes."
-        lead={`Aurevia ist keine Vermittlungsplattform. Hinter der Marke steht die ${COMPANY.legalName} — ein Betrieb mit eigenem Zentrallager, eigener Montage und eigener Gebäudetechnik.`}
+        lead={`Aurevia ist die objektbezogene Beratungsmarke der ${COMPANY.legalName}. Vertragspartner, Anschrift und Registereintrag sind offen benannt.`}
       />
 
       <section className="border-y border-rule">
         <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-px bg-rule-soft sm:grid-cols-3">
           <Measure
             value="Seesen"
-            unit="Eigenes Zentrallager"
-            note="Komponenten liegen vor Ort. Was geplant wird, ist verfügbar — nicht angekündigt."
+            unit="Sitz der Gesellschaft"
+            note={`${COMPANY.legalName}, ${COMPANY.street}. Die vollständigen Angaben stehen im Impressum.`}
           />
           <Measure
             value="1"
-            unit="Verantwortlicher Betrieb"
-            note="Planung, Beschaffung und Montage liegen in einer Hand. Keine Subunternehmerkette."
+            unit="Benannter Vertragspartner"
+            note="Leistungsumfang und beteiligte Fachbetriebe werden im jeweiligen Vertrag ausgewiesen."
           />
           <Measure
             value="HRB 210762"
@@ -44,23 +44,24 @@ export default function Herkunft() {
           <div>
             <p className="au-label">Warum das zählt</p>
             <h2 className="mt-5 font-display text-title font-semibold">
-              Ein Lager ist ein Versprechen, das man nicht brechen kann.
+              Herkunft schafft überprüfbare Zuständigkeit.
             </h2>
           </div>
           <div className="max-w-prose space-y-5 text-lg leading-relaxed text-ink-2">
             <p>
-              Die häufigste Ursache für Verzögerungen im Anlagenbau ist nicht die Montage, sondern
-              die Beschaffung. Ein Wechselrichter, der erst in vierzehn Wochen kommt, hält den
-              Elektriker auf, der den Termin blockiert hat, der wiederum den Gerüstbauer aufhält.
+              Eine belastbare Entscheidung braucht einen klaren Vertragspartner. Deshalb nennt
+              Aurevia die Gesellschaft hinter der Marke, ihre Anschrift und den Registereintrag
+              direkt — statt Verantwortung hinter einer Plattform zu verteilen.
             </p>
             <p>
-              Weil die Komponenten in Seesen liegen, wird in der Analyse aus vorhandenem Bestand
-              kalkuliert. Das ist der Grund, warum die Komponentenliste konkrete Fabrikate nennt und
-              keine Platzhalter — und warum ein Phasenplan überhaupt belastbar sein kann.
+              Verfügbarkeit ist dagegen eine Momentaufnahme. Vorgesehene Fabrikate, Stückzahlen,
+              Konditionen und Alternativen werden vor Beauftragung bestätigt; diese Website zeigt
+              keinen Live-Lagerbestand.
             </p>
             <p className="text-ink">
-              Aurevia übernimmt Planung und Verantwortung gegenüber dem Bauherrn. Die{' '}
-              {COMPANY.legalName} liefert und baut. Für Sie bleibt es ein Ansprechpartner.
+              Aurevia strukturiert den Beratungsweg. Welche Planungs-, Liefer- und
+              Ausführungsleistungen die {COMPANY.legalName} übernimmt, ergibt sich aus dem
+              jeweiligen Angebot und Vertrag.
             </p>
           </div>
         </div>
@@ -71,7 +72,7 @@ export default function Herkunft() {
           <div className="grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
             <Figure
               slug="dji-20240906161612-0026-d"
-              alt="Luftaufnahme einer ausgeführten Anlage in der Region"
+              alt="Erhöhte Ansicht einer kleinen PV-Terrassenüberdachung"
               sizes="(min-width: 1024px) 20rem, (min-width: 640px) 45vw, 100vw"
             />
             <Figure
@@ -120,7 +121,7 @@ export default function Herkunft() {
             href="/analyse"
             className="mt-10 inline-flex min-h-[52px] items-center justify-center bg-ink px-8 text-base font-medium text-paper transition-opacity duration-micro ease-au hover:opacity-85"
           >
-            Autarkie-Analyse starten
+            Autarkie-Analyse anfragen
           </Link>
         </div>
       </section>

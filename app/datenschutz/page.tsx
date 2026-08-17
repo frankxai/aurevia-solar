@@ -13,7 +13,7 @@ export const metadata: Metadata = {
  *  - fonts are self-hosted by next/font at build time, so no Google CDN request
  *    is made from the visitor's browser (this is the single most-abgemahnt item
  *    on German sites and it is genuinely not happening here),
- *  - the only form is the Autarkie-Analyse intake at /api/quiz,
+ *  - the analysis form prepares a mailto draft locally and has no website intake API,
  *  - hosting is Vercel (US parent) → third-country transfer must be disclosed.
  * If analytics or a newsletter are added later, this file must be extended.
  */
@@ -63,11 +63,16 @@ export default function Datenschutz() {
           Rechtsschutz kann insoweit nicht in jedem Fall gewährleistet werden.
         </p>
 
-        <h2>4. Autarkie-Analyse: Kontakt- und Projektdaten</h2>
+        <h2>4. Autarkie-Analyse: Kontakt per E-Mail</h2>
         <p>
-          Wenn Sie eine Autarkie-Analyse anfragen, verarbeiten wir die von Ihnen angegebenen Daten:
-          Name, E-Mail-Adresse, Telefonnummer (freiwillig), Postleitzahl sowie Ihre Angaben zum
-          Vorhaben.
+          Das Formular zur Autarkie-Analyse erstellt aus Ihren Angaben ausschließlich in Ihrem
+          Browser einen E-Mail-Entwurf und öffnet dafür Ihr E-Mail-Programm. Die Website übermittelt
+          und speichert diese Formularangaben nicht. Erst wenn Sie den Entwurf selbst versenden,
+          werden die enthaltenen Daten über Ihren E-Mail-Anbieter an uns übertragen.
+        </p>
+        <p>
+          Wenn Sie die Nachricht versenden, verarbeiten wir die darin enthaltenen Kontakt- und
+          Projektdaten zur Bearbeitung Ihrer Anfrage.
         </p>
         <ul>
           <li>
@@ -80,7 +85,9 @@ export default function Datenschutz() {
           </li>
           <li>
             <strong>Empfänger:</strong> Die Daten werden innerhalb der {COMPANY.legalName} an die
-            für Planung und Ausführung zuständigen Mitarbeiter weitergegeben.
+            für die Bearbeitung Ihrer Anfrage zuständigen Personen weitergegeben. Zudem verarbeiten
+            die von Ihnen und uns eingesetzten E-Mail-Anbieter die Nachricht im Rahmen der
+            Übermittlung.
           </li>
           <li>
             <strong>Speicherdauer:</strong> Bis zur vollständigen Bearbeitung Ihrer Anfrage;
@@ -89,8 +96,9 @@ export default function Datenschutz() {
           </li>
         </ul>
         <p>
-          Die Angabe der Daten ist für die Erstellung der Analyse erforderlich. Ohne sie können wir
-          Ihre Anfrage nicht bearbeiten.
+          Sie entscheiden vor dem Versand im E-Mail-Programm, welche Angaben Sie übermitteln. Ohne
+          ausreichende Kontakt- und Projektdaten können wir die Anfrage gegebenenfalls nicht
+          bearbeiten.
         </p>
 
         <h2>5. Schriftarten</h2>

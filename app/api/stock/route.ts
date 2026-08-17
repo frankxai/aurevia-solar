@@ -1,63 +1,32 @@
 import { NextResponse } from 'next/server';
 
-export async function GET() {
-  return NextResponse.json({
-    warehouse: 'Zentrallager Seesen (Harz)',
-    region: 'Niedersachsen',
-    timestamp: new Date().toISOString(),
-    inventory: [
-      {
-        id: 'mod-trina-440',
-        sku: 'PV-TRINA-440-BIF',
-        name: 'Trina Vertex S+ Bifazial Glas-Glas 440W',
-        category: 'PV-Module',
-        inStock: 1420,
-        reserved: 120,
-        available: 1300,
-        unitPrice: 89,
-        currency: 'EUR',
-        vatRate: 0,
-        shippingTime: '24-48 Std. Spedition',
-      },
-      {
-        id: 'kit-zola-double',
-        sku: 'CARPORT-ZOLA-POD-2PKW',
-        name: 'Zola Pod Heavy-Duty Alu 100x100mm Doppel-Carport Kit',
-        category: 'Alu-Aluminium Carport',
-        inStock: 18,
-        reserved: 3,
-        available: 15,
-        unitPrice: 3490,
-        currency: 'EUR',
-        vatRate: 0,
-        shippingTime: '3-5 Werktage',
-      },
-      {
-        id: 'kit-zola-single',
-        sku: 'CARPORT-ZOLA-POD-1PKW',
-        name: 'Zola Pod Heavy-Duty Alu 100x100mm Einzel-Carport Kit',
-        category: 'Alu-Aluminium Carport',
-        inStock: 24,
-        reserved: 2,
-        available: 22,
-        unitPrice: 2190,
-        currency: 'EUR',
-        vatRate: 0,
-        shippingTime: '3-5 Werktage',
-      },
-      {
-        id: 'bat-byd-10kwh',
-        sku: 'BAT-BYD-HVS-10.2',
-        name: 'BYD Battery-Box Premium HVS 10.2 kWh',
-        category: 'Batteriespeicher',
-        inStock: 34,
-        reserved: 5,
-        available: 29,
-        unitPrice: 3890,
-        currency: 'EUR',
-        vatRate: 0,
-        shippingTime: '24-48 Std. Spedition',
-      },
-    ],
+const responseBody = {
+  status: 'retired',
+  endpoint: '/api/stock',
+  message:
+    'Der frühere öffentliche Bestandsendpunkt wurde außer Betrieb genommen. Verfügbarkeit und Konditionen werden objektspezifisch und vor Beauftragung bestätigt.',
+};
+
+export function GET() {
+  return NextResponse.json(responseBody, {
+    status: 410,
+    headers: { 'Cache-Control': 'no-store' },
+  });
+}
+
+export function HEAD() {
+  return new Response(null, {
+    status: 410,
+    headers: { 'Cache-Control': 'no-store' },
+  });
+}
+
+export function OPTIONS() {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      Allow: 'GET, HEAD, OPTIONS',
+      'Cache-Control': 'no-store',
+    },
   });
 }
