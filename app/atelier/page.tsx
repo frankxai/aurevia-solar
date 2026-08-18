@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import { NavbarV2 } from '@/components/NavbarV2';
 import { MobileStickyBarV2 } from '@/components/MobileStickyBarV2';
 import { ExplodedModuleView } from '@/components/ExplodedModuleView';
-import { pvlagerImages } from '@/lib/pvlager-media';
+import { ExplodedBatteryView } from '@/components/ExplodedBatteryView';
+import { ExplodedCarportView } from '@/components/ExplodedCarportView';
 import {
   ShieldCheck,
   Award,
@@ -14,15 +15,16 @@ import {
   CheckCircle2,
   Zap,
   ArrowRight,
-  Sparkles,
   Layers,
   Cpu,
-  Sliders,
-  ChevronRight
+  BatteryCharging,
+  Car,
+  Sun
 } from 'lucide-react';
 
 export default function AtelierPage() {
-  const [palletCount, setPalletCount] = useState(1); // 36 modules per pallet
+  const [activeTab, setActiveTab] = useState<'module' | 'battery' | 'carport'>('module');
+  const [palletCount, setPalletCount] = useState(1);
   const [reserved, setReserved] = useState(false);
 
   const modulesPerPallet = 36;
@@ -38,10 +40,51 @@ export default function AtelierPage() {
 
       <main className="space-y-24 py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         {/* Atelier Hero Section */}
-        <section className="relative rounded-3xl overflow-hidden bg-[#070A14] border border-white/15 p-8 sm:p-14 space-y-6 shadow-2xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-mono font-semibold uppercase tracking-wider">
-            <Cpu className="w-3.5 h-3.5" />
-            <span>Aurevia Hardware Atelier · Seesen / Harz</span>
+        <section className="relative rounded-3xl overflow-hidden bg-[#070A14] border border-white/15 p-8 sm:p-14 space-y-8 shadow-2xl">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-mono font-semibold uppercase tracking-wider">
+              <Cpu className="w-3.5 h-3.5" />
+              <span>Aurevia Hardware Atelier · Seesen / Harz</span>
+            </div>
+
+            {/* Hardware Component Switcher */}
+            <div className="flex items-center gap-2 bg-slate-950 p-1.5 rounded-2xl border border-white/10">
+              <button
+                onClick={() => setActiveTab('module')}
+                className={`px-4 py-2 rounded-xl text-xs font-mono font-bold flex items-center gap-1.5 transition ${
+                  activeTab === 'module'
+                    ? 'bg-amber-400 text-slate-950 shadow-lg'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <Sun className="w-3.5 h-3.5" />
+                <span>01. Solar-Modul</span>
+              </button>
+
+              <button
+                onClick={() => setActiveTab('battery')}
+                className={`px-4 py-2 rounded-xl text-xs font-mono font-bold flex items-center gap-1.5 transition ${
+                  activeTab === 'battery'
+                    ? 'bg-emerald-400 text-slate-950 shadow-lg'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <BatteryCharging className="w-3.5 h-3.5" />
+                <span>02. Speicher</span>
+              </button>
+
+              <button
+                onClick={() => setActiveTab('carport')}
+                className={`px-4 py-2 rounded-xl text-xs font-mono font-bold flex items-center gap-1.5 transition ${
+                  activeTab === 'carport'
+                    ? 'bg-amber-400 text-slate-950 shadow-lg'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <Car className="w-3.5 h-3.5" />
+                <span>03. Carport-Tragwerk</span>
+              </button>
+            </div>
           </div>
 
           <div className="max-w-3xl space-y-4">
@@ -77,9 +120,11 @@ export default function AtelierPage() {
           </div>
         </section>
 
-        {/* GSAP EXPLODED VIEW COMPONENT */}
+        {/* ACTIVE EXPLODED VIEW COMPONENT */}
         <section id="exploded-view" className="scroll-mt-24">
-          <ExplodedModuleView />
+          {activeTab === 'module' && <ExplodedModuleView />}
+          {activeTab === 'battery' && <ExplodedBatteryView />}
+          {activeTab === 'carport' && <ExplodedCarportView />}
         </section>
 
         {/* TECHNICAL BLUEPRINT & CAD SPECIFICATIONS */}
@@ -88,29 +133,35 @@ export default function AtelierPage() {
             <div className="flex justify-between items-center border-b border-white/10 pb-4">
               <div>
                 <span className="text-xs font-mono text-amber-400 uppercase font-bold">CAD Bauplan & Geometrie</span>
-                <h3 className="text-2xl font-bold text-white">Trina Vertex S+ TSM-NEG9R.28</h3>
+                <h3 className="text-2xl font-bold text-white">
+                  {activeTab === 'module' && 'Trina Vertex S+ TSM-NEG9R.28'}
+                  {activeTab === 'battery' && 'BYD Battery-Box Premium HVS 10.2'}
+                  {activeTab === 'carport' && 'Zola Pod Sovereign 100x100mm Alu-Tragwerk'}
+                </h3>
               </div>
               <span className="px-3 py-1 rounded-xl bg-slate-900 text-slate-300 font-mono text-xs border border-white/10">
-                1.762 × 1.134 × 30 mm
+                {activeTab === 'module' && '1.762 × 1.134 × 30 mm'}
+                {activeTab === 'battery' && '1.178 × 585 × 298 mm'}
+                {activeTab === 'carport' && '6.000 × 5.800 × 2.600 mm'}
               </span>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4 text-xs font-mono">
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-white/10 space-y-1">
-                <span className="text-slate-400">Abmessungen (L × B × H)</span>
-                <span className="text-white font-bold block text-sm">1.762 × 1.134 × 30 mm</span>
+                <span className="text-slate-400">Statik & Schneelast</span>
+                <span className="text-white font-bold block text-sm">Zone 3 Harz (5.4 kN/m²)</span>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-white/10 space-y-1">
-                <span className="text-slate-400">Modulgewicht</span>
-                <span className="text-white font-bold block text-sm">21.0 kg</span>
+                <span className="text-slate-400">Zertifizierungsnorm</span>
+                <span className="text-white font-bold block text-sm">IEC 61215 / DIN EN 1090-3</span>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-white/10 space-y-1">
-                <span className="text-slate-400">Vorder-/Rückseitenglas</span>
-                <span className="text-white font-bold block text-sm">1.6 mm / 1.6 mm Solarglas</span>
+                <span className="text-slate-400">Garantiezeitraum</span>
+                <span className="text-white font-bold block text-sm">30 Jahre Struktur & Leistung</span>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-white/10 space-y-1">
-                <span className="text-slate-400">Steckverbindung</span>
-                <span className="text-white font-bold block text-sm">Stäubli MC4-EVO2 Original</span>
+                <span className="text-slate-400">Steuerliche Einstufung</span>
+                <span className="text-emerald-400 font-bold block text-sm">0 % MwSt. (§ 12 Abs. 3 UStG)</span>
               </div>
             </div>
 
