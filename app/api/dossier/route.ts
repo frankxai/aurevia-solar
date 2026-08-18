@@ -57,7 +57,7 @@ export async function POST(request: Request) {
         contactEmail: 'anfrage@aurevia-solar.de'
       }
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     return NextResponse.json(
       {
         success: false,

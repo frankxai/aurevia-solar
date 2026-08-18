@@ -26,6 +26,7 @@ export default function AtelierPage() {
   const [activeTab, setActiveTab] = useState<'module' | 'battery' | 'carport'>('module');
   const [palletCount, setPalletCount] = useState(1);
   const [reserved, setReserved] = useState(false);
+  const [reservationCode] = useState(() => `AUR-SEESEN-${Date.now().toString(36).toUpperCase()}`);
 
   const modulesPerPallet = 36;
   const totalModules = palletCount * modulesPerPallet;
@@ -246,7 +247,7 @@ export default function AtelierPage() {
                   <CheckCircle2 className="w-6 h-6 text-emerald-400 mx-auto" />
                   <span className="text-emerald-300 font-bold text-sm block">Zuteilung für 72h reserviert!</span>
                   <p className="text-[11px] text-slate-300 font-mono">
-                    Reservierungs-Code: AUR-SEESEN-{Date.now().toString(36).toUpperCase()}
+                    Reservierungs-Code: {reservationCode}
                   </p>
                 </div>
               ) : (

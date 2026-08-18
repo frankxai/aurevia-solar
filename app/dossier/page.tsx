@@ -20,6 +20,27 @@ import {
   BatteryCharging
 } from 'lucide-react';
 
+interface DossierResult {
+  success: boolean;
+  status?: string;
+  quoteId?: string;
+  warehouseDispatch?: string;
+  estimatedDeliveryDays?: string;
+  allocation?: {
+    modulesAllocated: number;
+  };
+  financialSummary?: {
+    totalEur: number;
+  };
+  nextStep?: {
+    action: string;
+  };
+  action?: string;
+  directContact?: string;
+  contactEmail?: string;
+  error?: string;
+}
+
 export default function DossierPortalPage() {
   const [activeMode, setActiveMode] = useState<'interactive' | 'json'>('interactive');
   
@@ -33,7 +54,7 @@ export default function DossierPortalPage() {
   // Raw JSON State
   const [jsonInput, setJsonInput] = useState('');
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<DossierResult | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const calculatedKwp = ((moduleCount * 440) / 1000).toFixed(2);
@@ -92,8 +113,8 @@ export default function DossierPortalPage() {
       }
 
       setResult(data);
-    } catch (err: any) {
-      setError(err?.message || 'Ungültiges Dossier-Format. Bitte Eingaben prüfen.');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Ungültiges JSON-Format. Bitte prüfen Sie Ihre Eingabe.');
     } finally {
       setLoading(false);
     }
