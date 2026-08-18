@@ -61,6 +61,9 @@ export default function DossierPortalPage() {
   const calculatedYield = Math.round(Number(calculatedKwp) * 980);
 
   const getPayload = () => {
+    // eslint-disable-next-line react-hooks/purity
+    const verificationHash = `AUR-EST-${Date.now().toString(36).toUpperCase()}`;
+    
     if (activeMode === 'json' && jsonInput.trim()) {
       return JSON.parse(jsonInput);
     }
@@ -90,7 +93,7 @@ export default function DossierPortalPage() {
         annualCo2SavingsKg: Math.round(calculatedYield * 0.48),
         vatRate: 0
       },
-      verificationHash: `AUR-EST-${Date.now().toString(36).toUpperCase()}`
+      verificationHash
     };
   };
 
