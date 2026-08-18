@@ -3,10 +3,7 @@
 import React, { useState } from 'react';
 import { NavbarV2 } from '@/components/NavbarV2';
 import { MobileStickyBarV2 } from '@/components/MobileStickyBarV2';
-import { CarportConfiguratorV2 } from '@/components/CarportConfiguratorV2';
-import { LeadMagnetModal } from '@/components/LeadMagnetModal';
-import { SellerCopilotModal } from '@/components/SellerCopilotModal';
-import { VoiceAgentWidget } from '@/components/VoiceAgentWidget';
+import { ExplodedModuleView } from '@/components/ExplodedModuleView';
 import { pvlagerImages } from '@/lib/pvlager-media';
 import {
   ShieldCheck,
@@ -22,20 +19,12 @@ import {
   Award,
   Layers,
   Cpu,
-  Activity,
-  Camera,
-  Video
+  Download,
+  PhoneCall
 } from 'lucide-react';
 
 export default function V2LandingPage() {
-  // Modal states
-  const [isLeadMagnetOpen, setIsLeadMagnetOpen] = useState(false);
-  const [isCopilotOpen, setIsCopilotOpen] = useState(false);
-  const [isVoiceOpen, setIsVoiceOpen] = useState(false);
   const [activeImage, setActiveImage] = useState<string | null>(null);
-
-  // Active Gemini Omni Strategy Tab
-  const [omniTab, setOmniTab] = useState<'vision' | 'video' | 'telemetry'>('vision');
 
   // Ultra-Curated SOTA Product Catalog (Cool, Real, Authentic)
   const productShowcase = [
@@ -107,11 +96,7 @@ export default function V2LandingPage() {
       `}</style>
 
       {/* Floating Header Navigation */}
-      <NavbarV2
-        onOpenLeadMagnet={() => setIsLeadMagnetOpen(true)}
-        onOpenCopilot={() => setIsCopilotOpen(true)}
-        onOpenVoice={() => setIsVoiceOpen(true)}
-      />
+      <NavbarV2 />
 
       <main className="space-y-32 py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         {/* 1. SOTA APPLE/PORSCHE-GRADE HERO SECTION */}
@@ -163,13 +148,13 @@ export default function V2LandingPage() {
                 <ChevronRight className="w-4 h-4" />
               </a>
 
-              <button
-                onClick={() => setIsLeadMagnetOpen(true)}
-                className="px-7 py-4 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 font-medium text-xs sm:text-sm border border-white/15 transition flex items-center justify-center gap-2 backdrop-blur-md"
+              <a
+                href="/dossier"
+                className="px-7 py-4 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-emerald-300 font-medium text-xs sm:text-sm border border-emerald-500/30 transition flex items-center justify-center gap-2 backdrop-blur-md"
               >
-                <BookOpen className="w-4 h-4 text-amber-400" />
-                <span>Kaufkompass PDF erhalten</span>
-              </button>
+                <Cpu className="w-4 h-4 text-emerald-400" />
+                <span>AI Skill Dossier einreichen</span>
+              </a>
             </div>
 
             {/* Key Facts Row */}
@@ -259,109 +244,7 @@ export default function V2LandingPage() {
           </div>
         </section>
 
-        {/* 3. INTERACTIVE 3D CONFIGURATOR V2 */}
-        <section id="configurator-v2" className="scroll-mt-24">
-          <CarportConfiguratorV2 />
-        </section>
-
-        {/* 4. GEMINI OMNI MULTIMODAL AI STRATEGY ROADMAP */}
-        <section id="gemini-omni" className="bg-[#070A14] border border-emerald-500/30 p-8 sm:p-12 rounded-3xl space-y-8 shadow-2xl">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-white/10 pb-6">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-[11px] font-mono font-medium uppercase tracking-wider mb-2">
-                <Cpu className="w-3.5 h-3.5" />
-                <span>Zukunftskonzept · Gemini Omni Integration</span>
-              </div>
-              <h2 className="text-2xl sm:text-4xl font-bold text-white">
-                Multimodale KI-Planung & Digital Twin
-              </h2>
-            </div>
-
-            {/* Tabs */}
-            <div className="flex items-center gap-2">
-              {(
-                [
-                  { id: 'vision', label: 'Kamera Intake', icon: Camera },
-                  { id: 'video', label: '4K Drohnen Video', icon: Video },
-                  { id: 'telemetry', label: 'Echtzeit Telemetrie', icon: Activity },
-                ] as const
-              ).map((tab) => {
-                const Icon = tab.icon;
-                return (
-                  <button
-                    key={tab.id}
-                    onClick={() => setOmniTab(tab.id)}
-                    className={`px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition ${
-                      omniTab === tab.id
-                        ? 'bg-emerald-400 text-slate-950 font-bold shadow-lg'
-                        : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-white/10'
-                    }`}
-                  >
-                    <Icon className="w-3.5 h-3.5" />
-                    <span>{tab.label}</span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="grid lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 space-y-4">
-              {omniTab === 'vision' && (
-                <>
-                  <span className="text-xs font-mono text-emerald-400 uppercase tracking-wider block font-bold">1. Smartphone Kamera Vermessung</span>
-                  <h3 className="text-2xl font-bold text-white">Automatische Baustellendiagnose</h3>
-                  <p className="text-slate-300 text-xs leading-relaxed">
-                    Der Kunde richtet sein Smartphone auf die Einfahrt. Gemini Vision analysiert Fundamente, Untergrund und Schattenverlauf und berechnet automatisch die optimale Modulbelegung.
-                  </p>
-                </>
-              )}
-
-              {omniTab === 'video' && (
-                <>
-                  <span className="text-xs font-mono text-emerald-400 uppercase tracking-wider block font-bold">2. Synthetische Visualisierung</span>
-                  <h3 className="text-2xl font-bold text-white">Persönlicher Drohnen-Flythrough</h3>
-                  <p className="text-slate-300 text-xs leading-relaxed">
-                    Innerhalb von Sekunden generieren wir ein hochauflösendes 3D-Video des gewählten Carports direkt im Kontext des Kundenanwesens.
-                  </p>
-                </>
-              )}
-
-              {omniTab === 'telemetry' && (
-                <>
-                  <span className="text-xs font-mono text-emerald-400 uppercase tracking-wider block font-bold">3. Digital Twin Energiemanagement</span>
-                  <h3 className="text-2xl font-bold text-white">Vorausschauende Steuerung</h3>
-                  <p className="text-slate-300 text-xs leading-relaxed">
-                    Kopplung des Speichers und der Solar-Klimatisierung an Wetterdaten und dynamische Stromtarife für maximale Autarkie.
-                  </p>
-                </>
-              )}
-
-              <div className="pt-2">
-                <button
-                  onClick={() => setIsCopilotOpen(true)}
-                  className="px-6 py-3 rounded-2xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-bold text-xs shadow-lg transition"
-                >
-                  KI-Concierge Demo öffnen ➔
-                </button>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 p-6 rounded-2xl bg-slate-950 border border-emerald-500/20 space-y-3 font-mono text-xs">
-              <div className="flex justify-between items-center text-emerald-400 border-b border-slate-800 pb-2">
-                <span>Gemini Telemetry Log</span>
-                <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-[10px]">ONLINE</span>
-              </div>
-              <p className="text-slate-400 text-[11px] leading-relaxed">
-                {omniTab === 'vision' && '> Video Stream: 30 fps 1080p\n> Model: Gemini 1.5 Vision Grid\n> Output: Fundament-Code & Schneelast-Klasse'}
-                {omniTab === 'video' && '> Render Pipeline: Veo 2 / NanoBanana\n> Latency: 4.2 sec\n> Output: 4K Drone Visual Embed'}
-                {omniTab === 'telemetry' && '> Weather Engine: DWD Harz Station\n> Storage Strategy: Charge at 02:00 / Discharge at 18:00\n> Net Autarky: 92.4 %'}
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* 5. CURATED PRODUCT CATALOG */}
+        {/* 3. CURATED PRODUCT CATALOG */}
         <section id="showcase-v2" className="space-y-8">
           <div className="max-w-2xl space-y-2">
             <span className="text-xs font-mono text-amber-400 uppercase tracking-widest font-semibold">Zentrallager Seesen</span>
@@ -459,10 +342,7 @@ export default function V2LandingPage() {
       </main>
 
       {/* MOBILE STICKY DOCK */}
-      <MobileStickyBarV2
-        onOpenLeadMagnet={() => setIsLeadMagnetOpen(true)}
-        onOpenCopilot={() => setIsCopilotOpen(true)}
-      />
+      <MobileStickyBarV2 />
 
       {/* LIGHTBOX MODAL */}
       {activeImage && (
@@ -472,11 +352,6 @@ export default function V2LandingPage() {
           </div>
         </div>
       )}
-
-      {/* MODALS SUITE */}
-      <LeadMagnetModal isOpen={isLeadMagnetOpen} onClose={() => setIsLeadMagnetOpen(false)} />
-      <SellerCopilotModal isOpen={isCopilotOpen} onClose={() => setIsCopilotOpen(false)} />
-      <VoiceAgentWidget isOpen={isVoiceOpen} onClose={() => setIsVoiceOpen(false)} />
     </div>
   );
 }

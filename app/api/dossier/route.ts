@@ -62,7 +62,7 @@ export async function POST(request: Request) {
       {
         success: false,
         error: 'Ungültiges Dossier-Format. Bitte prüfen Sie die AureviaEstateDossier_v1 Spezifikation.',
-        details: error?.message || 'Unknown error'
+        details: error instanceof Error ? error.message : 'Unknown error'
       },
       { status: 400 }
     );

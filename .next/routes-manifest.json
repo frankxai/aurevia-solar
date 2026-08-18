@@ -1,0 +1,131 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/agb",
+      "regex": "^/agb(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/agb(?:/)?$"
+    },
+    {
+      "page": "/analyse",
+      "regex": "^/analyse(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/analyse(?:/)?$"
+    },
+    {
+      "page": "/atelier",
+      "regex": "^/atelier(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/atelier(?:/)?$"
+    },
+    {
+      "page": "/autarkie",
+      "regex": "^/autarkie(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/autarkie(?:/)?$"
+    },
+    {
+      "page": "/datenschutz",
+      "regex": "^/datenschutz(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/datenschutz(?:/)?$"
+    },
+    {
+      "page": "/dossier",
+      "regex": "^/dossier(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dossier(?:/)?$"
+    },
+    {
+      "page": "/herkunft",
+      "regex": "^/herkunft(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/herkunft(?:/)?$"
+    },
+    {
+      "page": "/impressum",
+      "regex": "^/impressum(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/impressum(?:/)?$"
+    },
+    {
+      "page": "/konzept",
+      "regex": "^/konzept(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/konzept(?:/)?$"
+    },
+    {
+      "page": "/realisierung",
+      "regex": "^/realisierung(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/realisierung(?:/)?$"
+    },
+    {
+      "page": "/referenzen",
+      "regex": "^/referenzen(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/referenzen(?:/)?$"
+    },
+    {
+      "page": "/v2",
+      "regex": "^/v2(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/v2(?:/)?$"
+    },
+    {
+      "page": "/widerruf",
+      "regex": "^/widerruf(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/widerruf(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}
