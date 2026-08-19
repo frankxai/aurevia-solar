@@ -30,7 +30,7 @@ export default function AGB() {
         <p>
           Diese Allgemeinen Geschäftsbedingungen gelten für Verträge über die beschriebenen
           Planungsleistungen zwischen Ihnen und der {COMPANY.legalName}, {COMPANY.street}, {COMPANY.postalCode}{' '}
-          {COMPANY.city} (nachfolgend „wir") geschlossen werden. Aurevia ist eine Marke der{' '}
+          {COMPANY.city} (nachfolgend &bdquo;wir&ldquo;). Aurevia ist eine Marke der{' '}
           {COMPANY.legalName}.
         </p>
         <p>

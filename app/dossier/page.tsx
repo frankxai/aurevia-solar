@@ -20,6 +20,27 @@ import {
   BatteryCharging
 } from 'lucide-react';
 
+interface DossierResult {
+  success: boolean;
+  status?: string;
+  quoteId?: string;
+  warehouseDispatch?: string;
+  estimatedDeliveryDays?: string;
+  allocation?: {
+    modulesAllocated: number;
+  };
+  financialSummary?: {
+    totalEur: number;
+  };
+  nextStep?: {
+    action: string;
+  };
+  action?: string;
+  directContact?: string;
+  contactEmail?: string;
+  error?: string;
+}
+
 export default function DossierPortalPage() {
   const [activeMode, setActiveMode] = useState<'interactive' | 'json'>('interactive');
   
@@ -33,13 +54,16 @@ export default function DossierPortalPage() {
   // Raw JSON State
   const [jsonInput, setJsonInput] = useState('');
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<DossierResult | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const calculatedKwp = ((moduleCount * 440) / 1000).toFixed(2);
   const calculatedYield = Math.round(Number(calculatedKwp) * 980);
 
   const getPayload = () => {
+    // eslint-disable-next-line react-hooks/purity
+    const verificationHash = `AUR-EST-${Date.now().toString(36).toUpperCase()}`;
+    
     if (activeMode === 'json' && jsonInput.trim()) {
       return JSON.parse(jsonInput);
     }
@@ -69,7 +93,7 @@ export default function DossierPortalPage() {
         annualCo2SavingsKg: Math.round(calculatedYield * 0.48),
         vatRate: 0
       },
-      verificationHash: `AUR-EST-${Date.now().toString(36).toUpperCase()}`
+      verificationHash
     };
   };
 
@@ -92,8 +116,8 @@ export default function DossierPortalPage() {
       }
 
       setResult(data);
-    } catch (err: any) {
-      setError(err?.message || 'Ungültiges Dossier-Format. Bitte Eingaben prüfen.');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Ungültiges JSON-Format. Bitte prüfen Sie Ihre Eingabe.');
     } finally {
       setLoading(false);
     }
@@ -279,27 +303,27 @@ export default function DossierPortalPage() {
                 <div className="flex justify-between items-center border-b border-emerald-500/20 pb-4">
                   <div>
                     <span className="text-[10px] font-mono text-emerald-400 uppercase font-bold block">
-                      Status: {result.status}
+                      Status: {result?.status}
                     </span>
                     <h3 className="text-xl font-bold text-white">Zuteilung erfolgreich verifiziert</h3>
                   </div>
                   <span className="px-3 py-1 rounded-xl bg-emerald-500/20 text-emerald-300 font-mono text-xs font-bold">
-                    {result.quoteId}
+                    {result?.quoteId}
                   </span>
                 </div>
 
                 <div className="space-y-3 text-xs font-mono">
                   <div className="p-3.5 rounded-xl bg-slate-950 border border-white/10 flex justify-between">
                     <span className="text-slate-400">Versand-Zentrallager:</span>
-                    <span className="text-white font-bold">{result.warehouseDispatch}</span>
+                    <span className="text-white font-bold">{result?.warehouseDispatch}</span>
                   </div>
                   <div className="p-3.5 rounded-xl bg-slate-950 border border-white/10 flex justify-between">
                     <span className="text-slate-400">Lieferzeit Spedition:</span>
-                    <span className="text-amber-300 font-bold">{result.estimatedDeliveryDays}</span>
+                    <span className="text-amber-300 font-bold">{result?.estimatedDeliveryDays}</span>
                   </div>
                   <div className="p-3.5 rounded-xl bg-slate-950 border border-white/10 flex justify-between">
                     <span className="text-slate-400">Reservierte Module:</span>
-                    <span className="text-white font-bold">{result.allocation.modulesAllocated} Stk. Trina 440W</span>
+                    <span className="text-white font-bold">{result?.allocation?.modulesAllocated} Stk. Trina 440W</span>
                   </div>
                   <div className="p-3.5 rounded-xl bg-slate-950 border border-white/10 flex justify-between">
                     <span className="text-slate-400">Steuersatz (§12 UStG):</span>
@@ -307,7 +331,7 @@ export default function DossierPortalPage() {
                   </div>
                   <div className="p-4 rounded-xl bg-slate-950 border border-emerald-500/30 flex justify-between text-sm">
                     <span className="text-white font-bold">Verbindlicher Richtpreis:</span>
-                    <span className="text-amber-400 font-bold text-base">{result.financialSummary.totalEur.toLocaleString('de-DE')} €</span>
+                    <span className="text-amber-400 font-bold text-base">{result?.financialSummary?.totalEur.toLocaleString('de-DE')} €</span>
                   </div>
                 </div>
 
@@ -317,7 +341,7 @@ export default function DossierPortalPage() {
                     <span>Lagerware für 72 Stunden reserviert</span>
                   </div>
                   <p className="text-[11px]">
-                    {result.nextStep.action}
+                    {result?.nextStep?.action}
                   </p>
                 </div>
               </div>

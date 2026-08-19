@@ -7,15 +7,18 @@ import { ExplodedModuleView } from '@/components/ExplodedModuleView';
 import { pvlagerImages } from '@/lib/pvlager-media';
 import {
   ShieldCheck,
+  Sparkles,
+  ArrowRight,
   Zap,
   Truck,
   Sun,
+  BookOpen,
   Maximize2,
   FileCheck,
   ChevronRight,
+  Award,
   Layers,
   Cpu,
-  ArrowRight,
   Download,
   PhoneCall
 } from 'lucide-react';
@@ -23,13 +26,14 @@ import {
 export default function V2LandingPage() {
   const [activeImage, setActiveImage] = useState<string | null>(null);
 
-  // Ultra-Curated SOTA Product Catalog
+  // Ultra-Curated SOTA Product Catalog (Cool, Real, Authentic)
   const productShowcase = [
     {
       title: 'Zola Pod Sovereign (Doppelcarport)',
       subtitle: 'Aluminium-Tragwerk 100 × 100 mm',
       price: '3.490 €',
       img: pvlagerImages.carportKitDouble,
+      tag: 'Bestseller Seesen',
       desc: 'Extrudiertes Struktur-Aluminium mit unsichtbarer Entwässerung. Ausgelegt für Schneelastzone 3 im Harz.'
     },
     {
@@ -85,13 +89,19 @@ export default function V2LandingPage() {
 
   return (
     <div className="min-h-screen bg-[#04060C] text-slate-100 font-sans selection:bg-amber-400 selection:text-slate-950 pb-24 lg:pb-12 relative overflow-x-hidden">
+      {/* Google Fonts */}
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap');
+        .font-serif-editorial { font-family: 'Newsreader', Georgia, serif; }
+      `}</style>
+
       {/* Floating Header Navigation */}
       <NavbarV2 />
 
       <main className="space-y-32 py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        {/* 1. SOTA HERO SECTION */}
+        {/* 1. SOTA APPLE/PORSCHE-GRADE HERO SECTION */}
         <section id="hero" className="relative rounded-3xl overflow-hidden bg-[#070A14] border border-white/10 p-8 sm:p-16 lg:p-20 grid lg:grid-cols-12 gap-12 items-center shadow-2xl">
-          {/* Visual Backdrop */}
+          {/* Master Visual Backdrop */}
           <div className="absolute inset-0 z-0">
             <img
               src={pvlagerImages.dronespott2}
@@ -102,8 +112,11 @@ export default function V2LandingPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#04060C] via-[#04060C]/60 to-transparent" />
           </div>
 
+          {/* Quiet Ambient Lighting */}
+          <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-gradient-to-bl from-amber-500/15 via-emerald-500/10 to-transparent rounded-full blur-[140px] pointer-events-none" />
+
           <div className="lg:col-span-7 space-y-8 relative z-10">
-            {/* Micro Badge */}
+            {/* Minimalist Micro Badge */}
             <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-slate-900/80 border border-white/15 text-slate-300 text-xs font-medium backdrop-blur-md">
               <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
               <span>Aurevia Sovereign V2 · RIAL Energy GmbH</span>
@@ -111,15 +124,15 @@ export default function V2LandingPage() {
               <span className="text-amber-300 font-mono text-[11px]">Seesen / Harz</span>
             </div>
 
-            {/* Headline */}
+            {/* Powerful Clean Headline */}
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]">
               Struktur. Licht.{' '}
-              <span className="italic font-normal text-amber-300">
+              <span className="font-serif-editorial italic font-normal text-amber-300">
                 Autarkie.
               </span>
             </h1>
 
-            {/* Subtitle */}
+            {/* Clean Architectural Subtitle */}
             <p className="text-base sm:text-xl text-slate-300 leading-relaxed font-light max-w-2xl">
               Voll-Aluminium Solar-Carports 100 × 100 mm und bifaziale Glas-Glas Eindeckung. Entwickelt für hohe Schneelasten. Aus unserem Zentrallager in Seesen.
             </p>
@@ -127,11 +140,11 @@ export default function V2LandingPage() {
             {/* Action Group */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3">
               <a
-                href="/atelier"
+                href="#configurator-v2"
                 className="px-8 py-4 rounded-2xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs sm:text-sm shadow-xl transition flex items-center justify-center gap-2 transform hover:scale-[1.02]"
               >
-                <Layers className="w-4 h-4" />
-                <span>Hardware Atelier & Zerlegung</span>
+                <Zap className="w-4 h-4 fill-current" />
+                <span>3D Konfigurator öffnen</span>
                 <ChevronRight className="w-4 h-4" />
               </a>
 
@@ -165,7 +178,7 @@ export default function V2LandingPage() {
             </div>
           </div>
 
-          {/* Right Spotlight */}
+          {/* Right Tactile Spotlight */}
           <div className="lg:col-span-5 relative z-10">
             <div className="bg-slate-900/80 border border-white/15 p-4 rounded-3xl space-y-4 shadow-2xl backdrop-blur-md">
               <div
@@ -196,12 +209,7 @@ export default function V2LandingPage() {
           </div>
         </section>
 
-        {/* 2. GSAP HARDWARE EXPLODED VIEW SECTION */}
-        <section id="module-dissection" className="scroll-mt-24">
-          <ExplodedModuleView />
-        </section>
-
-        {/* 3. APPLE BENTO GRID SHOWCASE */}
+        {/* 2. SOTA APPLE BENTO GRID SHOWCASE */}
         <section id="bento-v2" className="space-y-8">
           <div className="max-w-2xl space-y-3">
             <span className="text-xs font-mono text-amber-400 uppercase tracking-widest font-semibold">Werkstoff & Ingenieurkunst</span>
@@ -236,40 +244,7 @@ export default function V2LandingPage() {
           </div>
         </section>
 
-        {/* 4. AUREVIA AGENTIC AI SKILL PORTAL BANNER */}
-        <section className="bg-gradient-to-r from-slate-950 via-[#070A14] to-emerald-950/40 border border-emerald-500/30 p-8 sm:p-12 rounded-3xl space-y-6 shadow-2xl flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-          <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-mono font-bold uppercase tracking-wider">
-              <Cpu className="w-3.5 h-3.5" />
-              <span>Aurevia AI Skill Protocol</span>
-            </div>
-            <h2 className="text-2xl sm:text-4xl font-bold text-white">
-              Planen Sie Ihr Anwesen direkt in ChatGPT, Claude oder Antigravity
-            </h2>
-            <p className="text-slate-300 text-xs leading-relaxed">
-              Installieren Sie den offiziellen <strong className="text-emerald-300">Aurevia Solar Architect Skill</strong>. Ihr KI-Assistent analysiert Topologie, Schneelast und Ertrag und generiert ein maschinenlesbares Dossier für sofortige Warenzuteilung in Seesen.
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-stretch lg:items-center gap-3 shrink-0">
-            <a
-              href="/skills/aurevia-estate-architect.skill.md"
-              target="_blank"
-              className="px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-amber-300 font-mono text-xs font-bold border border-amber-400/30 flex items-center justify-center gap-2 transition shadow-lg"
-            >
-              <Download className="w-4 h-4" />
-              <span>Skill Herunterladen</span>
-            </a>
-            <a
-              href="/dossier"
-              className="px-6 py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shadow-lg flex items-center justify-center gap-2 transition"
-            >
-              <span>Dossier Einreichen ➔</span>
-            </a>
-          </div>
-        </section>
-
-        {/* 5. CURATED PRODUCT CATALOG */}
+        {/* 3. CURATED PRODUCT CATALOG */}
         <section id="showcase-v2" className="space-y-8">
           <div className="max-w-2xl space-y-2">
             <span className="text-xs font-mono text-amber-400 uppercase tracking-widest font-semibold">Zentrallager Seesen</span>
@@ -317,16 +292,51 @@ export default function V2LandingPage() {
                       <span className="text-amber-300 font-bold font-mono text-sm">{item.price}</span>
                     </div>
                     <a
-                      href="/atelier"
+                      href="#configurator-v2"
                       className="text-[11px] font-semibold text-slate-200 hover:text-white flex items-center gap-1 bg-slate-900 px-3 py-1.5 rounded-xl border border-white/15"
                     >
-                      <span>Im Atelier ansehen</span>
+                      <span>Wählen</span>
                       <ArrowRight className="w-3 h-3 text-amber-400" />
                     </a>
                   </div>
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* 6. ENGINEERING TRANSPARENCY HUB */}
+        <section id="engineering" className="bg-[#070A14] border border-white/10 p-8 sm:p-12 rounded-3xl space-y-8 shadow-2xl">
+          <div className="max-w-2xl space-y-2">
+            <span className="text-xs font-mono uppercase text-amber-400 tracking-wider font-semibold">Werkstoff-Vergleich</span>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white">Struktur-Aluminium vs. Holz & Stahl</h2>
+            <p className="text-slate-400 text-xs">Transparente Gegenüberstellung für Ihr Anwesen im Harz.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-950 border border-amber-400/30 space-y-3">
+              <div className="w-8 h-8 rounded-lg bg-amber-400/10 text-amber-400 flex items-center justify-center font-mono text-xs font-bold">01</div>
+              <h3 className="font-bold text-white text-base">Aluminium 100 × 100 mm</h3>
+              <p className="text-slate-300 text-xs leading-relaxed">
+                Dauerhaft wartungsfrei, korrosionsbeständig, formstabil unter hoher Schneelast im Harz.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-950 border border-white/10 space-y-3">
+              <div className="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 flex items-center justify-center font-mono text-xs font-bold">02</div>
+              <h3 className="font-bold text-slate-300 text-base">Leimholz & BSH</h3>
+              <p className="text-slate-400 text-xs leading-relaxed">
+                Benötigt regelmäßigen Schutzanstrich, nimmt Feuchtigkeit auf und neigt zu Rissbildung.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-950 border border-white/10 space-y-3">
+              <div className="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 flex items-center justify-center font-mono text-xs font-bold">03</div>
+              <h3 className="font-bold text-slate-300 text-base">Verzinkter Stahl</h3>
+              <p className="text-slate-400 text-xs leading-relaxed">
+                Hohes Eigengewicht. Korrosionsrisiko an Bohrpunkten und Schnittkanten.
+              </p>
+            </div>
           </div>
         </section>
       </main>
