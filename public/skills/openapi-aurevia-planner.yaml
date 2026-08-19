@@ -1,53 +1,18 @@
 openapi: 3.1.0
 info:
-  title: Aurevia Sovereign Estate Planner API
-  description: Live inventory and estate dossier validation API for Aurevia Sovereign / RIAL Energy Group Zentrallager Seesen.
-  version: 1.0.0
-servers:
-  - url: https://aurevia-solar.vercel.app/api
-paths:
-  /stock:
-    get:
-      summary: Query live warehouse stock in Seesen
-      description: Returns available quantities for Trina bifacial modules, Zola Pod carport kits, and BYD batteries.
-      operationId: getLiveStock
-      responses:
-        '200':
-          description: Stock status object
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  warehouse:
-                    type: string
-                  inventory:
-                    type: array
-                    items:
-                      type: object
-  /dossier:
-    post:
-      summary: Validate an AI-generated Estate Dossier
-      description: Ingests an AureviaEstateDossier_v1 JSON payload and returns real-time inventory allocation, statutory check, and quote.
-      operationId: submitEstateDossier
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - configuration
-                - client
-              properties:
-                client:
-                  type: object
-                configuration:
-                  type: object
-      responses:
-        '200':
-          description: Validated quote and allocation receipt
-          content:
-            application/json:
-              schema:
-                type: object
+  title: Aurevia Planner API — WITHDRAWN
+  version: 0.2.0
+  description: |
+    WITHDRAWN 2026-08-19 / ZURÜCKGEZOGEN 2026-08-19.
+
+    Version 0.1 of this specification described API behavior that does not
+    exist: a warehouse-stock endpoint (/stock returns 410 Gone) and a dossier
+    endpoint that claimed to return guaranteed, warehouse-checked allocations
+    (/api/dossier now returns 410 Gone). Do not call these endpoints and do not
+    rely on any earlier version of this file.
+
+    No reservations, allocations, or stock statements from any earlier version
+    are valid. A corrected release, if any, will appear at
+    https://aurevia-solar.vercel.app/shop together with published capability
+    evidence.
+paths: {}
