@@ -32,6 +32,9 @@ export function NavbarV2({ onOpenLeadMagnet, onOpenCopilot, onOpenVoice }: Navba
             <span>Hardware Atelier</span>
           </a>
 
+          <a href="/proof" className="hover:text-white transition font-semibold">
+            Proof
+          </a>
         </nav>
 
         {/* Right Action Suite */}
