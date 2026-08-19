@@ -31,13 +31,6 @@ export function MobileStickyBarV2() {
           <span>3D Atelier</span>
         </a>
 
-        <a
-          href="/dossier"
-          className="flex flex-col items-center gap-1 text-emerald-300 hover:text-emerald-200 px-2 py-1 transition"
-        >
-          <Cpu className="w-4 h-4 text-emerald-400" />
-          <span>AI Ingestion</span>
-        </a>
       </div>
     </div>
   );

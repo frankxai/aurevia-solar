@@ -25,7 +25,7 @@ export function ExplodedCarportView() {
       id: 1,
       name: 'Bifaziale Glas-Glas Solardach-Eindeckung',
       category: 'Aktive Solareindeckung',
-      specs: { 'Modul-Typ': 'Trina Vertex S+ 440W N-Type', 'Lichtdurchlässigkeit': '12 % Diffuslicht', 'Ertrag': 'Bis zu 14.000 kWh/a' },
+      specs: { 'Modul-Typ': 'Trina Vertex S+ 440W N-Type', 'Lichtdurchlässigkeit': '12 % Diffuslicht', 'Ertrag': 'objekt- und standortabhängig' },
       offsetDesktop: -180,
       benefit: 'Dient gleichzeitig als wasserdichtes Schutzdach und hocheffizientes Kraftwerk.',
       color: 'from-amber-500/20 via-slate-900 to-indigo-950',

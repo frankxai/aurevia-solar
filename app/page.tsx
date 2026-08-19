@@ -52,7 +52,7 @@ export default function HomePage() {
             </h1>
 
             <p className="text-base sm:text-xl text-slate-300 leading-relaxed font-light max-w-3xl">
-              Das weltweit erste Ökosystem, das reale deutsche Solar-Hardware (100×100 mm Struktur-Aluminium, bifaziales Doppelglas, Zentrallager Seesen) mit installierbaren AI Skills, Multi-Agenten-Schwärmen und parametrischer Software vereint.
+              Reale deutsche Solar-Hardware (100×100 mm Struktur-Aluminium, bifaziales Doppelglas) trifft auf installierbare AI Skills, Multi-Agenten-Workflows und parametrische Software. Jedes Produkt erscheint erst, wenn es real existiert und belegt ist.
             </p>
 
             {/* Primary Action Buttons */}
@@ -87,8 +87,8 @@ export default function HomePage() {
               <span className="text-white font-bold text-base">100 × 100 mm Alu</span>
             </div>
             <div className="p-4 rounded-2xl bg-slate-950/80 border border-white/10">
-              <span className="text-slate-400 block">Statik-Zertifikat:</span>
-              <span className="text-emerald-400 font-bold text-base">Zone 3 (5.4 kN/m²)</span>
+              <span className="text-slate-400 block">Statik:</span>
+              <span className="text-slate-100 font-bold text-base">objektbezogen zu prüfen</span>
             </div>
             <div className="p-4 rounded-2xl bg-slate-950/80 border border-white/10">
               <span className="text-slate-400 block">Lizenzmodell:</span>
@@ -107,7 +107,7 @@ export default function HomePage() {
               Reale Hardware trifft auf generative Software.
             </h2>
             <p className="text-slate-400 text-sm sm:text-base leading-relaxed font-light">
-              Keine abstrakte KI-Fantasie. Jede Zeile unserer AI-Prompts, Berechnungs-Skills und BOM-Engines basiert auf echter, in Deutschland gebauter und statisch geprüfter Solar-Architektur.
+              Keine abstrakte KI-Fantasie. Unsere AI-Prompts, Berechnungs-Skills und BOM-Engines basieren auf echter, in Deutschland gebauter Solar-Architektur. Statik, Elektroplanung und Freigaben bleiben immer Sache qualifizierter Fachbetriebe am Objekt.
             </p>
           </div>
 
@@ -123,7 +123,7 @@ export default function HomePage() {
                   Zola Pod Struktur-Aluminium & Seesen Zentrallager
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
-                  Entwickelt und gefertigt nach DIN EN 1090-3 für extreme Schneelasten im Harzer Umland. 100×100 mm massive Pfosten, unsichtbare Regenrinnenführung und bifaziale Doppelglas-Module.
+                  Ausgelegt für hohe Schneelasten im Harzer Umland — die konkrete Auslegung ist am Objekt zu prüfen. 100×100 mm massive Pfosten, innenliegende Regenrinnenführung und bifaziale Doppelglas-Module.
                 </p>
 
                 {/* Audited Reference Proof Media */}
@@ -149,7 +149,7 @@ export default function HomePage() {
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Direkt-Versand aus Zentrallager Seesen</span>
+                    <span>Hardware-Vertrieb über PV Lager und SolarCarport.tech</span>
                   </li>
                 </ul>
               </div>
@@ -176,7 +176,7 @@ export default function HomePage() {
                   Multi-Agenten-Schwärme, Prompts & BOM Software
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
-                  Vollständige Digital-Suiten für AI-Assistenten, Handwerksbetriebe und Architekten. Generieren Sie 3D Render-Prompts, parametrische Zuschnittlisten und verifizierte Dossiers in Sekunden.
+                  Digital-Werkzeuge für AI-Assistenten, Handwerksbetriebe und Architekten: Render-Prompts, parametrische Zuschnittlisten und dokumentierte Planungs-Dossiers — jeweils mit veröffentlichtem Beleg, was sie können und was nicht.
                 </p>
                 <ul className="space-y-2 text-xs font-mono text-slate-300 pt-2">
                   <li className="flex items-center gap-2">
@@ -185,7 +185,7 @@ export default function HomePage() {
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>100+ SOTA Visual-Prompts (Midjourney / FLUX)</span>
+                    <span>Visual-Prompt-Pack (3 freie Beispiele; Vollversion in Entwicklung)</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />

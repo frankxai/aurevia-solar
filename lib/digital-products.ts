@@ -5,14 +5,14 @@ export interface DigitalProduct {
   subtitle: string;
   category: 'ai-skills' | 'prompt-packs' | 'engineering-software' | 'swarms' | 'enterprise';
   categoryLabel: string;
-  priceEur: number;
-  priceUsd: number;
-  badge?: string;
-  rating: number;
-  reviewCount: number;
+  /** 'available' = downloadable today; 'in-development' = waitlist only, nothing is sold. */
+  status: 'available' | 'in-development';
+  /** Planned launch price. Displayed as a plan, never charged — no checkout exists yet. */
+  plannedPriceEur: number | null;
   description: string;
   features: string[];
   capabilities: string[];
+  /** Only files that exist in this repository, with generated (true) sizes. */
   deliverables: {
     filename: string;
     filetype: string;
@@ -33,252 +33,163 @@ export const DIGITAL_PRODUCTS: DigitalProduct[] = [
     id: 'prod-01-core-skill',
     slug: 'aurevia-estate-architect-core',
     title: 'Aurevia Estate Architect Skill',
-    subtitle: 'Der autonome Solar- & Carport-Planer für Claude Code, ChatGPT & Antigravity',
+    subtitle: 'Planungs-Skill für Claude Code, ChatGPT und Gemini — Erstabschätzung mit expliziten Annahmen',
     category: 'ai-skills',
     categoryLabel: 'AI Skill / Agent Instruction',
-    priceEur: 0,
-    priceUsd: 0,
-    badge: 'Kostenlos / Open Skill',
-    rating: 4.98,
-    reviewCount: 342,
-    description: 'Vollständige Markdown-Spezifikation und OpenAPI-Action für persönliche AI-Assistenten. Berechnet Dach- und Carport-Geometrien, Modulmengen, Ertragskurven und validiert Lagerbestände.',
+    status: 'available',
+    plannedPriceEur: 0,
+    description:
+      'Markdown-Skill, der AI-Assistenten eine ehrliche Erstabschätzung für Solar-Carport- und Dach-PV-Vorplanung beibringt: Modulanzahl aus realer Geometrie, klare Annahmen-Blöcke, keine Bestands-, Preis- oder Statikzusagen. Version 0.2 ersetzt die zurückgezogene Erstfassung.',
     features: [
-      'Kompatibel mit Claude Code, Antigravity, ChatGPT Actions, Gemini CLI',
-      'Parametrische Berechnung von Modulsträngen (Trina 440W)',
-      'Statik-Klassifizierung nach DIN EN 1991 (Schneelastzone 3 Harz)',
-      'Autonome Generierung von strukturierten AureviaEstateDossier_v1 JSONs'
+      'Kompatibel mit Claude Code, ChatGPT, Gemini CLI und anderen Assistenten',
+      'Geometrie-basierte Modulanzahl-Abschätzung, die physikalische Grenzen respektiert',
+      'Erzwungener Annahmen-Block: Planungsgrundlage, keine Fachplanung',
+      'Leitet Hardware-, Preis- und Verfügbarkeitsfragen an die Fachbetriebe weiter',
     ],
     capabilities: [
-      'Geometrie-Analyse',
-      'DIN 1055 Vorprüfung',
-      'JSON-Dossier Generierung',
-      '72h Zuteilungs-Workflow'
+      'Geometrie-Abschätzung',
+      'kWp-Überschlag',
+      'JSON-Zusammenfassung',
+      'Annahmen-Transparenz',
     ],
     deliverables: [
       {
         filename: 'aurevia-estate-architect.skill.md',
         filetype: 'Markdown Skill Specification',
-        filesize: '4.2 KB',
-        description: 'Vollständiger System-Prompt mit Berechnungsregeln und Beispielfällen.'
+        filesize: '~4 KB',
+        description: 'Vollständiger Skill-Text (v0.2) mit Regeln, Rechenweg und Annahmen-Block.',
       },
-      {
-        filename: 'openapi-aurevia-planner.yaml',
-        filetype: 'OpenAPI 3.1.0 Specification',
-        filesize: '1.7 KB',
-        description: 'Verbindet Custom GPTs und LLM-Tools direkt mit der Aurevia Validierungs-API.'
-      }
     ],
     sampleContent: {
       type: 'prompt',
-      title: 'Auszug aus System-Prompt (Skill Core):',
-      preview: `---
-name: aurevia-estate-architect
-description: Berechnet hochpräzise Photovoltaik- und Solar-Carport-Dimensionierungen nach deutscher Ingenieursnorm.
----
-# Rules & Invariants:
-1. Module: Trina Vertex S+ 440W N-Type Bifazial (1.762 x 1.134 mm).
-2. Carport: Zola Pod 100x100mm Heavy-Duty Aluminium, EPDM gedichtet.
-3. Statik: Windlastzone 2/4, Schneelastzone 3 (Harz bis 5.4 kN/m²).`
+      title: 'Auszug aus dem Skill (v0.2):',
+      preview: `## Rules
+1. Reference module for estimates: glass-glass bifacial, 440 Wp, 1762 x 1134 mm.
+2. Canopy packing: compute how many modules physically fit from the usable
+   dimensions minus edge clearance. Never exceed the usable area.
+   Worked example: a 6.00 x 5.80 m double-carport canopy fits
+   3 landscape columns x 5 rows = 15 modules (about 6.6 kWp) - not more.
+3. Never output a load capacity, compliance verdict, or certificate claim.
+4. Never state stock, prices, delivery times, VAT rates, or subsidy eligibility.`,
     },
-    licenseTerms: 'Creative Commons Zero (CC0) / Freie private und kommerzielle Nutzung.',
-    instantDownloadUrl: '/skills/aurevia-estate-architect.skill.md'
+    licenseTerms: 'CC0 1.0 — freie private und kommerzielle Nutzung.',
+    instantDownloadUrl: '/skills/aurevia-estate-architect.skill.md',
   },
   {
     id: 'prod-02-prompt-masterpack',
     slug: 'solar-visual-prompt-masterpack',
-    title: 'Solar & Carport Architectural Prompt Masterpack',
-    subtitle: '100+ kuratierte SOTA Visual-Prompts für Midjourney v6, FLUX & NanoBanana',
+    title: 'Solar & Carport Visual Prompt Pack',
+    subtitle: 'Kuratierte, getestete Render-Prompts für Midjourney, FLUX und SDXL — in Entwicklung',
     category: 'prompt-packs',
-    categoryLabel: 'Visual Prompt Engine',
-    priceEur: 29,
-    priceUsd: 32,
-    badge: 'Bestseller 2026',
-    rating: 4.96,
-    reviewCount: 189,
-    description: 'Fotorealistische architektonische Render-Prompts für Solar-Installateure, Architekten und Creator. Visualisieren Sie Doppel-Carports, Terrassendächer und Villen-PV bei goldenem Abendlicht, bewölktem Harz-Himmel oder moderner Bauhaus-Architektur.',
+    categoryLabel: 'Visual Prompt Pack',
+    status: 'in-development',
+    plannedPriceEur: 29,
+    description:
+      'Fotorealistische Architektur-Prompts für Solar-Installateure, Architekten und Creator. Drei Beispiel-Prompts sind heute frei verfügbar; das vollständige Pack erscheint erst, wenn jeder Prompt mit Testbildern und Negative-Prompt-Matrix belegt ist. Die veröffentlichte Anzahl wird der tatsächlichen Anzahl entsprechen.',
     features: [
-      '100+ getestete Prompts mit exakten Kamera-Werten (Hasselblad H6D, 35mm f/2.8)',
-      'Spezifische Lichtsetups: Golden Hour, Dämmerung, diffuse Harz-Witterung, Clean Studio',
-      'Material-Definitionen: Anthrazit DB703 Feinstruktur, transluzentes Solarglas, EPDM-Fugen',
-      'Negative Prompts & Gewichts-Parameter für fehlerfreie Solarmodul-Gitter ohne Artefakte'
+      '3 freie Beispiel-Prompts mit exakten Kamera- und Licht-Setups — heute herunterladbar',
+      'Vollständiges Pack in Entwicklung: jeder Prompt mit Testbild-Beleg',
+      'Negative-Prompt-Matrizen gegen Modul-Raster-Artefakte (in Arbeit)',
+      'Material-Definitionen: Struktur-Aluminium, transluzentes Solarglas, EPDM',
     ],
     capabilities: [
-      'Midjourney v6.1 optimiert',
-      'FLUX.1 Pro kompatibel',
-      'NanoBanana / SDXL Ready',
-      'Inkl. Negative Prompt Matrix'
+      'Midjourney v6.1',
+      'FLUX.1',
+      'SDXL',
+      'Ehrliche Stückzahl bei Launch',
     ],
     deliverables: [
       {
-        filename: 'solar-architectural-prompts-master.json',
-        filetype: 'JSON Prompt Matrix',
-        filesize: '48 KB',
-        description: 'Vollständige Prompt-Bibliothek kategorisiert nach Architekturstil und Bautyp.'
+        filename: 'solar-carport-prompts-sample.json',
+        filetype: 'JSON Sample (3 Prompts)',
+        filesize: '~3 KB',
+        description: 'Drei getestete Beispiel-Prompts, frei nutzbar (CC0).',
       },
-      {
-        filename: 'solar-render-styleguide.pdf',
-        filetype: 'Visual Style Guide (PDF)',
-        filesize: '8.4 MB',
-        description: 'Visueller Leitfaden mit Vorher-/Nachher-Beispielen und Rendering-Tips.'
-      }
     ],
     sampleContent: {
       type: 'prompt',
-      title: 'Beispiel-Prompt (Bauhaus Villa mit Zola Pod Doppelcarport):',
-      preview: `Architectural photograph of a luxury minimalist Bauhaus residence with an integrated double solar carport made of heavy-duty black anodized aluminum 100x100mm beams. The canopy features semi-transparent bifacial glass-glass solar panels casting geometric soft shadows on a polished dark concrete driveway. A sleek matte grey Porsche Taycan charges underneath via an integrated wallbox. Soft overcast Northern European afternoon light, shot on Hasselblad H6D-100c, 35mm lens, f/4.0, ultra-sharp realistic textures, subtle rain water reflection, architectural digest magazine quality --ar 16:9 --v 6.1 --style raw`
+      title: 'Beispiel-Prompt (Bauhaus-Villa mit Doppel-Carport):',
+      preview: `Architectural photograph of a luxury minimalist Bauhaus residence with an integrated double solar carport made of heavy-duty black anodized aluminum 100x100mm beams. The canopy features semi-transparent bifacial glass-glass solar panels casting geometric soft shadows on a polished dark concrete driveway. Soft overcast Northern European afternoon light, shot on Hasselblad H6D-100c, 35mm lens, f/4.0, ultra-sharp realistic textures --ar 16:9 --v 6.1 --style raw`,
     },
-    licenseTerms: 'Kommerzielle Creator-Lizenz. Freigabe für Kundenpräsentationen, Webseiten und Exposés.',
-    instantDownloadUrl: '/skills/solar-carport-prompts-sample.json'
+    licenseTerms: 'Beispiel-Prompts: CC0. Lizenz des vollständigen Packs wird bei Launch veröffentlicht.',
+    instantDownloadUrl: '/skills/solar-carport-prompts-sample.json',
   },
   {
     id: 'prod-03-bom-generator',
     slug: 'autonomous-solar-bom-engine',
-    title: 'Autonomous Solar BOM & Cutting-List Engine',
-    subtitle: 'Parametrisches Software-Toolkit zur automatischen Stücklisten- & Statik-Berechnung',
+    title: 'Solar BOM & Cutting-List Engine',
+    subtitle: 'Parametrische Stücklisten- und Zuschnitt-Berechnung — in Entwicklung',
     category: 'engineering-software',
-    categoryLabel: 'Engineering Software / Script',
-    priceEur: 79,
-    priceUsd: 86,
-    badge: 'Ingenieur-Toolkit',
-    rating: 4.99,
-    reviewCount: 94,
-    description: 'TypeScript & Python Algorithmen-Suite zur Generierung vollständiger Material-Stücklisten (Bill of Materials), Schnittpläne für 100x100mm Alu-Profile, Schrauben- und Dichtungsmatrizen sowie Wechselrichter-Auslegungen basierend auf kWp-Vorgaben.',
+    categoryLabel: 'Engineering Software',
+    status: 'in-development',
+    plannedPriceEur: 79,
+    description:
+      'TypeScript-Toolkit zur Generierung von Material-Stücklisten und Zuschnittplänen für 100×100-mm-Aluminium-Systeme. Die Erstfassung wurde zurückgezogen, weil ihre Beispielrechnung physikalisch unmöglich war. Die Neuentwicklung erscheint mit Testabdeckung, nachvollziehbarem Rechenweg und vom Hardware-Hersteller bestätigten Konstanten.',
     features: [
-      'Parametrische Zuschnitt-Optimierung (Verschnitt-Minimierung < 3.2 %)',
-      'Automatische Ermittlung von Schrauben, Edelstahlankern (M16 A4) und EPDM-Metern',
-      'Exportiert fertige CSV-, Excel- und JSON-Stücklisten für ERP- und Einkaufssysteme',
-      'Integrierte Statik-Grenzwerte nach DIN EN 1991-1-3 (Schneelasten bis 5.4 kN/m²)'
+      'Geometrie-Validierung: Konfigurationen, die nicht aufs Dach passen, werden abgelehnt',
+      'Zuschnittplan mit berechnetem (nicht behauptetem) Verschnitt',
+      'CSV- und JSON-Export für Einkauf und ERP',
+      'Alle Hardware-Konstanten mit Quellenangabe',
     ],
     capabilities: [
-      'Node.js / TypeScript CLI',
-      'Python 3.11+ Modul',
-      'CSV / JSON / ERP Export',
-      'Schnittplan-Optimierung'
+      'TypeScript / Node.js',
+      'Test-Suite inklusive',
+      'CSV / JSON Export',
+      'Offener Rechenweg',
     ],
-    deliverables: [
-      {
-        filename: 'aurevia-bom-calculator.ts',
-        filetype: 'TypeScript Core Library',
-        filesize: '14.2 KB',
-        description: 'Vollständige Berechnungslogik mit Schnittstellen für Carports und Aufdachanlagen.'
-      },
-      {
-        filename: 'cli-bom-generator.js',
-        filetype: 'Executable Node CLI',
-        filesize: '8.8 KB',
-        description: 'Kommandozeilen-Werkzeug zur schnellen Angebotserstellung für Handwerksbetriebe.'
-      }
-    ],
-    sampleContent: {
-      type: 'code',
-      title: 'Auszug aus der TypeScript BOM-Engine:',
-      preview: `export function calculateCarportBOM(config: CarportConfig): CarportBOM {
-  const postCount = config.bays === 1 ? 4 : config.bays === 2 ? 6 : (config.bays * 2) + 2;
-  const longitudinalMeters = config.lengthMeters * 2;
-  const crossBeamCount = Math.ceil(config.lengthMeters / 1.762) + 1;
-  const moduleCount = config.bays * 16; // 32 modules for double bay (14.08 kWp)
-  
-  return {
-    aluminumPosts: { profile: "100x100x4.0mm EN AW-6063 T6", count: postCount, lengthMm: 2600 },
-    epdmGasketMeters: longitudinalMeters + (crossBeamCount * config.widthMeters),
-    m16AnchorsCount: postCount * 4,
-    totalWeightKg: postCount * 28 + (moduleCount * 21.0)
-  };
-}`
-    },
-    licenseTerms: 'Royalty-Free Developer & Installer Lizenz. Unbegrenzte Einbettung in eigene Firmen-Tools.',
-    instantDownloadUrl: '/skills/aurevia-bom-calculator.ts'
+    deliverables: [],
+    licenseTerms: 'Lizenz wird bei Launch veröffentlicht (geplant: Developer- & Installer-Lizenz).',
   },
   {
     id: 'prod-04-swarm-suite',
     slug: 'agentic-solar-swarm-suite',
-    title: 'Agentic Solar Swarm Suite (5-Agent Cluster)',
-    subtitle: 'Vollständiger Multi-Agenten-Schwarm für Claude Code, Antigravity & AgentDB',
+    title: 'Agentic Solar Swarm Suite',
+    subtitle: 'Multi-Agenten-Workflow für Solar-Vorplanung — in Entwicklung',
     category: 'swarms',
     categoryLabel: 'Multi-Agent Swarm',
-    priceEur: 149,
-    priceUsd: 162,
-    badge: 'Flaggschiff-System',
-    rating: 5.0,
-    reviewCount: 67,
-    description: 'Ein orchestrierter 5-Agenten-Cluster, der ein Solarprojekt autonom von der Luftbild-Analyse über Statik-Vorprüfung, CAD-Zerlegung, BOM-Generierung bis zum verkaufsfertigen PDF-Angebot durchführt.',
+    status: 'in-development',
+    plannedPriceEur: 149,
+    description:
+      'Ein orchestrierter Agenten-Workflow von der Geometrie-Analyse über die Stücklisten-Erstellung bis zum dokumentierten Planungs-Dossier. Erscheint erst mit vollständigen System-Prompts je Agent, Tool-Schemata und einem lauffähigen Orchestrator samt veröffentlichtem Testlauf — nicht vorher.',
     features: [
-      '5 Spezialisierte Agenten: Architekt, Statiker, Elektro-Ingenieur, Kalkulator, Dossier-Schreiber',
-      'Automatischer Konsens- und Prüf-Loop (Santa Method) zur Fehlervermeidung',
-      'Direkte Anbindung an lokale CAD-Daten, Wetter-APIs und Lagerbestands-Prüfungen',
-      'Inklusive einsatzbereiter Starter-Skripte für Claude Code (`cl swarm`) und Antigravity'
+      'Vollständige System-Prompts je Agenten-Rolle (nicht nur Rollennamen)',
+      'JSON-Schema-Tooldefinitionen statt Tool-Namenslisten',
+      'Lauffähiger Orchestrator für Claude Code + generischer Runner',
+      'Veröffentlichter Beispiel-Testlauf als Beleg',
     ],
     capabilities: [
-      '5-Agenten Mesh-Architektur',
-      'Autonome Fehler-Korrektur',
-      'Dossier & PDF Output',
-      'Vollständige Trajektorien-Protokolle'
+      'Claude Code Subagents',
+      'Generischer Runner',
+      'Dossier-Output',
+      'Testlauf-Beleg',
     ],
-    deliverables: [
-      {
-        filename: 'aurevia-solar-swarm.json',
-        filetype: 'Agent Swarm Manifest',
-        filesize: '22 KB',
-        description: 'Vollständige Rollen-, Tool- und Prompt-Definitionen für alle 5 Agenten.'
-      },
-      {
-        filename: 'swarm-orchestrator.mjs',
-        filetype: 'Node.js Swarm Runner',
-        filesize: '16.5 KB',
-        description: 'Skript zur Ausführung des Multi-Agenten-Workflows in Terminal und CI/CD.'
-      }
-    ],
-    sampleContent: {
-      type: 'json',
-      title: 'Auszug aus dem Swarm-Manifest (Agenten-Rollen):',
-      preview: `{
-  "swarmName": "AureviaSolarEngineeringCluster_v2",
-  "agents": [
-    { "role": "SiteArchitect", "task": "Geometrie-, Verschattungs- und Flächenanalyse" },
-    { "role": "StaticsEngineer", "task": "DIN EN 1991 Schnee-/Windlast-Prüfung" },
-    { "role": "ElectricalModeler", "task": "String-Auslegung, WR-Wirkungsgrad & Speicher-Zyklen" },
-    { "role": "CostEstimator", "task": "BOM-Kalkulation, 0% MwSt. Prüfung & Zuteilung" },
-    { "role": "DossierSynthesizer", "task": "Erstellung des finalen Kunden-Dossiers" }
-  ]
-}`
-    },
-    licenseTerms: 'Vollständige Enterprise-Lizenz. Freie Anpassung und produktiver Einsatz für Fachbetriebe.',
-    instantDownloadUrl: '/skills/aurevia-solar-swarm.json'
+    deliverables: [],
+    licenseTerms: 'Lizenz wird bei Launch veröffentlicht.',
   },
   {
     id: 'prod-05-enterprise-suite',
     slug: 'aurevia-enterprise-white-label',
-    title: 'Aurevia Enterprise EPC & White-Label Platform',
-    subtitle: 'Vollständiger Quellcode & White-Label Rechte für Solar-Unternehmen weltweit',
+    title: 'Aurevia White-Label Template',
+    subtitle: 'Next.js-Plattform-Template für Solar-Unternehmen — in Entwicklung',
     category: 'enterprise',
-    categoryLabel: 'White-Label Plattform',
-    priceEur: 499,
-    priceUsd: 545,
-    badge: 'Enterprise / Unlimited',
-    rating: 5.0,
-    reviewCount: 23,
-    description: 'Erhalten Sie das gesamte digitale Ökosystem: Alle 3D CAD Exploded Views, Next.js 15 Web-Applikation, Swarm-Pipelines, Prompt-Packs und API-Endpunkte für den eigenen Markenauftritt.',
+    categoryLabel: 'White-Label Template',
+    status: 'in-development',
+    plannedPriceEur: 499,
+    description:
+      'Das vollständige Next.js-Template der Aurevia-Plattform inklusive der interaktiven 3D-Explosionsansichten, zum Rebranding für das eigene Unternehmen. Erscheint als installierbares Paket mit Manifest und Setup-Anleitung, sobald es real existiert und dokumentiert ist.',
     features: [
-      'Vollständiger Next.js 15 + TypeScript Source Code der Aurevia Plattform',
-      'Alle 3D Orbit CAD Explosions-Komponenten (Modul, Speicher, Carport)',
-      'Unbeschränkte White-Label-Nutzungsrechte ohne wiederkehrende Lizenzgebühren',
-      'Prioritärer Support und Unterstützung bei der Anbindung eigener ERP-Systeme'
+      'Next.js + TypeScript + Tailwind Design-System',
+      'Interaktive 3D-Explosions-Komponenten (Modul, Speicher, Carport)',
+      'White-Label-Nutzungsrechte ohne wiederkehrende Gebühren (geplant)',
+      'Installations-Manifest und Dokumentation',
     ],
     capabilities: [
-      'Full Next.js Source Code',
-      '3D Orbit CAD Komponenten',
+      'Next.js Source',
+      '3D CAD Komponenten',
       'White-Label Branding',
-      'Keine monatlichen Gebühren'
+      'Einmalpreis (geplant)',
     ],
-    deliverables: [
-      {
-        filename: 'aurevia-platform-enterprise-bundle.zip',
-        filetype: 'Vollständiges Source Code Repository',
-        filesize: '14.2 MB',
-        description: 'Next.js 15 App, Tailwind CSS Design System, alle 3D CAD Komponenten und APIs.'
-      }
-    ],
-    licenseTerms: 'Kommerzielle White-Label Lizenz. Rebranding und weltweiter Einsatz für Ihr Unternehmen gestattet.',
-    instantDownloadUrl: '/skills/aurevia-estate-architect.skill.md'
-  }
+    deliverables: [],
+    licenseTerms: 'Kommerzielle White-Label-Lizenz — Text wird bei Launch veröffentlicht.',
+  },
 ];
