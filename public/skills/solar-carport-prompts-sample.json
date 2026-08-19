@@ -1,20 +1,23 @@
 {
-  "packName": "Solar & Carport Architectural Prompt Masterpack (Sample)",
-  "version": "2.1.0",
-  "engineTarget": "Midjourney v6.1 / FLUX.1 / NanoBanana / SDXL",
-  "totalPromptsInFullPack": 100,
+  "packName": "Aurevia Solar & Carport Visual Prompt Pack — Free Sample",
+  "version": "0.2.0",
+  "status": "sample — full pack in development",
+  "promptsInThisSample": 3,
+  "license": "CC0-1.0 (these 3 sample prompts)",
+  "notice": "Version 0.1 of this file advertised a 100-prompt pack that did not exist. This sample contains exactly the 3 prompts listed below, nothing more. The full pack will launch only with an honest count and per-prompt test renders. Status: aurevia-solar.vercel.app/shop",
+  "engineTarget": "Midjourney v6.1 / FLUX.1 / SDXL",
   "samplePrompts": [
     {
       "id": "prompt-01-bauhaus-double-carport",
       "category": "Modern Luxury Residential",
-      "title": "Minimalist Bauhaus Villa with Zola Pod Double Carport",
+      "title": "Minimalist Bauhaus Villa with Double Solar Carport",
       "prompt": "Architectural photograph of a luxury minimalist Bauhaus residence with an integrated double solar carport made of heavy-duty black anodized aluminum 100x100mm beams. The canopy features semi-transparent bifacial glass-glass solar panels casting geometric soft shadows on a polished dark concrete driveway. A sleek matte grey electric Porsche charges underneath via an integrated wallbox. Soft overcast Northern European afternoon light, shot on Hasselblad H6D-100c, 35mm lens, f/4.0, ultra-sharp realistic textures, subtle rain water reflection, architectural digest magazine quality --ar 16:9 --v 6.1 --style raw",
       "recommendedSettings": { "aspectRatio": "16:9", "stylize": 150, "chaos": 0, "engine": "Midjourney v6.1" }
     },
     {
       "id": "prompt-02-harz-timber-estate-pv",
       "category": "Alpine & Harz Mountain Estate",
-      "title": "Harz Estate Residence with Black Glass Solar Roof & Snow-Load Carport",
+      "title": "Harz Estate Residence with Black Glass Solar Roof & Carport",
       "prompt": "Elevated drone photograph of a modern timber and slate estate in the Harz mountains during early winter dusk. The roof and matching detached solar carport are outfitted with all-black bifacial glass-glass solar panels with warm amber interior lights glowing through floor-to-ceiling windows. Snow dusted pine trees in the background, crisp 8k atmospheric clarity, ultra-fine architectural detail, cinematic lighting --ar 16:9 --v 6.1 --style raw",
       "recommendedSettings": { "aspectRatio": "16:9", "stylize": 200, "chaos": 5, "engine": "FLUX.1 Pro" }
     },

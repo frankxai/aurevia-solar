@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/check-public-invariants.mjs",
     "build": "next build",
     "check:public": "node scripts/check-public-invariants.mjs",
     "start": "next start",

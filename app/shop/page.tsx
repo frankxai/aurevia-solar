@@ -67,20 +67,20 @@ export default function ShopPage() {
           {/* Value Badges */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-white/10 text-xs font-mono relative z-10">
             <div className="p-3 rounded-2xl bg-slate-950/80 border border-white/10">
-              <span className="text-slate-400 block">Auslieferung:</span>
-              <span className="text-emerald-400 font-bold text-sm">Sofort-Download</span>
+              <span className="text-slate-400 block">Heute verfügbar:</span>
+              <span className="text-emerald-400 font-bold text-sm">Freie Downloads</span>
             </div>
             <div className="p-3 rounded-2xl bg-slate-950/80 border border-white/10">
               <span className="text-slate-400 block">Kompatibilität:</span>
-              <span className="text-amber-400 font-bold text-sm">Claude, GPT, Antigravity</span>
+              <span className="text-amber-400 font-bold text-sm">Claude, GPT, Gemini</span>
             </div>
             <div className="p-3 rounded-2xl bg-slate-950/80 border border-white/10">
-              <span className="text-slate-400 block">Lizenzrecht:</span>
-              <span className="text-white font-bold text-sm">Kommerziell nutzbar</span>
+              <span className="text-slate-400 block">Bezahlprodukte:</span>
+              <span className="text-white font-bold text-sm">In Entwicklung</span>
             </div>
             <div className="p-3 rounded-2xl bg-slate-950/80 border border-white/10">
-              <span className="text-slate-400 block">Deutscher Standard:</span>
-              <span className="text-amber-400 font-bold text-sm">DIN EN 1991 / 1090</span>
+              <span className="text-slate-400 block">Prinzip:</span>
+              <span className="text-amber-400 font-bold text-sm">Nur belegte Inhalte</span>
             </div>
           </div>
         </section>
@@ -122,11 +122,13 @@ export default function ShopPage() {
                 <span>Rechtssicherheit & Creator-Souveränität</span>
               </div>
               <h3 className="text-2xl font-bold text-white">
-                Verantwortungsbewusste Ingenieurs-Software ohne Rechtsrisiken
+                Klare Verantwortungsabgrenzung
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
-                Unsere digitalen Produkte, Prompt-Pakete und AI-Skills liefern fundierte Entwurfsmodelle, parametrische Vorprüfungen und visuelle Simulationen. 
-                Die finale baurechtliche Freigabe, Genehmigungsplanung und der elektrische Netzanschluss verbleiben gemäß unserer transparenten Software-Nutzungsbedingungen in der Eigenverantwortung der lokalen Fachhandwerker und Statiker vor Ort.
+                Unsere digitalen Produkte, Prompt-Pakete und AI-Skills liefern Entwurfsmodelle und
+                Planungsgrundlagen — keine Fachplanung. Baurechtliche Freigabe, Statik,
+                Genehmigungsplanung und der elektrische Netzanschluss liegen in der Verantwortung
+                qualifizierter Fachbetriebe und Statiker vor Ort.
               </p>
             </div>
           </div>

@@ -24,14 +24,6 @@ import {
 
 export default function AtelierPage() {
   const [activeTab, setActiveTab] = useState<'module' | 'battery' | 'carport'>('module');
-  const [palletCount, setPalletCount] = useState(1);
-  const [reserved, setReserved] = useState(false);
-
-  const modulesPerPallet = 36;
-  const totalModules = palletCount * modulesPerPallet;
-  const totalKwp = ((totalModules * 440) / 1000).toFixed(2);
-  const unitPrice = 89;
-  const subtotal = totalModules * unitPrice;
 
   return (
     <div className="min-h-screen bg-[#04060C] text-slate-100 font-sans selection:bg-amber-400 selection:text-slate-950 pb-24 lg:pb-12 relative overflow-x-hidden">
@@ -95,7 +87,7 @@ export default function AtelierPage() {
               </span>
             </h1>
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-light">
-              Hier analysieren Sie unsere Solarkomponenten bis ins mikroskopische Detail. Vollständige Transparenz über Schichtaufbau, Belastungswerte nach DIN EN 1991 und direkte Zuteilung aus dem Zentrallager Seesen.
+              Hier analysieren Sie die Referenz-Solarkomponenten im Detail: Schichtaufbau, Geometrie und Konstruktionsprinzipien. Alle Werte sind Planungsannahmen der Referenz-Hardware — die Auslegung erfolgt objektbezogen durch Fachbetriebe.
             </p>
           </div>
 
@@ -106,16 +98,16 @@ export default function AtelierPage() {
               <span className="text-amber-400 font-bold text-base">440 Wp N-Type</span>
             </div>
             <div>
-              <span className="text-slate-400 block">Schneelast Harz:</span>
-              <span className="text-amber-400 font-bold text-base">5.400 Pa (Zone 3)</span>
+              <span className="text-slate-400 block">Schneelast:</span>
+              <span className="text-amber-400 font-bold text-base">objektbezogen zu prüfen</span>
             </div>
             <div>
-              <span className="text-slate-400 block">Leistungsgarantie:</span>
-              <span className="text-amber-400 font-bold text-base">30 Jahre (87.4 %)</span>
+              <span className="text-slate-400 block">Profilsystem:</span>
+              <span className="text-amber-400 font-bold text-base">100 × 100 mm Alu</span>
             </div>
             <div>
-              <span className="text-slate-400 block">Lagerbestand Seesen:</span>
-              <span className="text-emerald-400 font-bold text-base">1.300 Stk. Sofort</span>
+              <span className="text-slate-400 block">Hardware & Bestand:</span>
+              <span className="text-emerald-400 font-bold text-base">über PV Lager</span>
             </div>
           </div>
         </section>
@@ -149,19 +141,19 @@ export default function AtelierPage() {
             <div className="grid sm:grid-cols-2 gap-4 text-xs font-mono">
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-white/10 space-y-1">
                 <span className="text-slate-400">Statik & Schneelast</span>
-                <span className="text-white font-bold block text-sm">Zone 3 Harz (5.4 kN/m²)</span>
+                <span className="text-white font-bold block text-sm">objektbezogen zu prüfen</span>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-white/10 space-y-1">
-                <span className="text-slate-400">Zertifizierungsnorm</span>
-                <span className="text-white font-bold block text-sm">IEC 61215 / DIN EN 1090-3</span>
+                <span className="text-slate-400">Normen-Rahmen</span>
+                <span className="text-white font-bold block text-sm">Auslegung durch Fachplaner</span>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-white/10 space-y-1">
-                <span className="text-slate-400">Garantiezeitraum</span>
-                <span className="text-white font-bold block text-sm">30 Jahre Struktur & Leistung</span>
+                <span className="text-slate-400">Garantien</span>
+                <span className="text-white font-bold block text-sm">laut Hersteller-Datenblatt</span>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-white/10 space-y-1">
-                <span className="text-slate-400">Steuerliche Einstufung</span>
-                <span className="text-emerald-400 font-bold block text-sm">0 % MwSt. (§ 12 Abs. 3 UStG)</span>
+                <span className="text-slate-400">Steuern</span>
+                <span className="text-white font-bold block text-sm">Einzelfall — Steuerberatung</span>
               </div>
             </div>
 
@@ -185,80 +177,45 @@ export default function AtelierPage() {
             </div>
           </div>
 
-          {/* PALLET DIRECT RESERVATION WIDGET */}
-          <div className="lg:col-span-5 bg-[#070A14] border border-amber-400/30 p-8 rounded-3xl space-y-6 shadow-2xl">
+          {/* HARDWARE ROUTING — no stock, prices, or reservations on this surface */}
+          <div className="lg:col-span-5 bg-[#070A14] border border-white/15 p-8 rounded-3xl space-y-6 shadow-2xl">
             <div className="space-y-1 border-b border-white/10 pb-4">
-              <span className="text-xs font-mono text-emerald-400 uppercase font-bold flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Zentrallager Seesen Direct-Dispatch</span>
+              <span className="text-xs font-mono text-amber-400 uppercase font-bold">
+                Hardware & Verfügbarkeit
               </span>
-              <h3 className="text-2xl font-bold text-white">Paletten-Zuteilung & Reservierung</h3>
-              <p className="text-xs text-slate-300">
-                1 Palette = 36 Module (15.84 kWp). 0% MwSt. § 12 Abs. 3 UStG für Wohngebäude.
+              <h3 className="text-2xl font-bold text-white">Vertrieb über die Fachbetriebe</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Aurevia zeigt keine Lagerbestände, Preise oder Reservierungen. Hardware, Konditionen
+                und Lieferzeiten bestätigen die Fachbetriebe der RIAL-Gruppe objektbezogen und vor
+                Beauftragung.
               </p>
             </div>
 
-            <div className="space-y-4">
-              <div className="flex justify-between items-center text-xs font-mono">
-                <span className="text-slate-300 font-semibold">Anzahl Paletten:</span>
-                <div className="flex items-center gap-3">
-                  <button
-                    onClick={() => setPalletCount(Math.max(1, palletCount - 1))}
-                    className="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold flex items-center justify-center text-sm"
-                  >
-                    -
-                  </button>
-                  <span className="text-amber-400 font-bold text-base px-2">{palletCount}</span>
-                  <button
-                    onClick={() => setPalletCount(palletCount + 1)}
-                    className="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold flex items-center justify-center text-sm"
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-slate-950 border border-white/10 space-y-2 text-xs font-mono">
-                <div className="flex justify-between text-slate-400">
-                  <span>Gesamt-Modulanzahl:</span>
-                  <span className="text-white font-bold">{totalModules} Stück</span>
-                </div>
-                <div className="flex justify-between text-slate-400">
-                  <span>Gesamt-Nennleistung:</span>
-                  <span className="text-amber-300 font-bold">{totalKwp} kWp</span>
-                </div>
-                <div className="flex justify-between text-slate-400">
-                  <span>Einzelpreis ab Seesen:</span>
-                  <span className="text-white font-bold">{unitPrice} € / Modul</span>
-                </div>
-                <div className="flex justify-between text-slate-400">
-                  <span>MwSt. Satz (§12 UStG):</span>
-                  <span className="text-emerald-400 font-bold">0 % (Steuerbefreit)</span>
-                </div>
-                <div className="pt-2 border-t border-slate-800 flex justify-between text-sm">
-                  <span className="text-white font-bold">Gesamtsumme:</span>
-                  <span className="text-amber-400 font-bold text-base">{subtotal.toLocaleString('de-DE')} €</span>
-                </div>
-              </div>
-
-              {reserved ? (
-                <div className="p-4 rounded-2xl bg-emerald-500/20 border border-emerald-500/50 text-center space-y-2">
-                  <CheckCircle2 className="w-6 h-6 text-emerald-400 mx-auto" />
-                  <span className="text-emerald-300 font-bold text-sm block">Zuteilung für 72h reserviert!</span>
-                  <p className="text-[11px] text-slate-300 font-mono">
-                    Reservierungs-Code: AUR-SEESEN-{Date.now().toString(36).toUpperCase()}
-                  </p>
-                </div>
-              ) : (
-                <button
-                  onClick={() => setReserved(true)}
-                  className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs shadow-2xl transition flex items-center justify-center gap-2"
-                >
-                  <Zap className="w-4 h-4 fill-current" />
-                  <span>Jetzt {palletCount} Palette(n) ab Seesen reservieren</span>
-                </button>
-              )}
+            <div className="space-y-3 text-xs font-mono">
+              <a
+                href="https://www.pvlager.com/"
+                target="_blank"
+                rel="noopener"
+                className="flex items-center justify-between p-4 rounded-2xl bg-slate-950 border border-white/10 hover:border-amber-400/40 transition text-slate-200"
+              >
+                <span className="font-bold">PV Lager — Komponenten & Bestand</span>
+                <ArrowRight className="w-4 h-4 text-amber-400" />
+              </a>
+              <a
+                href="https://www.solarcarport.tech/"
+                target="_blank"
+                rel="noopener"
+                className="flex items-center justify-between p-4 rounded-2xl bg-slate-950 border border-white/10 hover:border-amber-400/40 transition text-slate-200"
+              >
+                <span className="font-bold">SolarCarport.tech — Carport-Systeme</span>
+                <ArrowRight className="w-4 h-4 text-amber-400" />
+              </a>
             </div>
+
+            <p className="text-[10px] text-slate-500 font-mono leading-relaxed">
+              Steuerliche Fragen (z.&nbsp;B. MwSt.-Sätze für PV) sind Einzelfallfragen — bitte mit
+              der eigenen Steuerberatung klären.
+            </p>
           </div>
         </section>
       </main>

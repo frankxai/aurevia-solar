@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Fraunces, Inter } from 'next/font/google';
 import Link from 'next/link';
 import './globals.css';
-import { SiteHeader } from '@/components/SiteHeader';
 
 const display = Fraunces({
   subsets: ['latin'],
@@ -51,8 +50,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Zum Inhalt springen
         </a>
-
-        <SiteHeader />
 
         <main id="inhalt" className="flex-1">
           {children}

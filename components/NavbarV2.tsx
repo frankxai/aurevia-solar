@@ -32,14 +32,6 @@ export function NavbarV2({ onOpenLeadMagnet, onOpenCopilot, onOpenVoice }: Navba
             <span>Hardware Atelier</span>
           </a>
 
-          <a href="/dossier" className="hover:text-emerald-300 transition text-emerald-300 font-bold flex items-center gap-1">
-            <Cpu className="w-3.5 h-3.5 text-emerald-400" />
-            <span>AI Skill Dossier</span>
-          </a>
-
-          <a href="/v2" className="hover:text-white transition text-slate-400">
-            Sovereign Estate
-          </a>
         </nav>
 
         {/* Right Action Suite */}
