@@ -128,7 +128,10 @@ export default function ShopPage() {
                 Unsere digitalen Produkte, Prompt-Pakete und AI-Skills liefern Entwurfsmodelle und
                 Planungsgrundlagen — keine Fachplanung. Baurechtliche Freigabe, Statik,
                 Genehmigungsplanung und der elektrische Netzanschluss liegen in der Verantwortung
-                qualifizierter Fachbetriebe und Statiker vor Ort.
+                qualifizierter Fachbetriebe und Statiker vor Ort.{' '}
+                <a href="/proof" className="text-emerald-300 underline underline-offset-4">
+                  Belege und Korrekturen: /proof
+                </a>
               </p>
             </div>
           </div>
