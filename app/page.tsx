@@ -3,6 +3,10 @@
 import React from 'react';
 import { NavbarV2 } from '@/components/NavbarV2';
 import { MobileStickyBarV2 } from '@/components/MobileStickyBarV2';
+import { HeroGsapScene } from '@/components/HeroGsapScene';
+import { AureliaGuide } from '@/components/AureliaGuide';
+import { ScrollAssemblyShowcase } from '@/components/ScrollAssemblyShowcase';
+import { PromptPlayground } from '@/components/PromptPlayground';
 import { ExplodedCarportView } from '@/components/ExplodedCarportView';
 import { ProductCard } from '@/components/ProductCard';
 import { Figure } from '@/components/Figure';
@@ -16,13 +20,8 @@ import {
   Layers,
   ArrowRight,
   CheckCircle2,
-  Code,
-  Download,
   Building2,
-  Sliders,
-  ChevronRight,
-  Terminal,
-  FileCheck2
+  ChevronRight
 } from 'lucide-react';
 
 export default function HomePage() {
@@ -31,73 +30,17 @@ export default function HomePage() {
       <NavbarV2 />
 
       <main className="space-y-28 py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        {/* HERO SECTION: AUTONOMOUS SOLAR INTELLIGENCE & GERMAN PROVENANCE */}
-        <section className="relative rounded-3xl overflow-hidden bg-[#070A14] border border-white/15 p-8 sm:p-14 lg:p-20 space-y-10 shadow-2xl text-center md:text-left">
-          {/* Background Ambient Glows */}
-          <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:28px_28px] pointer-events-none opacity-40" />
-          <div className="absolute -top-32 -left-32 w-[550px] h-[550px] bg-amber-500/15 rounded-full blur-[160px] pointer-events-none" />
-          <div className="absolute -bottom-32 -right-32 w-[550px] h-[550px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none" />
-
-          <div className="relative z-10 max-w-4xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-mono font-semibold uppercase tracking-wider">
-              <Cpu className="w-4 h-4" />
-              <span>Aurevia · Autonomous Solar Engineering & Agentic Intelligence Forge</span>
-            </div>
-
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08]">
-              Deutsche Ingenieurskunst.{' '}
-              <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-emerald-400 bg-clip-text text-transparent italic">
-                Autonome AI-Swarm Intelligenz.
-              </span>
-            </h1>
-
-            <p className="text-base sm:text-xl text-slate-300 leading-relaxed font-light max-w-3xl">
-              Reale deutsche Solar-Hardware (100×100 mm Struktur-Aluminium, bifaziales Doppelglas) trifft auf installierbare AI Skills, Multi-Agenten-Workflows und parametrische Software. Jedes Produkt erscheint erst, wenn es real existiert und belegt ist.
-            </p>
-
-            {/* Primary Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
-              <a
-                href="/shop"
-                className="px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-sm shadow-2xl shadow-amber-500/25 transition flex items-center justify-center gap-2.5 border border-amber-300/40"
-              >
-                <ShoppingBag className="w-4 h-4" />
-                <span>Digital Products & AI Skills Shop</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-
-              <a
-                href="/atelier"
-                className="px-8 py-4 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 font-mono text-sm font-bold border border-white/15 transition flex items-center justify-center gap-2"
-              >
-                <Layers className="w-4 h-4 text-amber-400" />
-                <span>3D Hardware Atelier (CAD)</span>
-              </a>
-            </div>
-          </div>
-
-          {/* Quick Metrics Bar */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 border-t border-white/10 text-xs font-mono relative z-10">
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-white/10">
-              <span className="text-slate-400 block">AI Agenten-Cluster:</span>
-              <span className="text-amber-400 font-bold text-base">5-Agent Swarm</span>
-            </div>
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-white/10">
-              <span className="text-slate-400 block">Hardware-Profil:</span>
-              <span className="text-white font-bold text-base">100 × 100 mm Alu</span>
-            </div>
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-white/10">
-              <span className="text-slate-400 block">Statik:</span>
-              <span className="text-slate-100 font-bold text-base">objektbezogen zu prüfen</span>
-            </div>
-            <div className="p-4 rounded-2xl bg-slate-950/80 border border-white/10">
-              <span className="text-slate-400 block">Lizenzmodell:</span>
-              <span className="text-amber-400 font-bold text-base">Sovereign / No-Lockin</span>
-            </div>
-          </div>
+        {/* 01. GSAP-POWERED HERO SCENE */}
+        <section>
+          <HeroGsapScene />
         </section>
 
-        {/* THE DUAL ENGINE: PHYSICAL PROVENANCE + DIGITAL FORGE */}
+        {/* 02. INTERACTIVE 3D AI ARCHITECT COMPANION: AURELIA */}
+        <section id="aurelia-guide" className="scroll-mt-24">
+          <AureliaGuide />
+        </section>
+
+        {/* 03. THE DUAL ENGINE: PHYSICAL PROVENANCE + DIGITAL FORGE */}
         <section className="space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="text-xs font-mono text-amber-400 uppercase font-bold tracking-wider">
@@ -207,8 +150,18 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* EMBEDDED INTERACTIVE 3D CAD DISSECTION */}
-        <section className="space-y-8">
+        {/* 04. SCROLL-DRIVEN STRUCTURAL ASSEMBLY SHOWCASE */}
+        <section>
+          <ScrollAssemblyShowcase />
+        </section>
+
+        {/* 05. INTERACTIVE ARCHITECTURAL PROMPT PLAYGROUND */}
+        <section>
+          <PromptPlayground />
+        </section>
+
+        {/* 06. EMBEDDED INTERACTIVE 3D CAD DISSECTION */}
+        <section id="exploded-atelier" className="space-y-8 scroll-mt-24">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <span className="text-xs font-mono text-amber-400 uppercase font-bold">Interaktive Hardware-Zerlegung</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-white">
@@ -222,7 +175,7 @@ export default function HomePage() {
           <ExplodedCarportView />
         </section>
 
-        {/* FEATURED DIGITAL PRODUCTS & AI SKILLS */}
+        {/* 07. FEATURED DIGITAL PRODUCTS & AI SKILLS */}
         <section className="space-y-10">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/10 pb-6">
             <div>
@@ -250,7 +203,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ZERO LEGAL HEADACHE & SOVEREIGN CREATOR TERMS */}
+        {/* 08. ZERO LEGAL HEADACHE & SOVEREIGN CREATOR TERMS */}
         <section className="rounded-3xl bg-[#070A14] border border-emerald-500/30 p-8 sm:p-14 space-y-6 shadow-2xl relative overflow-hidden">
           <div className="flex items-start gap-5">
             <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">

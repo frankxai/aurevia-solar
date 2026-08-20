@@ -95,6 +95,83 @@
     color: var(--au-ink-3);
   }
 
+  /* --- Drawing-sheet primitives -------------------------------------------
+     Aurevia's surfaces read as a technical drawing, not an editorial page.
+     Copper is the annotation pen: it marks measured values and callouts only. */
+
+  .au-annot {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums lining-nums;
+    letter-spacing: 0.02em;
+    color: var(--au-copper-text);
+  }
+
+  .au-spec {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.8125rem;
+    font-variant-numeric: tabular-nums lining-nums;
+    color: var(--au-ink-2);
+  }
+
+  /* Part balloon — a leader-line callout number, as on a parts drawing. */
+  .au-balloon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid var(--au-copper);
+    border-radius: 999px;
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.6875rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--au-copper-text);
+    flex: none;
+  }
+
+  /* Title block — the Schriftfeld of a drawing sheet. */
+  .au-titleblock {
+    border: 1px solid var(--au-rule);
+    display: grid;
+    background: var(--au-surface);
+  }
+
+  .au-titleblock > * {
+    border-right: 1px solid var(--au-rule-soft);
+    border-bottom: 1px solid var(--au-rule-soft);
+    padding: 0.75rem 1rem;
+  }
+
+  /* Registration marks: the corner ticks that align a printed sheet. */
+  .au-sheet {
+    position: relative;
+  }
+
+  .au-sheet::before,
+  .au-sheet::after {
+    content: '';
+    position: absolute;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-color: var(--au-rule);
+    pointer-events: none;
+  }
+
+  .au-sheet::before {
+    top: 0;
+    left: 0;
+    border-top: 1px solid;
+    border-left: 1px solid;
+  }
+
+  .au-sheet::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+  }
+
   .au-measure {
     font-variant-numeric: tabular-nums lining-nums;
   }
