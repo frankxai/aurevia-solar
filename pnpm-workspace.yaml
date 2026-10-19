@@ -11,3 +11,5 @@ minimumReleaseAgeExclude:
   - '@next/swc-win32-arm64-msvc@15.5.28'
   - '@next/swc-win32-x64-msvc@15.5.28'
   - next@15.5.28
+overrides:
+  sharp: ^0.35.5
