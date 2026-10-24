@@ -4,7 +4,7 @@ import { PageHeader, LegalProse } from '@/components/PageHeader';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/widerruf' },
-  openGraph: { title: 'Widerrufsbelehrung', description: 'Widerrufsrecht für Verbraucher und Muster-Widerrufsformular.' },
+  openGraph: { title: 'Widerrufsbelehrung', description: 'Widerrufsrecht für Verbraucher und Muster-Widerrufsformular.', type: 'website', locale: 'de_DE', siteName: 'Aurevia' },
   title: 'Widerrufsbelehrung',
   description: 'Widerrufsrecht für Verbraucher und Muster-Widerrufsformular.',
   robots: { index: true, follow: false },

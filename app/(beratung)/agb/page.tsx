@@ -6,7 +6,7 @@ import { PageHeader, LegalProse } from '@/components/PageHeader';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/agb' },
-  openGraph: { title: 'Allgemeine Geschäftsbedingungen', description: 'AGB für Planungsleistungen und Realisierung.' },
+  openGraph: { title: 'Allgemeine Geschäftsbedingungen', description: 'AGB für Planungsleistungen und Realisierung.', type: 'website', locale: 'de_DE', siteName: 'Aurevia' },
   title: 'Allgemeine Geschäftsbedingungen',
   description: 'AGB für Planungsleistungen und Realisierung.',
   robots: { index: true, follow: false },

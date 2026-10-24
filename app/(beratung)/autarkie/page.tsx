@@ -6,7 +6,7 @@ import { Measure } from '@/components/Measure';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/autarkie' },
-  openGraph: { title: 'Autarkie', description: 'Was Energieautarkie tatsächlich bedeutet — und wo der Unterschied zwischen hohem Eigenverbrauch und echter Inselfähigkeit liegt.' },
+  openGraph: { title: 'Autarkie', description: 'Was Energieautarkie tatsächlich bedeutet — und wo der Unterschied zwischen hohem Eigenverbrauch und echter Inselfähigkeit liegt.', type: 'website', locale: 'de_DE', siteName: 'Aurevia' },
   title: 'Autarkie',
   description:
     'Was Energieautarkie tatsächlich bedeutet — und wo der Unterschied zwischen hohem Eigenverbrauch und echter Inselfähigkeit liegt.',

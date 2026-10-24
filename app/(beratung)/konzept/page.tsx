@@ -5,7 +5,7 @@ import { PRICING, PRICE_DISCLOSURE } from '@/lib/pricing';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/konzept' },
-  openGraph: { title: 'Autarkie-Konzept', description: 'Stufe 2 konkretisiert die Autarkie-Analyse am Objekt und dokumentiert Varianten, Schnittstellen sowie erforderliche Fach- und Freigabeschritte.' },
+  openGraph: { title: 'Autarkie-Konzept', description: 'Stufe 2 konkretisiert die Autarkie-Analyse am Objekt und dokumentiert Varianten, Schnittstellen sowie erforderliche Fach- und Freigabeschritte.', type: 'website', locale: 'de_DE', siteName: 'Aurevia' },
   title: 'Autarkie-Konzept',
   description:
     'Stufe 2 konkretisiert die Autarkie-Analyse am Objekt und dokumentiert Varianten, Schnittstellen sowie erforderliche Fach- und Freigabeschritte.',

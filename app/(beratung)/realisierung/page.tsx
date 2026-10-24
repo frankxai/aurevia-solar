@@ -7,7 +7,7 @@ import { PRICING } from '@/lib/pricing';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/realisierung' },
-  openGraph: { title: 'Realisierung', description: `Stufe 3 regelt Beschaffung, Ausführung, Fachnachweise, Netzanmeldung und Inbetriebnahme im individuellen Werkvertrag mit der ${COMPANY.legalName}.` },
+  openGraph: { title: 'Realisierung', description: `Stufe 3 regelt Beschaffung, Ausführung, Fachnachweise, Netzanmeldung und Inbetriebnahme im individuellen Werkvertrag mit der ${COMPANY.legalName}.`, type: 'website', locale: 'de_DE', siteName: 'Aurevia' },
   title: 'Realisierung',
   description: `Stufe 3 regelt Beschaffung, Ausführung, Fachnachweise, Netzanmeldung und Inbetriebnahme im individuellen Werkvertrag mit der ${COMPANY.legalName}.`,
 };

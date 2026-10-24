@@ -4,7 +4,7 @@ import { PageHeader, LegalProse } from '@/components/PageHeader';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/impressum' },
-  openGraph: { title: 'Impressum', description: `Angaben gemäß § 5 DDG für ${COMPANY.legalName}, ${COMPANY.city}.` },
+  openGraph: { title: 'Impressum', description: `Angaben gemäß § 5 DDG für ${COMPANY.legalName}, ${COMPANY.city}.`, type: 'website', locale: 'de_DE', siteName: 'Aurevia' },
   title: 'Impressum',
   description: `Angaben gemäß § 5 DDG für ${COMPANY.legalName}, ${COMPANY.city}.`,
   robots: { index: true, follow: false },

@@ -7,7 +7,7 @@ import { COMPANY } from '@/lib/company';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/herkunft' },
-  openGraph: { title: 'Herkunft', description: `Aurevia ist eine Beratungsmarke der ${COMPANY.legalName} mit Sitz in ${COMPANY.city}.` },
+  openGraph: { title: 'Herkunft', description: `Aurevia ist eine Beratungsmarke der ${COMPANY.legalName} mit Sitz in ${COMPANY.city}.`, type: 'website', locale: 'de_DE', siteName: 'Aurevia' },
   title: 'Herkunft',
   description: `Aurevia ist eine Beratungsmarke der ${COMPANY.legalName} mit Sitz in ${COMPANY.city}.`,
 };

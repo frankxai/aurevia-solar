@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/atelier',
   },
-  openGraph: { title: 'Hardware Atelier', description: 'Aurevia Hardware Atelier · Seesen / Harz. Ingenieurkunst & Hardware-Präzision.' },
+  openGraph: { title: 'Hardware Atelier', description: 'Aurevia Hardware Atelier · Seesen / Harz. Ingenieurkunst & Hardware-Präzision.', type: 'website', locale: 'de_DE', siteName: 'Aurevia' },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

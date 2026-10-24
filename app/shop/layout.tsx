@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/shop',
   },
-  openGraph: { title: 'Digital Shop', description: 'AI Skills, Prompt-Packs & Engineering-Software für Solaringenieure und Creator.' },
+  openGraph: { title: 'Digital Shop', description: 'AI Skills, Prompt-Packs & Engineering-Software für Solaringenieure und Creator.', type: 'website', locale: 'de_DE', siteName: 'Aurevia' },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

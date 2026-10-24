@@ -33,32 +33,57 @@ const expectedRoutes = [
 async function runTests() {
   let server;
   try {
-    server = spawn('./node_modules/.bin/next', ['start', '-p', '3002']);
+    const nextBin = require.resolve('next/dist/bin/next');
+    server = spawn(process.execPath, [nextBin, 'start', '-p', '0']);
     let hasStarted = false;
+    let port = null;
+    let isReady = false;
 
     await new Promise((resolve, reject) => {
       server.stdout.on('data', (data) => {
-        if (data.toString().includes('Ready') && !hasStarted) {
+        const out = data.toString();
+        const match = out.match(/http:\/\/localhost:(\d+)/);
+        if (match) port = match[1];
+        if (out.includes('Ready')) isReady = true;
+
+        if (port && isReady && !hasStarted) {
           hasStarted = true;
           resolve();
         }
       });
+
+      server.stderr.on('data', (data) => {
+         console.error(data.toString());
+      });
+
       server.on('error', reject);
-      setTimeout(resolve, 3000); // safety fallback
+      server.on('exit', (code) => {
+        if (!hasStarted) {
+          reject(new Error(`Server exited prematurely with code ${code}`));
+        }
+      });
     });
 
-    const sitemapRes = await fetchUrl('http://localhost:3002/sitemap.xml');
+    if (!port) {
+       throw new Error('Could not determine port from Next.js output');
+    }
+
+    const sitemapRes = await fetchUrl(`http://localhost:${port}/sitemap.xml`);
     assert(sitemapRes.status === 200, 'sitemap should be 200');
 
-    const robotsRes = await fetchUrl('http://localhost:3002/robots.txt');
+    const robotsRes = await fetchUrl(`http://localhost:${port}/robots.txt`);
     assert(robotsRes.status === 200, 'robots should be 200');
 
-    const llmsRes = await fetchUrl('http://localhost:3002/llms.txt');
+    const llmsRes = await fetchUrl(`http://localhost:${port}/llms.txt`);
     assert(llmsRes.status === 200, 'llms should be 200');
 
-    const seenMetadata = new Set();
+    const seenTitles = new Set();
+    const seenCanonicals = new Set();
+    const seenOgTitles = new Set();
+    const seenOgDescriptions = new Set();
+
     for (const route of expectedRoutes) {
-      const res = await fetchUrl(`http://localhost:3002${route}`);
+      const res = await fetchUrl(`http://localhost:${port}${route}`);
       assert(res.status === 200, `Route ${route} should return 200`);
 
       const html = res.data;
@@ -66,18 +91,34 @@ async function runTests() {
 
       const titleMatch = html.match(/<title>(.*?)<\/title>/);
       assert(titleMatch, `Route ${route} should have a title`);
+      const title = titleMatch[1];
 
       const canonicalMatch = html.match(/<link rel="canonical" href="(.*?)"/);
       assert(canonicalMatch, `Route ${route} should have a canonical URL`);
+      const canonical = canonicalMatch[1];
 
       const ogTitleMatch = html.match(/<meta property="og:title" content="(.*?)"/);
       assert(ogTitleMatch, `Route ${route} should have og:title`);
+      const ogTitle = ogTitleMatch[1];
 
-      const metadataKey = `${titleMatch[1]}-${canonicalMatch[1]}`;
-      if (seenMetadata.has(metadataKey)) {
-          throw new Error(`Duplicate metadata found for key: ${metadataKey} on route ${route}`);
+      const ogDescMatch = html.match(/<meta property="og:description" content="(.*?)"/);
+      const ogDesc = ogDescMatch ? ogDescMatch[1] : null;
+
+      if (seenTitles.has(title)) throw new Error(`Duplicate title found: ${title} on route ${route}`);
+      seenTitles.add(title);
+
+      if (seenCanonicals.has(canonical)) throw new Error(`Duplicate canonical found: ${canonical} on route ${route}`);
+      seenCanonicals.add(canonical);
+
+      if (seenOgTitles.has(ogTitle)) throw new Error(`Duplicate og:title found: ${ogTitle} on route ${route}`);
+      seenOgTitles.add(ogTitle);
+
+      if (ogDesc) {
+          if (seenOgDescriptions.has(ogDesc)) {
+              throw new Error(`Duplicate og:description found: ${ogDesc} on route ${route}`);
+          }
+          seenOgDescriptions.add(ogDesc);
       }
-      seenMetadata.add(metadataKey);
     }
 
     console.log('✅ Metadata enumeration test passed');

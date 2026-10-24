@@ -5,7 +5,7 @@ import { Figure } from '@/components/Figure';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/referenzen' },
-  openGraph: { title: 'Referenzen', description: 'Referenzaufnahmen von Solarüberdachungen, Terrassendächern und Solarzäunen aus dem RIAL-Medienbestand.' },
+  openGraph: { title: 'Referenzen', description: 'Referenzaufnahmen von Solarüberdachungen, Terrassendächern und Solarzäunen aus dem RIAL-Medienbestand.', type: 'website', locale: 'de_DE', siteName: 'Aurevia' },
   title: 'Referenzen',
   description:
     'Referenzaufnahmen von Solarüberdachungen, Terrassendächern und Solarzäunen aus dem RIAL-Medienbestand.',
