@@ -4,6 +4,8 @@ import { PageHeader } from '@/components/PageHeader';
 import { PROOF_RECEIPTS, CORRECTIONS } from '@/lib/proof-receipts';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/proof' },
+  openGraph: { title: 'Proof', description: 'Published evidence for every Aurevia digital product: which AI assistants were tested, what they produced, and where the boundaries are. Corrections are permanent.' },
   title: 'Proof',
   description:
     'Published evidence for every Aurevia digital product: which AI assistants were tested, what they produced, and where the boundaries are. Corrections are permanent.',

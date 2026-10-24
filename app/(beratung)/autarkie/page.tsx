@@ -5,6 +5,8 @@ import { Figure, Plate } from '@/components/Figure';
 import { Measure } from '@/components/Measure';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/autarkie' },
+  openGraph: { title: 'Autarkie', description: 'Was Energieautarkie tatsächlich bedeutet — und wo der Unterschied zwischen hohem Eigenverbrauch und echter Inselfähigkeit liegt.' },
   title: 'Autarkie',
   description:
     'Was Energieautarkie tatsächlich bedeutet — und wo der Unterschied zwischen hohem Eigenverbrauch und echter Inselfähigkeit liegt.',

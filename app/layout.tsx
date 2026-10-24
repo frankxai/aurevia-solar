@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Fraunces, Inter } from 'next/font/google';
 import Link from 'next/link';
 import './globals.css';
+import JsonLd from './json-ld';
 
 const display = Fraunces({
   subsets: ['latin'],
@@ -19,6 +20,9 @@ const sans = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://aurevia-solar.vercel.app'),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: 'Aurevia — Energieautarkie für Anwesen im Harz',
     template: '%s · Aurevia',
@@ -29,6 +33,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'de_DE',
     siteName: 'Aurevia',
+    title: 'Aurevia — Energieautarkie für Anwesen im Harz',
+    description: 'Objektbezogene Beratung für die Energieautonomie von Wohnhäusern, Höfen und privaten Anwesen in Niedersachsen und im Harz.',
+    url: 'https://aurevia-solar.vercel.app/',
   },
   robots: { index: true, follow: true },
 };
@@ -43,6 +50,7 @@ const legalNav = [
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="de" className={`${display.variable} ${sans.variable}`}>
+      <head><JsonLd /></head>
       <body className="min-h-screen flex flex-col font-sans antialiased">
         <a
           href="#inhalt"

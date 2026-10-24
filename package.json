@@ -8,7 +8,8 @@
     "build": "next build",
     "check:public": "node scripts/check-public-invariants.mjs",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:metadata": "node scripts/test-metadata.js"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

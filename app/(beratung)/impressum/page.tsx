@@ -3,6 +3,8 @@ import { COMPANY } from '@/lib/company';
 import { PageHeader, LegalProse } from '@/components/PageHeader';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/impressum' },
+  openGraph: { title: 'Impressum', description: `Angaben gemäß § 5 DDG für ${COMPANY.legalName}, ${COMPANY.city}.` },
   title: 'Impressum',
   description: `Angaben gemäß § 5 DDG für ${COMPANY.legalName}, ${COMPANY.city}.`,
   robots: { index: true, follow: false },

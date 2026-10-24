@@ -6,6 +6,8 @@ import { Measure } from '@/components/Measure';
 import { COMPANY } from '@/lib/company';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/herkunft' },
+  openGraph: { title: 'Herkunft', description: `Aurevia ist eine Beratungsmarke der ${COMPANY.legalName} mit Sitz in ${COMPANY.city}.` },
   title: 'Herkunft',
   description: `Aurevia ist eine Beratungsmarke der ${COMPANY.legalName} mit Sitz in ${COMPANY.city}.`,
 };

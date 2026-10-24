@@ -5,6 +5,8 @@ import { PRICE_DISCLOSURE } from '@/lib/pricing';
 import { PageHeader, LegalProse } from '@/components/PageHeader';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/agb' },
+  openGraph: { title: 'Allgemeine Geschäftsbedingungen', description: 'AGB für Planungsleistungen und Realisierung.' },
   title: 'Allgemeine Geschäftsbedingungen',
   description: 'AGB für Planungsleistungen und Realisierung.',
   robots: { index: true, follow: false },

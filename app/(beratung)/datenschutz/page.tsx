@@ -3,6 +3,8 @@ import { COMPANY } from '@/lib/company';
 import { PageHeader, LegalProse } from '@/components/PageHeader';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/datenschutz' },
+  openGraph: { title: 'Datenschutzerklärung', description: 'Informationen zur Verarbeitung personenbezogener Daten nach Art. 13 DSGVO.' },
   title: 'Datenschutzerklärung',
   description: 'Informationen zur Verarbeitung personenbezogener Daten nach Art. 13 DSGVO.',
   robots: { index: true, follow: false },

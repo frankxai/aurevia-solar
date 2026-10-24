@@ -5,6 +5,8 @@ import { Deliverable } from '@/components/Deliverable';
 import { PRICING } from '@/lib/pricing';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/analyse' },
+  openGraph: { title: 'Autarkie-Analyse', description: 'Objektbezogene konzeptionelle Vorplanung für Verbrauch, Erzeugung, Speicher, Wärme und Mobilität — mit transparenten Annahmen und Prüfbedarfen.' },
   title: 'Autarkie-Analyse',
   description:
     'Objektbezogene konzeptionelle Vorplanung für Verbrauch, Erzeugung, Speicher, Wärme und Mobilität — mit transparenten Annahmen und Prüfbedarfen.',

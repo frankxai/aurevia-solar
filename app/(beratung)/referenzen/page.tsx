@@ -4,6 +4,8 @@ import { PageHeader } from '@/components/PageHeader';
 import { Figure } from '@/components/Figure';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/referenzen' },
+  openGraph: { title: 'Referenzen', description: 'Referenzaufnahmen von Solarüberdachungen, Terrassendächern und Solarzäunen aus dem RIAL-Medienbestand.' },
   title: 'Referenzen',
   description:
     'Referenzaufnahmen von Solarüberdachungen, Terrassendächern und Solarzäunen aus dem RIAL-Medienbestand.',
