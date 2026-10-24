@@ -9,7 +9,7 @@ interface AssemblyStep {
   category: string;
   desc: string;
   specs: string;
-  icon: any;
+  icon: React.ElementType;
   color: string;
 }
 
