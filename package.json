@@ -2,6 +2,9 @@
   "name": "aurevia-solar",
   "version": "16.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
     "dev": "next dev",
     "prebuild": "node scripts/check-public-invariants.mjs",
@@ -15,7 +18,7 @@
     "@gsap/react": "^2.1.2",
     "gsap": "^3.15.0",
     "lucide-react": "^0.468.0",
-    "next": "^15.1.0",
+    "next": "^15.5.28",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
