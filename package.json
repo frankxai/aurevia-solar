@@ -12,7 +12,8 @@
     "check:public": "node scripts/check-public-invariants.mjs",
     "start": "next start",
     "lint": "next lint",
-    "test": "node --experimental-strip-types --test"
+    "test": "node --experimental-strip-types --test",
+    "test:metadata": "node scripts/test-metadata.js"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
